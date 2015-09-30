@@ -3,3 +3,8 @@ c:\users\bel\documents\visual studio 2012\Projects\Oceanic\Oceanic\bin\Oceanic.p
 c:\users\bel\documents\visual studio 2012\Projects\Oceanic\Oceanic\obj\Debug\Oceanic.csprojResolveAssemblyReference.cache
 c:\users\bel\documents\visual studio 2012\Projects\Oceanic\Oceanic\obj\Debug\Oceanic.dll
 c:\users\bel\documents\visual studio 2012\Projects\Oceanic\Oceanic\obj\Debug\Oceanic.pdb
+C:\Users\RHI\Documents\CES\GIT\Oceanic\bin\Oceanic.dll
+C:\Users\RHI\Documents\CES\GIT\Oceanic\bin\Oceanic.pdb
+C:\Users\RHI\Documents\CES\GIT\Oceanic\obj\Debug\Oceanic.csprojResolveAssemblyReference.cache
+C:\Users\RHI\Documents\CES\GIT\Oceanic\obj\Debug\Oceanic.dll
+C:\Users\RHI\Documents\CES\GIT\Oceanic\obj\Debug\Oceanic.pdb
