@@ -57,10 +57,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="views\administration.html" />
     <Content Include="views\find_rute.html" />
     <Content Include="home.html" />
     <Content Include="js\oceanic.js" />
     <Content Include="oceanicStyle.css" />
+    <Content Include="views\forside.html" />
+    <Content Include="views\priser.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
