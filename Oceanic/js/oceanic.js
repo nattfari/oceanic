@@ -1,6 +1,7 @@
 ﻿var app = angular.module('Oceanic', ['ui.bootstrap']);
 
-app.controller('OceanicController', ['$scope', function ($scope) {
+app.controller('OceanicController', ['$scope',
+    function ($scope) {
 
     $scope.image = {
         path: "img/logo.gif"
@@ -16,3 +17,9 @@ app.controller('OceanicController', ['$scope', function ($scope) {
     $scope.tableVaerdier = [];
 
 }]);
+
+app.config(['$routeProvider',
+    function ($routeProvider) {
+        $routeProvider.when('')
+    }
+]);
