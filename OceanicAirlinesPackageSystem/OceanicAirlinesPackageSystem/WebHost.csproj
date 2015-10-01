@@ -163,6 +163,7 @@
     <Compile Include="Configuration\AutoMapperConfiguration.cs" />
     <Compile Include="Configuration\DomainToDTOMappingProfile.cs" />
     <Compile Include="Configuration\RuteResponseResolver.cs" />
+    <Compile Include="Controllers\BrugerAPIController.cs" />
     <Compile Include="Controllers\InternalApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ExternalApiController.cs" />
@@ -173,6 +174,7 @@
     <Compile Include="DataContracts\DTOs\RouteDTO.cs" />
     <Compile Include="DataContracts\DTOs\RuteRequest.cs" />
     <Compile Include="DataContracts\DTOs\RuteResponseDTO.cs" />
+    <Compile Include="DataContracts\DTOs\UserDTO.cs" />
     <Compile Include="DataContracts\GetCitiesContract.cs" />
     <Compile Include="DataContracts\GetRoutesContract.cs" />
     <Compile Include="Global.asax.cs">

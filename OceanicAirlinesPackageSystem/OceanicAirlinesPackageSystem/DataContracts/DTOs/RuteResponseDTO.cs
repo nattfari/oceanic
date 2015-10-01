@@ -17,15 +17,15 @@ namespace WebHost.DataContracts.DTOs
 
     public class RuteResponseDTO
     {
-        public RuteRequestDTO RuteRequest { get; set; }
+        public RuteRequest RuteRequest { get; set; }
         public List<RuteDTO> Ruter { get; set; }
     }
 
     public class RuteDTO
     {
         public string RuteType { get; set; }
-        public int TotalTid { get; set; }
-        public int TotalPris { get; set; }
+        public double TotalTid { get; set; }
+        public double TotalPris { get; set; }
         public List<RuteTrinDTO> RuteTrin { get; set; } 
     }
 

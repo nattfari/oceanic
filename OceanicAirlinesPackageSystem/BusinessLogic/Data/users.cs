@@ -20,6 +20,9 @@ namespace BusinessLogic.Data
         }
     
         public long Id { get; set; }
+        public string BrugerNavn { get; set; }
+        public string password { get; set; }
+        public bool IsAdmin { get; set; }
     
         public virtual ICollection<pakke> pakke { get; set; }
     }
