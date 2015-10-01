@@ -105,7 +105,7 @@ namespace BusinessLogic.Managers
             pakke sendtPakke)
         {
             _externalServicesApis = externalServicesApis;
-            _byliste = DataManager.HentByer().ToList();
+            _byliste = DataManager.HentAktiveredeByer().ToList();
             foreach (var externalServicesApi in externalServicesApis)
             {
                 _byliste.AddRange(externalServicesApi.GetCities().Select(e => _byliste.FirstOrDefault(p => p.CityId == e.CityId) == null ? e : null));
@@ -120,7 +120,7 @@ namespace BusinessLogic.Managers
         public Node CalculateRouteTime(by source, by target, IList<IExternalServicesApi> externalServicesApis, pakke sendtPakke)
         {
             _externalServicesApis = externalServicesApis;
-            _byliste = DataManager.HentByer().ToList();
+            _byliste = DataManager.HentAktiveredeByer().ToList();
             foreach (var externalServicesApi in externalServicesApis)
             {
                 _byliste.AddRange(externalServicesApi.GetCities().Select(e => _byliste.FirstOrDefault(p => p.CityId == e.CityId) == null ? e : null));

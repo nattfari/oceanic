@@ -23,5 +23,17 @@ namespace BusinessLogic.Managers
         {
             return DataManager.HentPakkePriser();
         }
+
+        public IList<@by> HentAktiveredeByer()
+        {
+            return DataManager.HentAktiveredeByer();
+        }
+
+        public IList<@by> HentDeaktiveredeByer()
+        {
+            return DataManager.HentDeaktiveredeByer();
+        }
+
+
     }
 }
