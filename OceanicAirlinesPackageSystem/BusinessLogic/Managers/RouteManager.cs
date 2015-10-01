@@ -17,6 +17,12 @@ namespace BusinessLogic.Managers
             _calculationManager = new CalculationManager();
         }
 
+        private void SaveRoute(CalculationManager.Node destination, forsendelse forsendelse)
+        {
+        //    forsendelse.
+        //    destination.
+        }
+
         public CalculationManager.Node CalculateRouteWeight(by fra, by til, int height, int depth, int width, int weight)
         {
             var pakke = new pakke

@@ -41,13 +41,15 @@ namespace BusinessLogicTest
             var by1 = DataManager.HentAktiveredeByer().First();
             
             var manager = new CalculationManager();
+            //List<IExternalServicesApi> w = new List<IExternalServicesApi>();
             List<IExternalServicesApi> w = new List<IExternalServicesApi>();
-            w.Add(new TestThingie());
+            w.Add(new MockService());
+            //w.Add(new TestThingie());
             var pakke = new pakke() {SizeDepth = 30, SizeHight = 50, SizeWidth = 30, Weight = 4500};
-            for (int i = 1; i < 32 ; i++)
+            for (int i = 1; i < 2 ; i++)
             {
                 var by2 = DataManager.HentAktiveredeByer().ToArray()[i];
-            var result = manager.CalculateRouteWeight(by1, by2, w, pakke);
+            var result = manager.CalculateRouteTime(by1, by2, w, pakke);
             if (result != null)
             {
                 Debug.WriteLine(String.Format("Fra: {0} til {1}", by1.Name, by2.Name));
