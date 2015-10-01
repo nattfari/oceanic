@@ -57,6 +57,9 @@
     <Compile Include="Data\byer.cs">
       <DependentUpon>OceanicDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\forsendelse.cs">
+      <DependentUpon>OceanicDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\lufthavn.cs">
       <DependentUpon>OceanicDb.tt</DependentUpon>
     </Compile>
@@ -74,6 +77,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>OceanicDb.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\packetType.cs">
+      <DependentUpon>OceanicDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\pakke.cs">
+      <DependentUpon>OceanicDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\rute.cs">
+      <DependentUpon>OceanicDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\users.cs">
+      <DependentUpon>OceanicDb.tt</DependentUpon>
     </Compile>
     <Compile Include="ExternalInterfaces\IExternalServicesApi.cs" />
     <Compile Include="Managers\CalculationManager.cs" />
