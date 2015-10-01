@@ -7,14 +7,17 @@
         <EntityTypeShape EntityType="OA_DBModel.by" Width="1.5" PointX="7.125" PointY="3.25" />
         <EntityTypeShape EntityType="OA_DBModel.forsendelse" Width="1.5" PointX="12.875" PointY="11.125" />
         <EntityTypeShape EntityType="OA_DBModel.forsendelsesRute" Width="1.5" PointX="10.375" PointY="7.625" />
-        <EntityTypeShape EntityType="OA_DBModel.packetType" Width="1.5" PointX="4.75" PointY="5.5" />
         <EntityTypeShape EntityType="OA_DBModel.pakke" Width="1.5" PointX="11.25" PointY="2.125" />
         <EntityTypeShape EntityType="OA_DBModel.rute" Width="1.5" PointX="7.5" PointY="5.875" />
         <EntityTypeShape EntityType="OA_DBModel.users" Width="1.5" PointX="9.25" PointY="12.125" />
         <AssociationConnector Association="OA_DBModel.FK__forsendel__Forse__4E53A1AA" />
         <AssociationConnector Association="OA_DBModel.FK__forsendel__Pakke__489AC854" />
-        <AssociationConnector Association="OA_DBModel.FK__pakke__Type__19DFD96B" />
         <AssociationConnector Association="OA_DBModel.FK__pakke__Sender__1AD3FDA4" />
+        <EntityTypeShape EntityType="OA_DBModel.forsendelsesType" Width="1.5" PointX="11.920044198595008" PointY="16.540310777975392" />
+        <AssociationConnector Association="OA_DBModel.FK__forsendel__Forse__02C769E9" />
+        <EntityTypeShape EntityType="OA_DBModel.packetType" Width="1.5" PointX="1.6608906097993677" PointY="6.4221194416387561" />
+        <AssociationConnector Association="OA_DBModel.FK__forsendel__packe__03BB8E22" />
+        <AssociationConnector Association="OA_DBModel.FK__pakke__Type__7849DB76" />
       </Diagram>
         <EntityTypeShape EntityType="OA_DBModel.transportType" Width="1.5" PointX="1.4779001853791531" PointY="18.277936422395491" />
         <EntityTypeShape EntityType="OA_DBModel.pakkeDimintioner" Width="1.5" PointX="11.992429263886265" PointY="1.6989262260957279" />

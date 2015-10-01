@@ -61,6 +61,9 @@
     <Compile Include="Data\forsendelsesRute.cs">
       <DependentUpon>OceanicDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\forsendelsesType.cs">
+      <DependentUpon>OceanicDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\OceanicDb.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

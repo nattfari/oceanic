@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using AutoMapper;
 using BusinessLogic.Data;
 using BusinessLogic.ExternalInterfaces;
 using BusinessLogic.Managers;
@@ -24,19 +25,26 @@ namespace WebHost.Controllers
             };
 
             OADbContext ctx = new OADbContext();
+            var rute = new CalculationManager.Node();
 
             var fraBy = ctx.by.SingleOrDefault(x => x.Name == ruteRequest.FraBy);
             var tilBy = ctx.by.SingleOrDefault(x => x.Name == ruteRequest.TilBy);
 
             if(fraBy != null && tilBy != null) {
+                RouteManager routeManager = new RouteManager(externalServices);
                 CalculationManager calculationManager = new CalculationManager();
-                var rute = calculationManager.CalculateRouteTime(fraBy, tilBy, externalServices.ToList());
+                rute = calculationManager.CalculateRouteTime(fraBy, tilBy, externalServices.ToList());
             }
 
             ctx.Dispose();
 
             //map rute til ruteresponsedto
-            var result = new RuteResponseDTO();
+            var ruteDto = Mapper.Map<RuteDTO>(rute);
+
+            RuteResponseDTO result = new RuteResponseDTO()
+            {
+                Ruter = new List<RuteDTO>() { ruteDto }
+            };
 
             return result;
         }

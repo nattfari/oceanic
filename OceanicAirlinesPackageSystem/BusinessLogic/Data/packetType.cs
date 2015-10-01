@@ -16,12 +16,15 @@ namespace BusinessLogic.Data
     {
         public packetType()
         {
+            this.forsendelsesType = new HashSet<forsendelsesType>();
             this.pakke = new HashSet<pakke>();
         }
     
         public long Id { get; set; }
-        public string type { get; set; }
+        public string PacketType1 { get; set; }
+        public float multiplier { get; set; }
     
+        public virtual ICollection<forsendelsesType> forsendelsesType { get; set; }
         public virtual ICollection<pakke> pakke { get; set; }
     }
 }

@@ -4,14 +4,7 @@ using System.Linq;
 using System.Web;
 
 namespace WebHost.DataContracts.DTOs
-{
-   
-    public class RuteResponseDTO
-    {
-        public RuteRequestDTO RuteRequest { get; set; }
-        public List<RuteDTO> Ruter { get; set; }
-    }
-
+{   
     public class RuteRequestDTO
     {
         public string FraBy { get; set; }
@@ -20,6 +13,12 @@ namespace WebHost.DataContracts.DTOs
         public string[] FragtTyper { get; set; }
         public int Dimension { get; set; }
         public List<RuteDTO> Ruter { get; set; } 
+    }
+
+    public class RuteResponseDTO
+    {
+        public RuteRequestDTO RuteRequest { get; set; }
+        public List<RuteDTO> Ruter { get; set; }
     }
 
     public class RuteDTO
@@ -35,7 +34,7 @@ namespace WebHost.DataContracts.DTOs
         public string FraBy { get; set; }
         public string TilBy { get; set; }
         public int Tid { get; set; }
-        public int Pris { get; set; }
+        public double Pris { get; set; }
         public string TransportType { get; set; }
     }
 }
