@@ -154,8 +154,11 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\ApiController - Copy.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\ApiController.cs" />
+    <Compile Include="DataContracts\DTOs\CityDTO.cs" />
+    <Compile Include="DataContracts\GetCitiesContract.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -169,6 +172,8 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\controllers\AdministrationController.js" />
+    <Content Include="img\logo.gif" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -193,6 +198,10 @@
     <None Include="Properties\PublishProfiles\oceanicairlines-ces - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\oceanicairlines-ces - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\controllers\FindRuteController.js" />
+    <Content Include="Scripts\controllers\ForsideController.js" />
+    <Content Include="Scripts\controllers\PriserController.js" />
+    <Content Include="Scripts\controllers\RuteoversigtController.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
@@ -227,8 +236,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
-      <Project>{8e5c1718-4027-4153-9832-865655766aa2}</Project>
+      <Project>{8E5C1718-4027-4153-9832-865655766AA2}</Project>
       <Name>BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExternalServices\ExternalServices.csproj">
+      <Project>{58298849-3044-475d-b073-fc3dedb68c2f}</Project>
+      <Name>ExternalServices</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

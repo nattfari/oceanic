@@ -9,11 +9,16 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap-tpls.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-route.js"></script>
         <script src="Scripts/oceanic.js"></script>
+        <script src="Scripts/controllers/ForsideController.js"></script>
+        <script src="Scripts/controllers/FindRuteController.js"></script>
+        <script src="Scripts/controllers/PriserController.js"></script>
+        <script src="Scripts/controllers/RuteoversigtController.js"></script>
+        <script src="Scripts/controllers/AdministrationController.js"></script>
         
         <link rel="stylesheet"
               href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet"
-              href="oceanicStyle.css"/>
+              href="Content/oceanicStyle.css"/>
     </head>
     <body>
         <div class="container-fluid full-width" align="center" data-ng-controller="OceanicController">
@@ -29,7 +34,7 @@
                     <li><a href="#Administration"> Administration </a></li>
                 </ul>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-9" align="center" style="padding: 30px">
                 <div ng-view></div>
             </div>
             <!--
