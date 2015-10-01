@@ -38,8 +38,12 @@
                 templateUrl: 'Scripts/templates/FindRute.html',
                 controller: 'FindRuteController'
             }).
+            when('/Ruteforslag', {
+                templateUrl: 'Scripts/templates/Ruteforslag',
+                controller: 'RuteforslagController'
+            }).
             when('/Ruteoversigt', {
-                templateUrl: 'Scripts/templates/ruteoversigt.html',
+                templateUrl: 'Scripts/templates/Ruteoversigt.html',
                 controller: 'RuteoversigtController'
             }).
             when('/Priser', {
