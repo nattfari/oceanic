@@ -170,6 +170,7 @@
     <Compile Include="DataContracts\DTOs\AdministrationDTO.cs" />
     <Compile Include="DataContracts\DTOs\CityDTO.cs" />
     <Compile Include="DataContracts\DTOs\ErrorMessageDTO.cs" />
+    <Compile Include="DataContracts\DTOs\FragtTypeDTO.cs" />
     <Compile Include="DataContracts\DTOs\RouteDTO.cs" />
     <Compile Include="DataContracts\DTOs\RuteRequest.cs" />
     <Compile Include="DataContracts\DTOs\RuteResponseDTO.cs" />

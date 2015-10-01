@@ -17,14 +17,38 @@ namespace BusinessLogic.Managers
             _calculationManager = new CalculationManager();
         }
 
-        public CalculationManager.Node CalculateRouteWeight(by fra, by til, pakke sendtPakke)
+        private void SaveRoute(CalculationManager.Node destination, forsendelse forsendelse)
         {
-            return _calculationManager.CalculateRouteWeight(fra, til, _externalApis, sendtPakke);
+            forsendelse.SlutBy = destination.By.CityId;
+            
+            //    forsendelse.
+            //    destination.
         }
 
-        public CalculationManager.Node CalculateRouteTime(by fra, by til, pakke sendtPakke)
+        public CalculationManager.Node CalculateRouteWeight(by fra, by til, int height, int depth, int width, int weight)
         {
-            return _calculationManager.CalculateRouteTime(fra, til, _externalApis, sendtPakke);
+            var pakke = new pakke
+            {
+                SizeDepth = depth,
+                SizeHight = height,
+                SizeWidth = width,
+                Weight = weight
+            };
+
+            return _calculationManager.CalculateRouteWeight(fra, til, _externalApis, pakke);
+        }
+
+        public CalculationManager.Node CalculateRouteTime(by fra, by til, int height, int depth, int width, int weight)
+        {
+            var pakke = new pakke
+            {
+                SizeDepth = depth,
+                SizeHight = height,
+                SizeWidth = width,
+                Weight = weight
+            };
+
+            return _calculationManager.CalculateRouteTime(fra, til, _externalApis, pakke);
         }
 
 

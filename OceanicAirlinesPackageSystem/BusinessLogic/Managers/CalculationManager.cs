@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using BusinessLogic.Data;
 using BusinessLogic.ExternalInterfaces;
@@ -55,25 +53,25 @@ namespace BusinessLogic.Managers
 
             var ruter = new List<Edge>();
 
-            foreach (var rute in externalServicesApis.Select(enemy => enemy.GetRoute(node.By)))
+            foreach (var rute in _externalServicesApis.Select(enemy => enemy.GetRoute(node.By)))
             {
                 ruter.AddRange(rute.Select(route => new Edge
                 {
-                    From = nodes.FirstOrDefault(p => p.By.CityId == route.Rute.StartCity), To = nodes.FirstOrDefault(p => p.By.CityId == route.Rute.EndCity), Weight = Politik.Pris == politik ? route.Pris : route.Rute.Time, Route = route
+                    From = _nodes.FirstOrDefault(p => p.By.CityId == route.Rute.StartCity), To = _nodes.FirstOrDefault(p => p.By.CityId == route.Rute.EndCity), Weight = Politik.Pris == politik ? route.Pris : route.Rute.Time, Route = route
                 }));
             }
 
             var ownRoutes = DataManager.HentRuter(node.By).Select(r => new Edge
             {
-                        From = nodes.FirstOrDefault(p => p.By.CityId == r.Rute.StartCity),
-                        To = nodes.FirstOrDefault(p => p.By.CityId == r.Rute.EndCity),
+                        From = _nodes.FirstOrDefault(p => p.By.CityId == r.Rute.StartCity),
+                        To = _nodes.FirstOrDefault(p => p.By.CityId == r.Rute.EndCity),
                         Route = r,
                         Weight = politik == Politik.Pris ? BeregnPris(sendtPakke) : r.Rute.Time
             }).ToList();
 
             ruter.AddRange(ownRoutes);
 
-            List<Edge> prunedList = new List<Edge>();
+            var prunedList = new List<Edge>();
             foreach (var outerRoute in ruter)
             {
                 if (outerRoute.From.By.CityId != node.By.CityId)
@@ -93,25 +91,27 @@ namespace BusinessLogic.Managers
                 if (update)
                     prunedList.Add(outerRoute);
             }
-            
+
+            prunedList.FindAll(r => r.Route.TransportType == TransportType.Oceanic)
+                .ForEach(rout => rout.Route.Pris = BeregnPris(sendtPakke));
             node.Ruter = prunedList;
         }
 
-        private List<by> byliste;
-        private List<Node> nodes; 
-        private IList<IExternalServicesApi> externalServicesApis;
+        private List<by> _byliste;
+        private List<Node> _nodes; 
+        private IList<IExternalServicesApi> _externalServicesApis;
 
         public Node CalculateRouteWeight(by source, by target, IList<IExternalServicesApi> externalServicesApis,
             pakke sendtPakke)
         {
-            this.externalServicesApis = externalServicesApis;
-            byliste = DataManager.HentByer().ToList();
+            _externalServicesApis = externalServicesApis;
+            _byliste = DataManager.HentAktiveredeByer().ToList();
             foreach (var externalServicesApi in externalServicesApis)
             {
-                byliste.AddRange(externalServicesApi.GetCities().Select(e => byliste.FirstOrDefault(p => p.CityId == e.CityId) == null ? e : null));
+                _byliste.AddRange(externalServicesApi.GetCities().Select(e => _byliste.FirstOrDefault(p => p != null && p.CityId == e.CityId) == null ? e : null));
             }
 
-            byliste.RemoveAll(p => p == null);
+            _byliste.RemoveAll(p => p == null);
 
             var result = Dijstra(source, target, Politik.Pris, sendtPakke);
             return result;
@@ -119,20 +119,20 @@ namespace BusinessLogic.Managers
 
         public Node CalculateRouteTime(by source, by target, IList<IExternalServicesApi> externalServicesApis, pakke sendtPakke)
         {
-            this.externalServicesApis = externalServicesApis;
-            byliste = DataManager.HentByer().ToList();
+            _externalServicesApis = externalServicesApis;
+            _byliste = DataManager.HentAktiveredeByer().ToList();
             foreach (var externalServicesApi in externalServicesApis)
             {
-                byliste.AddRange(externalServicesApi.GetCities().Select(e => byliste.FirstOrDefault(p => p.CityId == e.CityId) == null ? e : null));
+                _byliste.AddRange(externalServicesApi.GetCities().Select(e => _byliste.FirstOrDefault(p => p != null && p.CityId == e.CityId) == null ? e : null));
             }
 
-            byliste.RemoveAll(p => p == null);
+            _byliste.RemoveAll(p => p == null);
 
             var result = Dijstra(source, target, Politik.Tid, sendtPakke);
             return result;
         }
 
-        private IList<Node> getNeighbourghNodes(Node source, HeapPriorityQueue<Node> queue)
+        private IEnumerable<Node> getNeighbourghNodes(Node source, HeapPriorityQueue<Node> queue)
         {
             List<Node> nodeList = source.Ruter.ConvertAll(input => input.To);
 
@@ -146,23 +146,23 @@ namespace BusinessLogic.Managers
 
         private Node Dijstra(by source, by target, Politik politik, pakke sendtPakke)
         {
-            var queue = new HeapPriorityQueue<Node>(byliste.Count * 2);
-            nodes = new List<Node>();
+            var queue = new HeapPriorityQueue<Node>(_byliste.Count * 2);
+            _nodes = new List<Node>();
             Node targetBy = null;
-            foreach (var _by in byliste)
+            foreach (var by in _byliste)
             {
                 var node = new Node
                 {
-                    By = _by
+                    By = by
                 };
 
-                if (_by.CityId == target.CityId)
+                if (by.CityId == target.CityId)
                 {
                     targetBy = node;
                 }
 
-                node.Distance = _by.CityId == source.CityId ? 0 : double.MaxValue;
-                nodes.Add(node);
+                node.Distance = by.CityId == source.CityId ? 0 : double.MaxValue;
+                _nodes.Add(node);
                 queue.Enqueue(node, node.Distance);
             }
 

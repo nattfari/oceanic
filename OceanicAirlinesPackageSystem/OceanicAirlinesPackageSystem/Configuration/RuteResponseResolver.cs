@@ -1,23 +1,77 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Web;
 using AutoMapper;
+using BusinessLogic.Data;
 using BusinessLogic.Managers;
 using WebHost.DataContracts.DTOs;
 
 namespace WebHost.Configuration
 {
-    public class RuteResponseResolver : ITypeConverter<CalculationManager.Node, RuteResponseDTO>
+    public class RuteResponseResolver : ITypeConverter<CalculationManager.Node, RuteDTO>
     {        
-        public RuteResponseDTO Convert(ResolutionContext context)
+        public RuteDTO Convert(ResolutionContext context)
         {
             if (context == null || context.IsSourceValueNull)
                 return null;
 
             CalculationManager.Node rute = (CalculationManager.Node) context.SourceValue;
 
-            var result = new RuteResponseDTO();
+            var result = new RuteDTO()
+            {
+                RuteTrin = new List<RuteTrinDTO>()
+            };
+
+            RuteTrinDTO ruteTrinAggregate = new RuteTrinDTO();
+
+            Route previousRuteTrin;
+            string previousOperator = "";
+
+            while (rute.Previous != null)
+            {
+                var ruteTrin =
+                rute.Previous.Ruter.SingleOrDefault(x => x.To.By == rute.By && x.From.By == rute.Previous.By)
+                    .Route;
+
+                if (String.IsNullOrEmpty(ruteTrinAggregate.TilBy))
+                {
+                    ruteTrinAggregate.TilBy = rute.By.Name;
+                }
+                if (String.IsNullOrEmpty(ruteTrinAggregate.TransportType))
+                {
+                    ruteTrinAggregate.TransportType = ruteTrin.TransportType.ToString();
+                }
+
+                if (!String.IsNullOrEmpty(previousOperator) && previousOperator != ruteTrin.TransportType.ToString() || rute.Previous == null)
+                {
+                    //transport type changed - set fraBy and add step aggregate to steps                    
+                    ruteTrinAggregate.FraBy = rute.By.Name;
+                    result.RuteTrin.Add(ruteTrinAggregate);
+
+                    //step added - reset
+                    ruteTrinAggregate = new RuteTrinDTO();                 
+                }
+                else
+                {
+                    ruteTrinAggregate.Pris += ruteTrin.Pris;
+                    ruteTrinAggregate.Tid += ruteTrin.Rute.Time;
+                }
+
+                previousOperator = ruteTrin.TransportType.ToString();
+
+                rute = rute.Previous;
+                previousRuteTrin = ruteTrin;
+
+                if (rute.Previous == null)
+                {
+                    //last node - finish and add step
+                    ruteTrinAggregate.FraBy = rute.By.Name;
+                    result.RuteTrin.Add(ruteTrinAggregate);
+                }
+            }
+
             return result;
         }
     }

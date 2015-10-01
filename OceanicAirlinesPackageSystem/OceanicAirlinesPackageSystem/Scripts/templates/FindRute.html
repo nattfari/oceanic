@@ -1,44 +1,65 @@
 ﻿<div class="container" align="center">
-    <table border="1" cellpadding="2" width="85%" style="margin-bottom: 30px">
-        <tr>
-            <td align="center"><font size="6" face="Garamond">Find din rute</font></td>
-        </tr>
-    </table>
+    
+
+
+    <div class="row overskrift">
+        <div class="col-md-3" align="center">
+            
+        </div>
+        <div class="col-md-9" align="left"><font size="6" face="Garamond"><b>Find din rute</b></font></div>
+    </div>
+    <div class="row">
+        <div class="col-md-3" align="center">
+            
+        </div>
+        <div class="col-md-3" align="center">
+            <div class="inner-addon left-addon">
+                <i class="glyphicon glyphicon-map-marker"></i>
+                <input type="text" data-ng-model="rute.FraBy" placeholder="Fra" data-typeahead="by.name as by.name for by in byer | filter:$viewValue" class="form-control" />
+            </div>
+        </div>
+        <div class="col-md-3" align="center">
+            <div class="inner-addon left-addon">
+                <i class="glyphicon glyphicon-map-marker"></i>
+                <input type="text" data-ng-model="rute.TilBy" placeholder="Til" data-typeahead="by.name as by.name for by in byer | filter:$viewValue" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3" align="center">
+        </div>
+        <div class="col-md-3" align="center">
+            <div class="inner-addon left-addon">
+                <i class="glyphicon glyphicon-scale "></i>
+                <input type="number" data-ng-model="rute.Vaegt" placeholder="Vægt" max="99999" class="form-control" />
+            </div>
+        </div>
+
+        </div>
+    </div>
+
+    <div class="row" data-ng-repeat="fragtType in fragtTyper">
+        <div class="col-md-3" align="left">
+            
+        </div>
+        <div class="col-md-3" align="left">
+            <input type="checkbox" data-ng-model="fragtType.markeret" data-ng-change="valgteTyper(fragtType)">
+            {{fragtType.name}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3" align="left">
+            
+        </div>
+
+        
+    </div>
+
+
+
     <table cellspacing="3" width="85%" style="padding: 30px">
-        <tr>
-            <td bgcolor="silver" colspan="3"></td>
-        </tr>
-        <tr>
-            <td align="left"><b>Start og Slut</b></td>
-            <td align="right">Fra:</td>
-            <td align="left">
-                <input type="text" data-ng-model="rute.fraBy" placeholder="Indtast bynavn" data-typeahead="by.name as by.name for by in byer | filter:$viewValue" /></td>
-        </tr>
-        <tr>
-            <td align="left"></td>
-            <td align="right">Til:</td>
-            <td align="left">
-                <input type="text" data-ng-model="rute.tilBy" placeholder="Indtast bynavn" data-typeahead="by.name as by.name for by in byer | filter:$viewValue" /></td>
-        </tr>
-        <tr>
-            <td bgcolor="#233D92  " colspan="3" align="center"><font color="white">Fragttype</font></td>
-        </tr>
-        <tr data-ng-repeat="fragtType in fragtTyper">
-            <td align="left"><b></b></td>
-            <td align="right">{{fragtType.name}}</td>
-            <td align="left">
-                <input type="checkbox" data-ng-model="fragtType.markeret" data-ng-change="valgteTyper(fragtType)">
-            </td>
-        </tr>
-        <tr>
-            <td bgcolor="silver" colspan="3"></td>
-        </tr>
-        <tr>
-            <td align="left"><b>Vægt</b></td>
-            <td align="right">Vægt i gram:</td>
-            <td align="left">
-                <input type="number" ng-model="rute.vaegt" placeholder="Vægt i gram" /></td>
-        </tr>
+        
+       
         <tr>
             <td bgcolor="silver" colspan="3"></td>
         </tr>
@@ -46,35 +67,31 @@
             <td align="left"><b>Dimensioner</b></td>
             <td align="right">A:</td>
             <td align="left">
-                <input type="radio" name="Dimension" value="A" ng-model="rute.dimension">
+                <input type="radio" name="Dimension" value="A" ng-model="rute.DimensionsType">
                 25x60x25</td>
         </tr>
         <tr>
-            <td align="right"></td>
             <td align="right">B:</td>
             <td align="left">
-                <input type="radio" name="Dimension" value="B" ng-model="rute.dimension">
+                <input type="radio" name="Dimension" value="B" ng-model="rute.DimensionsType">
                 40x40x40</td>
         </tr>
         <tr>
-            <td align="right"></td>
             <td align="right">C:</td>
             <td align="left">
-                <input type="radio" name="Dimension" value="C" ng-model="rute.dimension">
+                <input type="radio" name="Dimension" value="C" ng-model="rute.DimensionsType">
                 15x100x15</td>
         </tr>
         <tr>
-            <td align="right"></td>
             <td align="right">D:</td>
             <td align="left">
-                <input type="radio" name="Dimension" value="D" ng-model="rute.dimension">
+                <input type="radio" name="Dimension" value="D" ng-model="rute.DimensionsType">
                 20x80x20</td>
         </tr>
         <tr>
-            <td align="right"></td>
             <td align="right">E:</td>
             <td align="left">
-                <input type="radio" name="Dimension" value="E" ng-model="rute.dimension">
+                <input type="radio" name="Dimension" value="E" ng-model="rute.DimensionsType">
                 30x50x30</td>
         </tr>
     </table>
