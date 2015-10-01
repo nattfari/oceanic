@@ -41,6 +41,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.4.0.4\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -157,6 +160,9 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Configuration\AutoMapperConfiguration.cs" />
+    <Compile Include="Configuration\DomainToDTOMappingProfile.cs" />
+    <Compile Include="Configuration\RuteResponseResolver.cs" />
     <Compile Include="Controllers\InternalApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ExternalApiController.cs" />
@@ -216,6 +222,7 @@
     <Content Include="Scripts\oceanic.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\services\apiModule.js" />
     <Content Include="Scripts\templates\administration.html" />
     <Content Include="Scripts\templates\AdminLogin.html" />
     <Content Include="Scripts\templates\AdminLogin\AdminLogin.html" />

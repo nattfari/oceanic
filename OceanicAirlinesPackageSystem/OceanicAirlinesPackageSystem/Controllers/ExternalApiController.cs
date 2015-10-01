@@ -22,6 +22,7 @@ namespace WebHost.Controllers
             {
                 new MockService()
             };
+
             var routeManager = new RouteManager(externalServices);
             // TODO: Replace dummy data with our own routes from datamanager
 
