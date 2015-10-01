@@ -14,8 +14,10 @@
 .nav-tabs > li, nav-pills > li {
     float: none;
     display: inline-block;
+    font-size: 16pt;
 }
 
 .nav-tabs, .nav-pills {
     text-align: center;
+    font-size: 16pt
 }
