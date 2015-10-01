@@ -10,13 +10,14 @@
         };
         $scope.hentByer();
 
-        $scope.rute = {fragtTyper:[]};
+        $scope.rute = {FragtTyper:[]};
 
         $scope.findRute = function () {
             console.log("Finder Rute");
             console.log($scope.rute);
             $http.post(Api.url + 'rute/soeg', $scope.rute).then(function(response) {
                 console.log(response);
+                window.location.href = '#Ruteforslag'
             });
         };
 
@@ -24,10 +25,10 @@
 
         $scope.valgteTyper = function(fragtType) {
             if (fragtType.markeret) {
-                $scope.rute.fragtTyper.push(fragtType.id);
+                $scope.rute.FragtTyper.push(fragtType.id);
             } else {
-                var index = $scope.rute.fragtTyper.indexOf(fragtType.id);
-                $scope.rute.fragtTyper.splice(index, 1);
+                var index = $scope.rute.FragtTyper.indexOf(fragtType.id);
+                $scope.rute.FragtTyper.splice(index, 1);
             }
         };
     }

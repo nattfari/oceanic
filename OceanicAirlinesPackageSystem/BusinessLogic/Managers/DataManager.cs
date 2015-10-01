@@ -10,11 +10,23 @@ namespace BusinessLogic.Managers
 {
     public class DataManager
     {
-        public static IList<by> HentByer()
+        public static IList<by> HentAktiveredeByer()
         {
             using (var context = new OADbContext())
             {
-                return context.by.ToList();
+                return (from byen in context.@by
+                    where byen.Active
+                            select byen).ToList();
+            }
+        }
+
+        public static IList<by> HentDeaktiveredeByer()
+        {
+            using (var context = new OADbContext())
+            {
+                return (from byen in context.@by
+                        where !byen.Active
+                        select byen).ToList();
             }
         }
 
@@ -44,11 +56,21 @@ namespace BusinessLogic.Managers
             }
         }
 
-        public static void AktiverBy(by by)
+        public static void DeaktiverBy(by by)
         {
+            by.Active = false;
             using (var context = new OADbContext())
             {
-              //  context.by.AddOrUpdate();
+                  context.by.AddOrUpdate(by);
+            }
+        }
+
+        public static void AktiverBy(by by)
+        {
+            by.Active = true;
+            using (var context = new OADbContext())
+            {
+                context.by.AddOrUpdate(by);
             }
         }
     }

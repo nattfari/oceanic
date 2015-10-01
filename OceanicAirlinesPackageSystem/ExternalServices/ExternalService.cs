@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using BusinessLogic.Data;
 using BusinessLogic.ExternalInterfaces;
+using ExternalServices.DataContracts;
+using Newtonsoft.Json;
+using TransportType = BusinessLogic.Data.TransportType;
 
 namespace ExternalServices
 {
@@ -26,16 +30,25 @@ namespace ExternalServices
 
         public virtual IEnumerable<by> GetCities()
         {
-            var response = HttpClient.GetAsync("api/cities");
-            if (response.Result.IsSuccessStatusCode)
+            var cities = new List<by>();
+            var result = HttpClient.GetAsync("api/cities").Result;
+            if (result.IsSuccessStatusCode)
             {
-                response.Result.Content.ReadAsStringAsync();
+                var jsonResponse = result.Content.ReadAsStringAsync().Result;
+                var convertedResponse = JsonConvert.DeserializeObject<CitiesResponseContract>(jsonResponse);
+
+                cities = convertedResponse.cities.Select(city => new @by() { Id = city.id, Name = city.name }).ToList();
             }
-            return new[] { new by { CityId = 1, Id = 1, Name = "By1" }, new by { CityId = 2, Id = 2, Name = "By2" } };
+            else
+            {
+                throw new WebException(string.Format("GetCities from {0} failed", HttpClient.BaseAddress));
+            }
+            return cities;
         }
 
         public virtual IEnumerable<Route> GetRoute(by by)
         {
+            //TODO: Get routes from external service
             return new[] { new Route { TransportType = TransportType.EIC, Pris = 11, Rute = new rute { Time = 8, StartCity = 1, EndCity = 2 } }};
         }
 

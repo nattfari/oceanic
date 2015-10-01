@@ -102,6 +102,7 @@
       <DependentUpon>OceanicDb.tt</DependentUpon>
     </Compile>
     <Compile Include="ExternalInterfaces\IExternalServicesApi.cs" />
+    <Compile Include="Managers\AdministrationManager.cs" />
     <Compile Include="Managers\CalculationManager.cs" />
     <Compile Include="Managers\DataManager.cs" />
     <Compile Include="Managers\RouteManager.cs" />

@@ -28,7 +28,7 @@ namespace BusinessLogic.Data
         public int SizeDepth { get; set; }
     
         public virtual ICollection<forsendelse> forsendelse { get; set; }
-        public virtual users users { get; set; }
         public virtual packetType packetType { get; set; }
+        public virtual users users { get; set; }
     }
 }

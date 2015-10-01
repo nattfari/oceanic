@@ -39,7 +39,7 @@
                 controller: 'FindRuteController'
             }).
             when('/Ruteforslag', {
-                templateUrl: 'Scripts/templates/Ruteforslag',
+                templateUrl: 'Scripts/templates/Ruteforslag.html',
                 controller: 'RuteforslagController'
             }).
             when('/Ruteoversigt', {

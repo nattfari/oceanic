@@ -5,7 +5,9 @@ using System.Web;
 using AutoMapper;
 using BusinessLogic.Data;
 using BusinessLogic.Managers;
+using ExternalServices.DataContracts;
 using WebHost.DataContracts.DTOs;
+using CityDTO = WebHost.DataContracts.DTOs.CityDTO;
 
 namespace WebHost.Configuration
 {
@@ -23,9 +25,6 @@ namespace WebHost.Configuration
             Mapper.CreateMap<@by, CityDTO>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
-
-            Mapper.CreateMap<packetType, FragtTypeDTO>()
-                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id));
         }
     }
 }

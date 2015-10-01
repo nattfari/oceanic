@@ -1,4 +1,4 @@
-﻿<div class="container-fluid" align="center">
+﻿<div class="container-fluid" align="center" data-ng-show="result.success">
     <table border="1" cellpadding="2" width="85%" style="margin-bottom: 30px">
         <tr>
             <td align="center"><font size="6" face="Garamond">Ruteforslag</font></td>
@@ -9,28 +9,28 @@
             <td align="left"><b>Dine valg</b></td>
             <td align="right">Fra</td>
             <td align="left">
-                <input type="text" style="background-color: transparent; border-style:solid; border-width: 0px 0px 1px 0px; border-color: black" ng-model="FraBy" disabled/>
+                <input type="text" style="background-color: transparent; border-style:solid; border-width: 0px 0px 1px 0px; border-color: black" ng-model="request.FraBy" disabled/>
             </td>
         </tr>
         <tr>
             <td align="left"></td>
             <td align="right">Til</td>
             <td align="left">
-                <input type="text" style="background-color: transparent; border-style:solid; border-width: 0px 0px 1px 0px; border-color: black" ng-model="TilBy" disabled/>
+                <input type="text" style="background-color: transparent; border-style:solid; border-width: 0px 0px 1px 0px; border-color: black" ng-model="request.TilBy" disabled/>
             </td>
         </tr>
         <tr>
             <td align="left"></td>
             <td align="right">Vægt</td>
             <td align="left">
-                <input type="text" style="background-color: transparent; border-style:solid; border-width: 0px 0px 1px 0px; border-color: black" ng-model="Vaegt" disabled/>
+                <input type="text" style="background-color: transparent; border-style:solid; border-width: 0px 0px 1px 0px; border-color: black" ng-model="request.Vaegt" disabled/>
             </td>
         </tr>
         <tr>
             <td align="left"></td>
             <td align="right">Dimensioner</td>
             <td align="left">
-                <input type="text" style="background-color: transparent; border-style:solid; border-width: 0px 0px 1px 0px; border-color: black" ng-model="Dimensioner" disabled/>
+                <input type="text" style="background-color: transparent; border-style:solid; border-width: 0px 0px 1px 0px; border-color: black" ng-model="request.DimensionsType" disabled/>
             </td>
         </tr>
         <tr>
@@ -162,4 +162,12 @@
         </tr>
 
     </table>
+</div>
+<div class="container" align="center" data-ng-hide="result.success">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Den ønskede rute kunne desværre ikke planlægges fra {{request.FraBy}} til {{request.TilBy}} </h2>
+            <h3>Dette skyldes normalt at der ikke eksisterer rute for fly, skib eller bil</h3>
+        </div>
+    </div>
 </div>
