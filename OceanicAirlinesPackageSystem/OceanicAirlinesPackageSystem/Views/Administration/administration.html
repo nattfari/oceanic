@@ -1,9 +1,143 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html ng-app="Oceanic">
 <head>
     <title></title>
 </head>
 <body>
-    Administration
+    <div class="container-fluid" align="center" data-ng-controller="OceanicController">
+        <table border="1" cellpadding="2" width="85%">
+            <tr>
+                <td align="center"><font size="6" face="Garamond">Adminstration</font></td>
+            </tr>
+        </table>
+        <table border="0" cellpadding="4" width="70%">
+            <tr>
+                <td bgcolor="silver" colspan="5"></td>
+            </tr>
+            <tr>
+                <td align="left"><b>Priser - Dimensioner</b></td>
+                <td align="right"></td>
+                <td align="left">Under 1 kg</td>
+                <td align="left">1 - 5 kg</td>
+                <td align="left">Over 5 kg</td>
+            </tr>
+            <tr>
+                <td align="left">Priser er pr. flyvning</td>
+                <td align="right">Størrelse A</td>
+                <td align="left">
+                    <input type="text" ng-model="fraBy" id="Text2" placeholder="40 $" data-typeahead="by for by in byer | filter:$viewValue" /></td>
+                <td align="left">
+                    <input type="text" ng-model="fraBy" id="Text1" placeholder="60 $" data-typeahead="by for by in byer | filter:$viewValue" /></td>
+                <td align="left">
+                    <input type="text" ng-model="fraBy" id="Text4" placeholder="80 $" data-typeahead="by for by in byer | filter:$viewValue" /></td>
+            </tr>
+            <tr>
+                <td align="left"></td>
+                <td align="right">Størrelse B</td>
+                <td align="left">
+                    <input type="text" ng-model="fraBy" id="Text5" placeholder="48 $" data-typeahead="by for by in byer | filter:$viewValue" /></td>
+                <td align="left">
+                    <input type="text" ng-model="fraBy" id="Text6" placeholder="68 $" data-typeahead="by for by in byer | filter:$viewValue" /></td>
+                <td align="left">
+                    <input type="text" ng-model="fraBy" id="Text7" placeholder="88 $" data-typeahead="by for by in byer | filter:$viewValue" /></td>
+            </tr>
+            <tr>
+                <td align="left"></td>
+                <td align="right">Størrelse C</td>
+                <td align="left">
+                    <input type="text" ng-model="fraBy" id="Text8" placeholder="56 $" data-typeahead="by for by in byer | filter:$viewValue" /></td>
+                <td align="left">
+                    <input type="text" ng-model="fraBy" id="Text9" placeholder="76 $" data-typeahead="by for by in byer | filter:$viewValue" /></td>
+                <td align="left">
+                    <input type="text" ng-model="fraBy" id="Text10" placeholder="95 $" data-typeahead="by for by in byer | filter:$viewValue" /></td>
+            </tr>
+            <tr>
+                <td align="left"></td>
+                <td align="right">Størrelse D</td>
+                <td align="left">
+                    <input type="text" ng-model="fraBy" id="Text11" placeholder="64 $" data-typeahead="by for by in byer | filter:$viewValue" /></td>
+                <td align="left">
+                    <input type="text" ng-model="fraBy" id="Text12" placeholder="84 $" data-typeahead="by for by in byer | filter:$viewValue" /></td>
+                <td align="left">
+                    <input type="text" ng-model="fraBy" id="Text13" placeholder="104 $" data-typeahead="by for by in byer | filter:$viewValue" /></td>
+            </tr>
+            <tr>
+                <td align="left"></td>
+                <td align="right">Størrelse E</td>
+                <td align="left">
+                    <input type="text" ng-model="fraBy" id="Text14" placeholder="80 $" data-typeahead="by for by in byer | filter:$viewValue" /></td>
+                <td align="left">
+                    <input type="text" ng-model="fraBy" id="Text15" placeholder="100 $" data-typeahead="by for by in byer | filter:$viewValue" /></td>
+                <td align="left">
+                    <input type="text" ng-model="fraBy" id="Text16" placeholder="120 $" data-typeahead="by for by in byer | filter:$viewValue" /></td>
+            </tr>
+            <tr>
+                <td bgcolor="silver" colspan="5"></td>
+            </tr>
+            <tr>
+                <td align="left"><b>Priser - Fragttype</b></td>
+                <td align="right">Levende dyr</td>
+                <td align="left" colspan="3">
+                    <input type="text" ng-model="fraBy" id="Text22" placeholder="Kan ikke transporteres" data-typeahead="by for by in byer | filter:$viewValue" /></td>
+            </tr>
+            <tr>
+                <td align="left">Priser er pr. flyvning</td>
+                <td align="right">Kølevare</td>
+                <td align="left" colspan="3">
+                    <input type="text" ng-model="fraBy" id="Text18" placeholder="*1.10" data-typeahead="by for by in byer | filter:$viewValue" /></td>
+            </tr>
+            <tr>
+                <td align="left"></td>
+                <td align="right">Anbefalet</td>
+                <td align="left" colspan="3">
+                    <input type="text" ng-model="fraBy" id="Text19" placeholder="Kan ikke transporteres" data-typeahead="by for by in byer | filter:$viewValue" /></td>
+            </tr>
+            <tr>
+                <td align="left"></td>
+                <td align="right">Våben</td>
+                <td align="left" colspan="3">
+                    <input type="text" ng-model="fraBy" id="Text20" placeholder="*2.00" data-typeahead="by for by in byer | filter:$viewValue" /></td>
+            </tr>
+            <tr>
+                <td align="left"></td>
+                <td align="right">Forsigtig</td>
+                <td align="left" colspan="3">
+                    <input type="text" ng-model="fraBy" id="Text21" placeholder="*1.75" data-typeahead="by for by in byer | filter:$viewValue" /></td>
+            </tr>
+            <tr>
+                <td bgcolor="silver" colspan="5"></td>
+            </tr>
+            <tr>
+                <td align="left"><b>Aktiver/Deaktiver Lufthavn</b></td>
+                <td align="right">Bynavn 1:</td>
+                <td align="left">
+                    <input type="checkbox" name="awesome" ng-model="formData.awesome" ng-true-value="ofCourse" ng-false-value="iWish">
+                    Aktiv lufthavn</td>
+            </tr>
+            <tr>
+                <td align="left"></td>
+                <td align="right">...:</td>
+                <td align="left">
+                    <input type="checkbox" name="awesome" ng-model="formData.awesome" ng-true-value="ofCourse" ng-false-value="iWish">
+                    Aktiv lufthavn</td>
+            </tr>
+            <tr>
+                <td align="left"></td>
+                <td align="right">Bynavn n:</td>
+                <td align="left">
+                    <input type="checkbox" name="awesome" ng-model="formData.awesome" ng-true-value="ofCourse" ng-false-value="iWish">
+                    Aktiv lufthavn</td>
+            </tr>
+            <tr>
+                <td bgcolor="silver" colspan="5"></td>
+            </tr>
+        </table>
+        <div class="row">
+            <button class="btn btn-default" value="Find rute" ng-click="visRute()">
+                <span><font size="4" face="Garamond">Gem Ændringer</font></span>
+            </button>
+        </div>
+
+    </div>
 </body>
 </html>
