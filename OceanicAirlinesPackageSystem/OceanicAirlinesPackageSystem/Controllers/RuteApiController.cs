@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using AutoMapper;
 using BusinessLogic.Data;
 using BusinessLogic.ExternalInterfaces;
 using BusinessLogic.Managers;
@@ -23,21 +24,27 @@ namespace WebHost.Controllers
                 new MockService()
             };
 
-            var ctx = new OADbContext();
+            OADbContext ctx = new OADbContext();
+            var rute = new CalculationManager.Node();
+            var dimension = ctx.pakkeDimintioner.SingleOrDefault(x => x.Name == ruteRequest.DimensionsType);
             
             var fraBy = ctx.by.SingleOrDefault(x => x.Name == ruteRequest.FraBy);
             var tilBy = ctx.by.SingleOrDefault(x => x.Name == ruteRequest.TilBy);
-            var pakkepris = ctx.pakkeDimintioner.FirstOrDefault(p => p.Name == ruteRequest.DimensionsType);
-            var pakke = new pakke {Weight = Convert.ToInt32(ruteRequest.Vaegt), SizeDepth = pakkepris.Depth, SizeWidth = pakkepris.Width, SizeHight = pakkepris.Height};
+            
             if(fraBy != null && tilBy != null) {
-                CalculationManager calculationManager = new CalculationManager();
-                var rute = calculationManager.CalculateRouteTime(fraBy, tilBy, externalServices.ToList(), pakke);
+                RouteManager routeManager = new RouteManager(externalServices);
+                rute = routeManager.CalculateRouteTime(fraBy, tilBy, 25, 25, 25, 1000);
             }
 
             ctx.Dispose();
 
             //map rute til ruteresponsedto
-            var result = new RuteResponseDTO();
+            var ruteDto = Mapper.Map<RuteDTO>(rute);
+
+            RuteResponseDTO result = new RuteResponseDTO()
+            {
+                Ruter = new List<RuteDTO>() { ruteDto }
+            };
 
             return result;
         }

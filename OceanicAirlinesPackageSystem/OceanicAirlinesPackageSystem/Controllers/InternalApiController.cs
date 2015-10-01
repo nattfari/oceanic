@@ -27,5 +27,18 @@ namespace WebHost.Controllers
 
             return result;
         }
+
+        [Route("internal/fragttyper")]
+        [HttpGet]
+        public List<FragtTypeDTO> GetFragttyper()
+        {
+            OADbContext ctx = new OADbContext();
+
+            var typer = ctx.packetType.ToList();
+
+            var pakkeTyper = Mapper.Map <List<packetType>, List<FragtTypeDTO>>(typer);
+
+            return pakkeTyper;
+        }
     }
 }

@@ -12,19 +12,13 @@ namespace BusinessLogic.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class packetType
+    public partial class forsendelsesType
     {
-        public packetType()
-        {
-            this.forsendelsesType = new HashSet<forsendelsesType>();
-            this.pakke = new HashSet<pakke>();
-        }
-    
         public long Id { get; set; }
-        public string PacketType1 { get; set; }
-        public float multiplier { get; set; }
+        public Nullable<long> ForsendelsesId { get; set; }
+        public Nullable<long> packetTypeId { get; set; }
     
-        public virtual ICollection<forsendelsesType> forsendelsesType { get; set; }
-        public virtual ICollection<pakke> pakke { get; set; }
+        public virtual forsendelse forsendelse { get; set; }
+        public virtual packetType packetType { get; set; }
     }
 }
