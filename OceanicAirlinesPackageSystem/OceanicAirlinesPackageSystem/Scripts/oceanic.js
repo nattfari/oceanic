@@ -6,8 +6,6 @@
         path: "img/logo.gif"
     };
 
-    $scope.fraBy = undefined;
-    $scope.tilBy = undefined;
     $scope.byer = ['Tanger', 'Tunis', 'Tripoli', 'Cairo', 'De Kanariske Øer', 'Marakesh', 'Sahara', 'Omdurman', 'Suakin', 'Dakar', 'Timbuktu', 'Wadai', 'Darfur', 'Addis Abeba', 'Kap Guardafui', 'Sierra Leone', 'Guldkysten', 'Slavekysten', 'Bahrel Ghazal', 'Victoriasøen', 'Zanzibar', 'Congo', 'Kabalo', 'St. Helena', 'Luanda', 'Mocambique', 'Victoriafaldene', 'Amatave', 'Kap St. Marie', 'Dragebjerget', 'Hvalbugten', 'Kapstaden'];
     $scope.lufthavne = ['Tanger', 'Tripoli', 'Cairo', 'Marrakesh', 'Suakin', 'Sierra Leone', 'Guldkysten', 'Darfur', 'Victoriasøen', 'Kap Guardafui', 'Kabalo', 'Luanda', 'St. Helena', 'Amatave', 'Hvalbugten', 'Dragebjerget', 'Kap St. Marie', 'Kapstaden'];
     $scope.dimensioner = [{ type: 'a', højde: 25, dybde: 60, bredde: 25 }, { type: 'b', højde: 40, dybde: 40, bredde: 40 }, { type: 'c', højde: 15, dybde: 100, bredde: 15 }, { type: 'd', højde: 20, dybde: 80, bredde: 20 }, { type: 'e', højde: 30, dybde: 50, bredde: 30 }];
