@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using ExternalServices;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -7,18 +9,27 @@ namespace ExternalServicesTest
     [TestClass]
     public class ExternalServicesTest
     {
-        private ExternalService _externalService;
+        private List<ExternalService> _externalServices;
         [TestInitialize]
         public void Setup()
         {
-            _externalService = new MockService();
+            _externalServices = new List<ExternalService>
+            {
+                new TelstarService(), 
+                new EITService()
+            };
 
         }
 
         [TestMethod]
         public void TestGetCities()
         {
-            var cities = _externalService.GetCities();
+            foreach (var externalService in _externalServices)
+            {
+                var cities = externalService.GetCities();
+                Assert.IsTrue(cities.ToList().Count <= 32);
+            }
+            
         }
     }
 }
