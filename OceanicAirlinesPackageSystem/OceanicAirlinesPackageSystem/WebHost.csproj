@@ -208,9 +208,12 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\templates\administration.html" />
+    <Content Include="Scripts\templates\AdminLogin.html" />
     <Content Include="Scripts\templates\FindRute.html" />
     <Content Include="Scripts\templates\forside.html" />
     <Content Include="Scripts\templates\priser.html" />
+    <Content Include="Scripts\templates\Ruteforslag.html" />
+    <Content Include="Scripts\templates\Ruteoversigt.html" />
     <Content Include="Views\Administration\administration.html" />
     <Content Include="Views\FindRute\FindRute.html" />
     <Content Include="Views\Frontpage\forside.html" />
