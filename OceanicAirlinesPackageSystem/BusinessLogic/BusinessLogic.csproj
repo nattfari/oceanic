@@ -54,7 +54,11 @@
     <Compile Include="Data\by.cs">
       <DependentUpon>OceanicDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\byer.cs">
+    <Compile Include="Data\City.cs" />
+    <Compile Include="Data\forsendelse.cs">
+      <DependentUpon>OceanicDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\forsendelsesRute.cs">
       <DependentUpon>OceanicDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\lufthavn.cs">
@@ -75,8 +79,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>OceanicDb.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Data\packetType.cs">
+      <DependentUpon>OceanicDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\pakke.cs">
+      <DependentUpon>OceanicDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Route.cs" />
+    <Compile Include="Data\rute.cs">
+      <DependentUpon>OceanicDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\users.cs">
+      <DependentUpon>OceanicDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="ExternalInterfaces\IExternalServicesApi.cs" />
     <Compile Include="Managers\CalculationManager.cs" />
+    <Compile Include="Managers\DataManager.cs" />
     <Compile Include="Managers\RouteManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
