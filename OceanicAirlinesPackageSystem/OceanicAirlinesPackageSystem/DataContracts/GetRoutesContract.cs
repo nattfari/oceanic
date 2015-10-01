@@ -1,15 +1,17 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 using WebHost.DataContracts.DTOs;
 
 namespace WebHost.DataContracts
 {
     public class GetRoutesContract
     {
-        public IEnumerable<RouteDTO> routes { get; set; }
+        [DataMember(Name = "routes")]
+        public IEnumerable<RouteDTO> Routes { get; set; }
 
         public GetRoutesContract()
         {
-            routes = new List<RouteDTO>();
+            Routes = new List<RouteDTO>();
         }
     }
 }
