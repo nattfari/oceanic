@@ -1,7 +1,6 @@
-﻿var app = angular.module('Oceanic', ['ui.bootstrap', 'ngRoute']);
+﻿angular.module('Oceanic', ['ui.bootstrap', 'ngRoute'])
 
-app.controller('OceanicController', ['$scope',
-    function ($scope) {
+.controller('OceanicController', ['$scope', function ($scope) {
 
     $scope.image = {
         path: "img/logo.gif"
@@ -16,9 +15,9 @@ app.controller('OceanicController', ['$scope',
     $scope.prismatriks = [{ dimensionstype: 'a', vaegttype: 'a', pris: 40 }, { dimensionstype: 'a', vaegttype: 'b', pris: 48 }, { dimensionstype: 'a', vaegttype: 'c', pris: 56 }, { dimensionstype: 'a', vaegttype: 'd', pris: 64 }, { dimensionstype: 'a', vaegttype: 'e', pris: 80 }, { dimensionstype: 'b', vaegttype: 'a', pris: 60 }, { dimensionstype: 'b', vaegttype: 'b', pris: 68 }, { dimensionstype: 'b', vaegttype: 'c', pris: 76 }, { dimensionstype: 'b', vaegttype: 'd', pris: 84 }, { dimensionstype: 'b', vaegttype: 'e', pris: 100 }, { dimensionstype: 'c', vaegttype: 'a', pris: 80 }, { dimensionstype: 'c', vaegttype: 'b', pris: 88 }, { dimensionstype: 'c', vaegttype: 'c', pris: 96 }, { dimensionstype: 'c', vaegttype: 'd', pris: 104 }, { dimensionstype: 'c', vaegttype: 'e', pris: 120 }];
     $scope.tableVaerdier = [];
 
-}]);
+}])
 
-app.config(['$routeProvider',
+.config(['$routeProvider',
     function ($routeProvider) {
         $routeProvider.
             when('/Forside', {
