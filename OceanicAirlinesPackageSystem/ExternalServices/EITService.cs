@@ -12,10 +12,10 @@ using Newtonsoft.Json;
 
 namespace ExternalServices
 {
-    public class TelstarService : ExternalService
+    public class EITService : ExternalService
     {
-        public TelstarService()
-            : base(@"https://telstarlogistics-ces.azurewebsites.net")
+        public EITService()
+            : base(@"https://eastindiatrading-ces.azurewebsites.net/")
         {
         }
 
