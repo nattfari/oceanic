@@ -32,7 +32,7 @@ namespace BusinessLogicTest
         {
             if (n.Previous != null)
                 printRute(n.Previous);
-            Debug.WriteLine(n.By.Name);
+            Debug.WriteLine("By: {0}, Duration: {1}",n.By.Name, n.Distance);
         }
 
         [TestMethod]
@@ -49,10 +49,10 @@ namespace BusinessLogicTest
             for (int i = 1; i < 2 ; i++)
             {
                 var by2 = DataManager.HentAktiveredeByer().ToArray()[i];
-            var result = manager.CalculateRouteTime(by1, by2, w, pakke);
+            var result = manager.CalculateRouteWeight(by1, by2, w, pakke);
             if (result != null)
             {
-                Debug.WriteLine(String.Format("Fra: {0} til {1}", by1.Name, by2.Name));
+                Debug.WriteLine(String.Format("Fra: {0} til {1}, det tog kostede i alt {2}", by1.Name, by2.Name, result.Distance));
                 printRute(result);
             }
             }
