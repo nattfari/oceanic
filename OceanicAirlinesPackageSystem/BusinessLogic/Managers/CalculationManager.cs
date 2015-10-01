@@ -123,7 +123,7 @@ namespace BusinessLogic.Managers
             _byliste = DataManager.HentAktiveredeByer().ToList();
             foreach (var externalServicesApi in externalServicesApis)
             {
-                _byliste.AddRange(externalServicesApi.GetCities().Select(e => _byliste.FirstOrDefault(p => p.CityId == e.CityId) == null ? e : null));
+                _byliste.AddRange(externalServicesApi.GetCities().Select(e => _byliste.FirstOrDefault(p => p != null && p.CityId == e.CityId) == null ? e : null));
             }
 
             _byliste.RemoveAll(p => p == null);

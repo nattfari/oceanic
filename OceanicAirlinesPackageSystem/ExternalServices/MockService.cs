@@ -20,7 +20,9 @@ namespace ExternalServices
             {
                 new @by() {CityId = 1, Id = 1, Name = "Cairo"},
                 new @by() {CityId = 2, Id = 2, Name = "Tanger"},
-                new @by() {CityId = 32, Id = 32, Name = "St. Helena"},
+                new @by() {CityId = 3, Id = 3, Name = "Cake Town"},
+                new @by() {CityId = 5, Id = 5, Name = "I Am Lost"},
+                new @by() {CityId = 8, Id = 8, Name = "Oh no!"},
             };
             return result;
         }
