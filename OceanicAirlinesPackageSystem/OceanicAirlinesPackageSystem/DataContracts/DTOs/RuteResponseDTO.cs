@@ -5,15 +5,7 @@ using System.Web;
 
 namespace WebHost.DataContracts.DTOs
 {
-    public class RuteRequest
-    {
-        public string FraBy { get; set; }
-        public string TilBy { get; set; }
-        public string Vaegt { get; set; }
-        public string[] FragtTyper { get; set; }
-        public int Dimension { get; set; }
-    }
-
+   
     public class RuteResponseDTO
     {
         public RuteRequestDTO RuteRequest { get; set; }
