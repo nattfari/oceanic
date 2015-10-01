@@ -21,7 +21,7 @@ namespace WebHost
                 Newtonsoft.Json.DateFormatHandling.IsoDateFormat;
             config.Formatters.JsonFormatter.SerializerSettings.DateTimeZoneHandling = 
                 Newtonsoft.Json.DateTimeZoneHandling.Utc;
-            config.Formatters.JsonFormatter.UseDataContractJsonSerializer = true; 
+            config.Formatters.JsonFormatter.UseDataContractJsonSerializer = true;
         }
     }
 }

@@ -9,9 +9,11 @@ using BusinessLogic.Managers;
 using ExternalServices;
 using WebHost.DataContracts;
 using WebHost.DataContracts.DTOs;
+using WebHost.Filters;
 
 namespace WebHost.Controllers
 {
+    [AuthorizeByApiKey]
     public class ExternalApiController : ApiController
     {
         [Route("api/cities")]
@@ -51,7 +53,7 @@ namespace WebHost.Controllers
             string measurements,
             int? weight, 
             string requirements,
-            string types)
+            string types = null)
         {
             
             // TODO: Replace dummy data with our own routes from route

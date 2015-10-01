@@ -170,13 +170,18 @@
     <Compile Include="Controllers\RuteApiController.cs" />
     <Compile Include="DataContracts\DTOs\AdministrationDTO.cs" />
     <Compile Include="DataContracts\DTOs\CityDTO.cs" />
+    <Compile Include="DataContracts\DTOs\ErrorMessageDTO.cs" />
     <Compile Include="DataContracts\DTOs\FragtTypeDTO.cs" />
     <Compile Include="DataContracts\DTOs\RouteDTO.cs" />
     <Compile Include="DataContracts\DTOs\RuteRequest.cs" />
     <Compile Include="DataContracts\DTOs\RuteResponseDTO.cs" />
+
     <Compile Include="DataContracts\DTOs\UserDTO.cs" />
+    <Compile Include="DataContracts\ErrorMessageResponse.cs" />
+
     <Compile Include="DataContracts\GetCitiesContract.cs" />
     <Compile Include="DataContracts\GetRoutesContract.cs" />
+    <Compile Include="Filters\AuthorizeByApiKey.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
