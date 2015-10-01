@@ -24,6 +24,5 @@ namespace WebHost.Controllers
             };
             return result;
         }
-
     }
 }
