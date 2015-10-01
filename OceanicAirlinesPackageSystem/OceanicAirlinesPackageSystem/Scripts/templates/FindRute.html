@@ -1,119 +1,111 @@
-﻿<!DOCTYPE html>
-<html ng-app="Oceanic">
-<head>
-    <title></title>
-</head>
-<body>
-    <div class="container-fluid" align="center" data-ng-controller="OceanicController">
-        <table border="1" cellpadding="2" width="85%">
-            <tr>
-                <td align="center"><font size="6" face="Garamond">Find din rute</font></td>
-            </tr>
-        </table>
-        <table border="0" cellpadding="4" width="70%">
-            <tr>
-                <td bgcolor="silver" colspan="3"></td>
-            </tr>
-            <tr>
-                <td align="left"><b>Start og Slut</b></td>
-                <td align="right">Fra:</td>
-                <td align="left">
-                    <input type="text" ng-model="fraBy" id="Text2" placeholder="Indtast bynavn" data-typeahead="by for by in byer | filter:$viewValue" /></td>
-            </tr>
-            <tr>
-                <td align="left"></td>
-                <td align="right">Til:</td>
-                <td align="left">
-                    <input type="text" ng-model="tilBy" id="Text4" placeholder="Indtast bynavn" data-typeahead="by for by in byer | filter:$viewValue" /></td>
-            </tr>
-            <tr>
-                <td bgcolor="silver" colspan="3"></td>
-            </tr>
-            <tr>
-                <td align="left"><b>Fragttype</b></td>
-                <td align="right">Levende dyr:</td>
-                <td align="left">
-                    <input type="checkbox" ng-model="levendeDyr">
-                     (Kan ikke afsendes med Oceanic)</td>
-            </tr>
-            <tr>
-                <td align="left"></td>
-                <td align="right">Kølevare:</td>
-                <td align="left">
-                    <input type="checkbox" ng-model="koelevare"></td>
-            </tr>
-            <tr>
-                <td align="left"></td>
-                <td align="right">Anbefalet:</td>
-                <td align="left">
-                    <input type="checkbox" ng-model="anbefalet">
-                     (Kan ikke afsendes med Oceanic)</td>
-            </tr>
-            <tr>
-                <td align="left"></td>
-                <td align="right">Våben:</td>
-                <td align="left">
-                    <input type="checkbox"ng-model="vaaben"></td>
-            </tr>
-            <tr>
-                <td align="left"></td>
-                <td align="right">Forsigtig:</td>
-                <td align="left">
-                    <input type="checkbox" ng-model="forsigtig"></td>
-            </tr>
-            <tr>
-                <td bgcolor="silver" colspan="3"></td>
-            </tr>
-            <tr>
-                <td align="left"><b>Vægt</b></td>
-                <td align="right">Vægt i gram:</td>
-                <td align="left">
-                    <input type="number" ng-model="vaegt" placeholder="Vægt i gram" /></td>
-            </tr>
-            <tr>
-                <td bgcolor="silver" colspan="3"></td>
-            </tr>
-            <tr>
-                <td align="left"><b>Dimensioner</b></td>
-                <td align="right">A:</td>
-                <td align="left">
-                    <input type="radio" name="Dimension" ng-model="dimensionA">
-                    25x60x25</td>
-            </tr>
-            <tr>
-                <td align="right"></td>
-                <td align="right">B:</td>
-                <td align="left">
-                    <input type="radio" name="Dimension" ng-model="dimensionB">
-                    40x40x40</td>
-            </tr>
-            <tr>
-                <td align="right"></td>
-                <td align="right">C:</td>
-                <td align="left">
-                    <input type="radio" name="Dimension" ng-model="dimensionC">
-                    15x100x15</td>
-            </tr>
-            <tr>
-                <td align="right"></td>
-                <td align="right">D:</td>
-                <td align="left">
-                    <input type="radio" name="Dimension" ng-model="dimensionD">
-                    20x80x20</td>
-            </tr>
-            <tr>
-                <td align="right"></td>
-                <td align="right">E:</td>
-                <td align="left">
-                    <input type="radio" name="Dimension" ng-model="dimensionE">
-                    30x50x30</td>
-            </tr>
-        </table>
-        <div class="row">
-            <button class="btn btn-default" value="Find rute" ng-click="findRute()">
-                <span><font size="4" face="Garamond">Find rute</font></span>
-            </button>
-        </div>
+﻿<div class="container-fluid" align="center">
+    <table border="1" cellpadding="2" width="85%">
+        <tr>
+            <td align="center"><font size="6" face="Garamond">Find din rute</font></td>
+        </tr>
+    </table>
+    <table border="0" cellpadding="4" width="70%">
+        <tr>
+            <td bgcolor="silver" colspan="3"></td>
+        </tr>
+        <tr>
+            <td align="left"><b>Start og Slut</b></td>
+            <td align="right">Fra:</td>
+            <td align="left">
+                <input type="text" ng-model="FraBy" id="Text2" placeholder="Indtast bynavn" data-typeahead="by for by in byer | filter:$viewValue" /></td>
+        </tr>
+        <tr>
+            <td align="left"></td>
+            <td align="right">Til:</td>
+            <td align="left">
+                <input type="text" ng-model="TilBy" id="Text4" placeholder="Indtast bynavn" data-typeahead="by for by in byer | filter:$viewValue" /></td>
+        </tr>
+        <tr>
+            <td bgcolor="silver" colspan="3"></td>
+        </tr>
+        <tr>
+            <td align="left"><b>Fragttype</b></td>
+            <td align="right">Levende dyr:</td>
+            <td align="left">
+                <input type="checkbox" ng-model="LevendeDyr">
+                (Kan ikke afsendes med Oceanic)</td>
+        </tr>
+        <tr>
+            <td align="left"></td>
+            <td align="right">Kølevare:</td>
+            <td align="left">
+                <input type="checkbox" ng-model="Koelevare"></td>
+        </tr>
+        <tr>
+            <td align="left"></td>
+            <td align="right">Anbefalet:</td>
+            <td align="left">
+                <input type="checkbox" ng-model="Anbefalet">
+                (Kan ikke afsendes med Oceanic)</td>
+        </tr>
+        <tr>
+            <td align="left"></td>
+            <td align="right">Våben:</td>
+            <td align="left">
+                <input type="checkbox" ng-model="Vaaben"></td>
+        </tr>
+        <tr>
+            <td align="left"></td>
+            <td align="right">Forsigtig:</td>
+            <td align="left">
+                <input type="checkbox" ng-model="Forsigtig"></td>
+        </tr>
+        <tr>
+            <td bgcolor="silver" colspan="3"></td>
+        </tr>
+        <tr>
+            <td align="left"><b>Vægt</b></td>
+            <td align="right">Vægt i gram:</td>
+            <td align="left">
+                <input type="number" ng-model="Vaegt" placeholder="Vægt i gram" /></td>
+        </tr>
+        <tr>
+            <td bgcolor="silver" colspan="3"></td>
+        </tr>
+        <tr>
+            <td align="left"><b>Dimensioner</b></td>
+            <td align="right">A:</td>
+            <td align="left">
+                <input type="radio" name="Dimension" ng-model="DimensionA">
+                25x60x25</td>
+        </tr>
+        <tr>
+            <td align="right"></td>
+            <td align="right">B:</td>
+            <td align="left">
+                <input type="radio" name="Dimension" ng-model="DimensionB">
+                40x40x40</td>
+        </tr>
+        <tr>
+            <td align="right"></td>
+            <td align="right">C:</td>
+            <td align="left">
+                <input type="radio" name="Dimension" ng-model="DimensionC">
+                15x100x15</td>
+        </tr>
+        <tr>
+            <td align="right"></td>
+            <td align="right">D:</td>
+            <td align="left">
+                <input type="radio" name="Dimension" ng-model="DimensionD">
+                20x80x20</td>
+        </tr>
+        <tr>
+            <td align="right"></td>
+            <td align="right">E:</td>
+            <td align="left">
+                <input type="radio" name="Dimension" ng-model="DimensionE">
+                30x50x30</td>
+        </tr>
+    </table>
+    <div class="row">
+        <button class="btn btn-default" value="Find rute" ng-click="findRute()">
+            <span><font size="4" face="Garamond">Find rute</font></span>
+        </button>
     </div>
-</body>
-</html>
+</div>
