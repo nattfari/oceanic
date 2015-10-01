@@ -1,0 +1,4 @@
+c:\users\bel\documents\visual studio 2012\Projects\Oceanic\Oceanic\bin\Oceanic.dll
+c:\users\bel\documents\visual studio 2012\Projects\Oceanic\Oceanic\bin\Oceanic.pdb
+c:\users\bel\documents\visual studio 2012\Projects\Oceanic\Oceanic\obj\Release\Oceanic.dll
+c:\users\bel\documents\visual studio 2012\Projects\Oceanic\Oceanic\obj\Release\Oceanic.pdb
