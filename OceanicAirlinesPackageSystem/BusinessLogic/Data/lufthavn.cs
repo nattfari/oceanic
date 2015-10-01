@@ -20,12 +20,6 @@ public partial class lufthavn
 
     public long Id { get; set; }
 
-    public string Navn { get; set; }
-
-    public bool Aktiv { get; set; }
-
-    public long ById { get; set; }
-
     public string Name { get; set; }
 
     public bool Active { get; set; }

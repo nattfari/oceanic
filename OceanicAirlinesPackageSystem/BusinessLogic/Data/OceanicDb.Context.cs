@@ -32,13 +32,13 @@ public partial class OADbContext : DbContext
     }
 
 
-    public DbSet<byer> byer { get; set; }
-
     public DbSet<by> by { get; set; }
 
-    public DbSet<lufthavn> lufthavn { get; set; }
-
     public DbSet<forsendelse> forsendelse { get; set; }
+
+    public DbSet<forsendelsesRute> forsendelsesRute { get; set; }
+
+    public DbSet<lufthavn> lufthavn { get; set; }
 
     public DbSet<packetType> packetType { get; set; }
 
