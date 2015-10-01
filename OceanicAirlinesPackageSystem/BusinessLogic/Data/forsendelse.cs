@@ -16,6 +16,7 @@ namespace BusinessLogic.Data
     {
         public forsendelse()
         {
+            this.forsendelsesType = new HashSet<forsendelsesType>();
             this.forsendelsesRute = new HashSet<forsendelsesRute>();
         }
     
@@ -25,6 +26,7 @@ namespace BusinessLogic.Data
         public Nullable<long> SlutBy { get; set; }
         public System.DateTime AfsendelsesDato { get; set; }
     
+        public virtual ICollection<forsendelsesType> forsendelsesType { get; set; }
         public virtual ICollection<forsendelsesRute> forsendelsesRute { get; set; }
         public virtual pakke pakke { get; set; }
     }
