@@ -34,6 +34,7 @@ namespace WebHost.Controllers
             }
 
             ctx.Dispose();
+
             //map rute til ruteresponsedto
             var result = new RuteResponseDTO();
 
