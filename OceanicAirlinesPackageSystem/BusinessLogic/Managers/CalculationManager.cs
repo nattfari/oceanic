@@ -61,13 +61,17 @@ namespace BusinessLogic.Managers
                         To = nodes.FirstOrDefault(p => p.By.CityId == r.Rute.EndCity),
                         Route = r,
                         Weight = politik == Politik.Pris ? BeregnPris(11, 1, 1) : r.Rute.Time
-            });
+            }).ToList();
 
             ruter.AddRange(ownRoutes);
 
             List<Edge> prunedList = new List<Edge>();
             foreach (var outerRoute in ruter)
             {
+                if (outerRoute.From.By.CityId != node.By.CityId)
+                {
+                    continue;
+                }
                 Boolean update = true;
                 double minWeight = outerRoute.Weight;
                 foreach (var innerRoute in ruter)
@@ -97,6 +101,8 @@ namespace BusinessLogic.Managers
             {
                 byliste.AddRange(externalServicesApi.GetCities().Select(e => byliste.FirstOrDefault(p => p.CityId == e.CityId) == null ? e : null));
             }
+
+            byliste.RemoveAll(p => p == null);
 
             var result = Dijstra(source, target, Politik.Tid);
             return result;
@@ -140,7 +146,7 @@ namespace BusinessLogic.Managers
             {
                 var node = queue.Dequeue();
 
-                if (node == targetBy)
+                if (node == targetBy && node.Distance != double.MaxValue)
                     return node;
 
                 GetRoutes(node, politik);
@@ -165,6 +171,7 @@ namespace BusinessLogic.Managers
         public IEnumerable<string> FindType(int x, int y, int z)
         {
             var result = new List<string>();
+            var sizes = new List<int> {1, 23,};
             return result;
         }
     }

@@ -16,14 +16,58 @@ namespace ExternalServices
 
         public override IEnumerable<by> GetCities()
         {
-            throw new NotImplementedException();
-            //return new[] {"city1", "city2"};
+            var result = new List<@by>()
+            {
+                new @by() {CityId = 1, Id = 1, Name = "Cairo"},
+                new @by() {CityId = 2, Id = 2, Name = "Tanger"},
+                new @by() {CityId = 32, Id = 32, Name = "St. Helena"},
+            };
+            return result;
         }
 
         public override IEnumerable<Route> GetRoute(by by)
         {
-            throw new NotImplementedException();
-            //return new[] {"route1", "route2"};
+            var result = new List<Route>()
+            {
+                new Route()
+                {
+                    Pris = 20,
+                    Rute = new rute()
+                    {
+                        EndCity = 1,
+                        StartCity = 3,
+                        Id = 5,
+                        Time = 5000
+                    },
+                    TransportType = TransportType.TELSTAR
+                },
+                new Route()
+                {
+                    Pris = 20,
+                    Rute = new rute()
+                    {
+                        EndCity = 2,
+                        StartCity = 5,
+                        Id = 6,
+                        Time = 12000
+                    },
+                    TransportType = TransportType.EIC
+                },
+                new Route()
+                {
+                    Pris = 20,
+                    Rute = new rute()
+                    {
+                        EndCity = 2,
+                        StartCity = 8,
+                        Id = 9,
+                        Time = 12000
+                    },
+                    TransportType = TransportType.Oceanic
+                },
+
+            };
+            return result;
         }
     }
 }

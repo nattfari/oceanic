@@ -28,6 +28,22 @@ namespace BusinessLogic.Managers
             }
         }
 
+        public static List<pakkeDimintioner> HentPakkeDimensioner()
+        {
+            using (var context = new OADbContext())
+            {
+                return context.pakkeDimintioner.ToList();
+            }
+        }
+
+        public static List<pakkePris> HentPakkePriser()
+        {
+            using (var context = new OADbContext())
+            {
+                return context.pakkePris.ToList();
+            }
+        }
+
         public static void AktiverBy(by by)
         {
             using (var context = new OADbContext())
