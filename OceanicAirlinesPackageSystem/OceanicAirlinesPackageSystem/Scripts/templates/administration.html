@@ -1,23 +1,23 @@
 ﻿<div class="container-fluid" align="center">
-    <table border="1" cellpadding="5" width="85%">
+    <table border="1" cellpadding="5" width="90%" style="margin-bottom: 30px">
         <tr>
             <td align="center"><font size="6" face="Garamond">Adminstration</font></td>
         </tr>
     </table>
-    <table border="0" cellpadding="4" width="70%">
+    <table border="0" cellpadding="4" width="90%"style="margin-bottom: 10px">
         <tr>
             <td bgcolor="silver" colspan="5"></td>
         </tr>
         <tr>
-            <td align="left"><b>Priser - Dimensioner</b></td>
+            <td align="left"><b>Priser</b></td>
             <td align="right"></td>
             <td align="left">Under 1 kg</td>
             <td align="left">1 - 5 kg</td>
             <td align="left">Over 5 kg</td>
         </tr>
         <tr>
-            <td align="left">Priser er pr. flyvning</td>
-            <td align="right">Dimensionstype A</td>
+            <td align="left">pr. flyvning</td>
+            <td align="right">Dimensionstype A:</td>
             <td align="left">
                 <input type="text" ng-model="Pris01" placeholder="40 $" /></td>
             <td align="left">
@@ -27,7 +27,7 @@
         </tr>
         <tr>
             <td align="left"></td>
-            <td align="right">Dimensionstype B</td>
+            <td align="right">Dimensionstype B:</td>
             <td align="left">
                 <input type="text" ng-model="Pris04" placeholder="48 $" /></td>
             <td align="left">
@@ -37,7 +37,7 @@
         </tr>
         <tr>
             <td align="left"></td>
-            <td align="right">Dimensionstype C</td>
+            <td align="right">Dimensionstype C:</td>
             <td align="left">
                 <input type="text" ng-model="Pris07" placeholder="56 $" /></td>
             <td align="left">
@@ -47,7 +47,7 @@
         </tr>
         <tr>
             <td align="left"></td>
-            <td align="right">Dimensionstype D</td>
+            <td align="right">Dimensionstype D:</td>
             <td align="left">
                 <input type="text" ng-model="Pris10" placeholder="64 $" /></td>
             <td align="left">
@@ -57,7 +57,7 @@
         </tr>
         <tr>
             <td align="left"></td>
-            <td align="right">Dimensionstype E</td>
+            <td align="right">Dimensionstype E:</td>
             <td align="left">
                 <input type="text" ng-model="Pris13" placeholder="80 $" /></td>
             <td align="left">
@@ -69,41 +69,47 @@
             <td bgcolor="silver" colspan="5"></td>
         </tr>
         <tr>
-            <td align="left"><b>Priser - Fragttypefaktor</b></td>
-            <td align="right">Levende dyr</td>
+            <td align="left"><b>Fragttypefaktor</b></td>
+            <td align="right"></td>
             <td align="left" colspan="3">
-                <input type="text" placeholder=" (kan ikke transporteres)" disabled/></td>
+            </td>
         </tr>
         <tr>
-            <td align="left">Prisen ganges med faktoren</td>
+            <td align="left">ganges med prisen</td>
+            <td align="right">Levende dyr</td>
+            <td align="left" colspan="3">
+                <input type="text" placeholder="kan ikke transporteres" style="background-color: transparent; padding-left: 4px" ng-model="FraBy" disabled /></td>
+        </tr>
+        <tr>
+            <td align="left"></td>
             <td align="right">Kølevare</td>
             <td align="left" colspan="3">
-                <input type="text" ng-model="Koelevare" placeholder="1.10"/></td>
+                <input type="text" ng-model="Koelevare" placeholder="1.10" style="padding-left: 4px" /></td>
         </tr>
         <tr>
             <td align="left"></td>
             <td align="right">Anbefalet</td>
             <td align="left" colspan="3">
-                <input type="text" placeholder=" (kan ikke transporteres)" disabled/></td>
+                <input type="text" placeholder="kan ikke transporteres" style="background-color: transparent; padding-left: 4px" ng-model="FraBy" disabled /></td>
         </tr>
         <tr>
             <td align="left"></td>
             <td align="right">Våben</td>
             <td align="left" colspan="3">
-                <input type="text" ng-model="Vaaben" placeholder="2.00"/></td>
+                <input type="text" ng-model="Vaaben" placeholder="2.00" style="padding-left: 4px" /></td>
         </tr>
         <tr>
             <td align="left"></td>
             <td align="right">Forsigtig</td>
             <td align="left" colspan="3">
-                <input type="text" ng-model="Forsigtig" placeholder="1.75"/></td>
+                <input type="text" ng-model="Forsigtig" placeholder="1.75" style="padding-left: 4px" /></td>
         </tr>
         <tr>
             <td bgcolor="silver" colspan="5"></td>
         </tr>
 
         <tr>
-            <td align="left"><b>Aktiver/Deaktiver Lufthavn</b></td>
+            <td align="left"><b>Lufthavne</b></td>
             <td align="right"></td>
             <td align="left"></td>
         </tr>

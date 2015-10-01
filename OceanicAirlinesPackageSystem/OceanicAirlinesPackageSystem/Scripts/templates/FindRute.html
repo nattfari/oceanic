@@ -1,10 +1,10 @@
 ﻿<div class="container" align="center">
-    <table border="1" cellpadding="2" width="85%">
+    <table border="1" cellpadding="2" width="85%" style="margin-bottom: 30px">
         <tr>
             <td align="center"><font size="6" face="Garamond">Find din rute</font></td>
         </tr>
     </table>
-    <table border="0" cellpadding="4" width="70%">
+    <table cellspacing="3" width="85%">
         <tr>
             <td bgcolor="silver" colspan="3"></td>
         </tr>
@@ -12,13 +12,13 @@
             <td align="left"><b>Start og Slut</b></td>
             <td align="right">Fra:</td>
             <td align="left">
-                <input type="text" data-ng-model="rute.fraBy" placeholder="Indtast bynavn" data-typeahead="by for by in byer | filter:$viewValue" /></td>
+                <input type="text" data-ng-model="rute.fraBy" placeholder="Indtast bynavn" data-typeahead="by.name as by.name for by in byer | filter:$viewValue" /></td>
         </tr>
         <tr>
             <td align="left"></td>
             <td align="right">Til:</td>
             <td align="left">
-                <input type="text" data-ng-model="rute.tilBy" placeholder="Indtast bynavn" data-typeahead="by for by in byer | filter:$viewValue" /></td>
+                <input type="text" data-ng-model="rute.tilBy" placeholder="Indtast bynavn" data-typeahead="by.name as by.name for by in byer | filter:$viewValue" /></td>
         </tr>
         <tr>
             <td bgcolor="silver" colspan="3"></td>
@@ -29,39 +29,6 @@
             <td align="left">
                 <input type="checkbox" data-ng-model="fragtType.markeret" data-ng-change="valgteTyper(fragtType)">
             </td>
-        </tr>
-
-        <tr>
-            <td align="left"><b>Fragttype</b></td>
-            <td align="right">Levende dyr:</td>
-            <td align="left">
-                <input type="checkbox" data-ng-model="rute.fragtTyper">
-                    (Kan ikke afsendes med Oceanic)</td>
-        </tr>
-        <tr>
-            <td align="left"></td>
-            <td align="right">Kølevare:</td>
-            <td align="left">
-                <input type="checkbox" data-ng-model="rute.fragtTyper"></td>
-        </tr>
-        <tr>
-            <td align="left"></td>
-            <td align="right">Anbefalet:</td>
-            <td align="left">
-                <input type="checkbox" data-ng-model="rute.fragtTyper">
-                    (Kan ikke afsendes med Oceanic)</td>
-        </tr>
-        <tr>
-            <td align="left"></td>
-            <td align="right">Våben:</td>
-            <td align="left">
-                <input type="checkbox"ng-model="rute.fragtTyper"></td>
-        </tr>
-        <tr>
-            <td align="left"></td>
-            <td align="right">Forsigtig:</td>
-            <td align="left">
-                <input type="checkbox" ng-model="rute.fragtTyper"></td>
         </tr>
         <tr>
             <td bgcolor="silver" colspan="3"></td>
