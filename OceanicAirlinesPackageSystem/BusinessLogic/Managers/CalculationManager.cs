@@ -15,8 +15,14 @@ namespace BusinessLogic.Managers
         {
             public Node From;
             public Node To;
-            public double Time;
-            public double Cost;
+            public Route route;
+            public double Tid;
+            public double Pris;
+        }
+
+        public double BeregnPris(int length, int width , int height)
+        {
+            return 11;
         }
 
         public class Node : PriorityQueueNode
@@ -37,31 +43,66 @@ namespace BusinessLogic.Managers
 
         private void GetRoutes(Node node)
         {
-            if (node.Ruter != null)
+            if (node.Ruter != null && node.Ruter.Any())
                 return;
-            //Kald til hent ruter, og lav en liste med ruter, som gemmes!
+
+            var ruter = new List<Edge>();
+
+            foreach (var enemy in externalServicesApis)
+            {
+                var rute = enemy.GetRoute(node.By);
+                foreach (var route in rute)
+                {
+                    var edge = new Edge
+                    {
+                        From = nodes.FirstOrDefault(p => p.By.CityId == route.Rute.StartCity),
+                        To = nodes.FirstOrDefault(p => p.By.CityId == route.Rute.EndCity),
+                        Pris = route.Pris,
+                        Tid = route.Rute.Time,
+                        route = route
+                    };
+
+                    ruter.Add(edge);
+                }
+            }
+
+            var ownRoutes = DataManager.HentRuter(node.By).Select(r => new Edge
+            {
+                        From = nodes.FirstOrDefault(p => p.By.CityId == r.Rute.StartCity),
+                        To = nodes.FirstOrDefault(p => p.By.CityId == r.Rute.EndCity),
+                        Pris = BeregnPris(11, 11, 11),
+                        Tid = r.Rute.Time,
+                        route = r
+            });
+
+            ruter.AddRange(ownRoutes);
+
+            node.Ruter = ruter;
         }
 
         private List<by> byliste;
+        private List<Node> nodes; 
+        private List<IExternalServicesApi> externalServicesApis;
 
         public void CalculateRouteTime(by source, by target, List<IExternalServicesApi> externalServicesApis)
         {
+            this.externalServicesApis = externalServicesApis;
             byliste = DataManager.HentByer().ToList();
             foreach (var externalServicesApi in externalServicesApis)
             {
                 var q = externalServicesApi.GetCities();
+                byliste.AddRange(q);
             }
-            byliste.Add(source);
-            byliste.Add(target);
-            Dijstra(source, target, Politik.Tid);
+
+            var result = Dijstra(source, target, Politik.Tid);
             return;
         }
 
         private IList<Node> getNeighbourghNodes(Node source, HeapPriorityQueue<Node> queue)
         {
-            List<Node> nodes = source.Ruter.ConvertAll(input => input.To);
+            List<Node> nodeList = source.Ruter.ConvertAll(input => input.To);
 
-            return nodes;
+            return nodeList;
         }
 
         private double DistanceBetween(Node from, Node to, Politik politik)
@@ -69,13 +110,15 @@ namespace BusinessLogic.Managers
             var node = from.Ruter.FirstOrDefault(p => p.From == from && p.To == to);
 
             if (politik == Politik.Pris)
-                return node.Cost;
-            return node.Time;
+                return node.Pris;
+
+            return node.Tid;
         }
 
         private Node Dijstra(by source, by target, Politik politik)
         {
-            var queue = new HeapPriorityQueue<Node>(byliste.Count);
+            var queue = new HeapPriorityQueue<Node>(byliste.Count * 2);
+            nodes = new List<Node>();
             Node targetBy = null;
             foreach (var _by in byliste)
             {
@@ -84,13 +127,13 @@ namespace BusinessLogic.Managers
                     By = _by
                 };
 
-                if (_by == target)
+                if (_by.CityId == target.CityId)
                 {
                     targetBy = node;
                 }
 
-                node.Distance = _by == source ? 0 : double.MaxValue;
-                
+                node.Distance = _by.CityId == source.CityId ? 0 : double.MaxValue;
+                nodes.Add(node);
                 queue.Enqueue(node, node.Distance);
             }
 
