@@ -21,11 +21,11 @@
               href="Content/oceanicStyle.css"/>
     </head>
     <body>
-        <div class="container-fluid full-width" align="center" data-ng-controller="OceanicController">
+        <div class="container full-width" align="center" data-ng-controller="OceanicController">
             <div class="container" style="padding: 30px">
                 <img ng-src="{{image.path}}" width="50%"/>
             </div>
-            <div class="row-fluid">
+            <div class="row">
                 <ul class="nav nav-tabs">
                     <li><a href="#Forside"> Forside </a></li>
                     <li><a href="#FindRute"> Find Rute</a></li>
@@ -34,7 +34,7 @@
                     <li><a href="#Administration"> Administration </a></li>
                 </ul>
             </div>
-            <div class="col-md-9" align="center" style="padding: 30px">
+            <div class="container" align="center" style="padding: 30px">
                 <div ng-view></div>
             </div>
         </div>
