@@ -30,6 +30,7 @@ namespace BusinessLogic.Managers
 
     public class CalculationManager
     {
+        public CalculationManager() { }
         private enum Politik
         {
             Pris,

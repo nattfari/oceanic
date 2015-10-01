@@ -10,11 +10,11 @@ namespace BusinessLogicTest
         [TestMethod]
         public void TestDijkstra()
         {
-            {
-                var manager = new CalculationManager();
 
-               // manager.CalculateRouteTime(root, target);
-            }
+            //var manager = new CalculationManager();
+
+            // manager.CalculateRouteTime(root, target);
+
         }
     }
 }
