@@ -12,16 +12,14 @@ namespace BusinessLogic.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class forsendelsesRute
+    public partial class pakkePris
     {
         public long Id { get; set; }
-        public Nullable<long> ForsendelsesId { get; set; }
-        public Nullable<long> StartBy { get; set; }
-        public Nullable<long> SlutBy { get; set; }
-        public long Price { get; set; }
-        public int TransportTime { get; set; }
-        public int TransportType { get; set; }
+        public string DimentionsNavn { get; set; }
+        public int FromWeight { get; set; }
+        public int ToWeight { get; set; }
+        public int Price { get; set; }
     
-        public virtual forsendelse forsendelse { get; set; }
+        public virtual pakkeDimintioner pakkeDimintioner { get; set; }
     }
 }

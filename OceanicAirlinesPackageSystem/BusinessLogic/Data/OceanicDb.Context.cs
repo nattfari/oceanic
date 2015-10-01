@@ -33,5 +33,8 @@ namespace BusinessLogic.Data
         public DbSet<pakke> pakke { get; set; }
         public DbSet<rute> rute { get; set; }
         public DbSet<users> users { get; set; }
+        public DbSet<transportType> transportType { get; set; }
+        public DbSet<pakkeDimintioner> pakkeDimintioner { get; set; }
+        public DbSet<pakkePris> pakkePris { get; set; }
     }
 }

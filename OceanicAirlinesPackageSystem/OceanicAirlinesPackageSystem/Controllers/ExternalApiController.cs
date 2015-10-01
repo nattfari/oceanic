@@ -47,9 +47,10 @@ namespace WebHost.Controllers
         public GetRoutesContract GetRoute(
             [FromUri] string id, 
             DateTime date,
-            string measurements = null,
-            int? weight = null, 
-            string requirements = null)
+            string measurements,
+            int? weight, 
+            string requirements,
+            string types)
         {
             
             // TODO: Replace dummy data with our own routes from route

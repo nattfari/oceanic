@@ -161,5 +161,11 @@ namespace BusinessLogic.Managers
             }
             return null;
         }
+
+        public IEnumerable<string> FindType(int x, int y, int z)
+        {
+            var result = new List<string>();
+            return result;
+        }
     }
 }
