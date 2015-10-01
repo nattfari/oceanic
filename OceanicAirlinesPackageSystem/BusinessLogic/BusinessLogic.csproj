@@ -48,7 +48,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\by.cs">
+      <DependentUpon>OceanicDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\byer.cs">
+      <DependentUpon>OceanicDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\lufthavn.cs">
       <DependentUpon>OceanicDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\OceanicDb.Context.cs">
