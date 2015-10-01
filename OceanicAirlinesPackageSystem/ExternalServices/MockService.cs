@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BusinessLogic.Data;
 
 namespace ExternalServices
 {
@@ -13,14 +14,16 @@ namespace ExternalServices
 
         }
 
-        public override IEnumerable<string> GetCities()
+        public override IEnumerable<by> GetCities()
         {
-            return new[] {"city1", "city2"};
+            throw new NotImplementedException();
+            //return new[] {"city1", "city2"};
         }
 
-        public override IEnumerable<string> GetRoute()
+        public override IEnumerable<Route> GetRoute(by by)
         {
-            return new[] {"route1", "route2"};
+            throw new NotImplementedException();
+            //return new[] {"route1", "route2"};
         }
     }
 }

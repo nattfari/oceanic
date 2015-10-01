@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using BusinessLogic.Data;
 using BusinessLogic.ExternalInterfaces;
 using BusinessLogic.Managers;
 
@@ -16,12 +17,12 @@ namespace BusinessLogic.Managers
             
         }
 
-        public IEnumerable<string> GetRoutes()
+        public IEnumerable<Route> GetRoutes(by by)
         {
-            var result = new List<string>();
+            var result = new List<Route>();
             foreach (var externalServicesApi in _externalApis)
             {
-                result.AddRange(externalServicesApi.GetRoute());
+                result.AddRange(externalServicesApi.GetRoute(by));
             }
             return result;
         }

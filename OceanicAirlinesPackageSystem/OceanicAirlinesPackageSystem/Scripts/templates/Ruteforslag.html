@@ -1,139 +1,130 @@
-﻿<!DOCTYPE html>
-<html ng-app="Oceanic">
-<head>
-    <title></title>
-</head>
-<body>
-    <div class="container-fluid" align="center" data-ng-controller="OceanicController">
-        <table border="1" cellpadding="2" width="85%">
-            <tr>
-                <td align="center"><font size="6" face="Garamond">Ruteforslag</font></td>
-            </tr>
-        </table>
-        <table bgcolor="silver" frame="box" cellpadding="2" width="85%">
-                        <tr>
-                <td align="left"><b>Dine valg</b></td>
-                <td align="right">Fra</td>
-                <td>Tanger</td>
-            </tr>
-            <tr>
-                <td align="left"></td>
-                <td align="right">Til</td>
-                <td align="left">Kapstaden</td>
-            </tr>
-            <tr>
-                <td align="left"></td>
-                <td align="right">Vægt</td>
-                <td align="left">XXXX g</td>
-            </tr>
-            <tr>
-                <td align="left"></td>
-                <td align="right">Dimensioner</td>
-                <td align="left">XXxYYxZZ</td>
-            </tr>
-            <tr>
-                <td align="left"></td>
-                <td align="right">Fragttype</td>
-                <td align="left">[Fragttype(r)]</td>
-            </tr>
-            <tr>
-                <td bgcolor="silver" colspan="9"></td>
-            </tr>
-        </table>
-        <table border="0" cellpadding="2" width="85%">
+﻿<div class="container-fluid" align="center">
+    <table border="1" cellpadding="2" width="85%">
+        <tr>
+            <td align="center"><font size="6" face="Garamond">Ruteforslag</font></td>
+        </tr>
+    </table>
+    <table bgcolor="silver" frame="box" cellpadding="2" width="85%">
+        <tr>
+            <td align="left"><b>Dine valg</b></td>
+            <td align="right">Fra</td>
+            <td>Tanger</td>
+        </tr>
+        <tr>
+            <td align="left"></td>
+            <td align="right">Til</td>
+            <td align="left">Kapstaden</td>
+        </tr>
+        <tr>
+            <td align="left"></td>
+            <td align="right">Vægt</td>
+            <td align="left">XXXX g</td>
+        </tr>
+        <tr>
+            <td align="left"></td>
+            <td align="right">Dimensioner</td>
+            <td align="left">XXxYYxZZ</td>
+        </tr>
+        <tr>
+            <td align="left"></td>
+            <td align="right">Fragttype</td>
+            <td align="left">[Fragttype(r)]</td>
+        </tr>
+        <tr>
+            <td bgcolor="silver" colspan="9"></td>
+        </tr>
+    </table>
+    <table border="0" cellpadding="2" width="85%">
 
-            <tr>
-                <td><b>Hurtigste rute</b></td>
-                <td></td>
-                <td></td>
-                <td><b>Transporttype</b></td>
-                <td><b>Fra</b></td>
-                <td><b>Til</b></td>
-                <td align="right"><b>Step Tid</b></td>
-                <td align="right"><b>Step Pris</b></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>Telstar: Lastbil</td>
-                <td>Tanger</td>
-                <td>Bumleby</td>
-                <td align="right">01:54</td>
-                <td align="right">21 $</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>Oceanic: Fly</td>
-                <td>Bumleby</td>
-                <td>Kapstaden</td>
-                <td align="right">04:13</td>
-                <td align="right">44 $</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td colspan="9" align="center">
-                    <button style="background-color:cornflowerblue" class="btn btn-default" value="Find rute" ng-click="visRute()">
-                <span><font size="4" face="Garamond">Gem denne rute</font></span>
-            </button>
+        <tr>
+            <td><b>Hurtigste rute</b></td>
+            <td></td>
+            <td></td>
+            <td><b>Transporttype</b></td>
+            <td><b>Fra</b></td>
+            <td><b>Til</b></td>
+            <td align="right"><b>Step Tid</b></td>
+            <td align="right"><b>Step Pris</b></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Telstar: Lastbil</td>
+            <td>Tanger</td>
+            <td>Bumleby</td>
+            <td align="right">01:54</td>
+            <td align="right">21 $</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Oceanic: Fly</td>
+            <td>Bumleby</td>
+            <td>Kapstaden</td>
+            <td align="right">04:13</td>
+            <td align="right">44 $</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="9" align="center">
+                <button style="background-color: cornflowerblue" class="btn btn-default" value="Find rute" ng-click="visRute()">
+                    <span><font size="4" face="Garamond">Gem denne rute</font></span>
+                </button>
 
-                </td>
-            </tr>
-            <tr>
-                <td bgcolor="silver" colspan="9"></td>
-            </tr>
+            </td>
+        </tr>
+        <tr>
+            <td bgcolor="silver" colspan="9"></td>
+        </tr>
 
-            <tr>
-                <td><b>Billigste rute</b></td>
-                <td></td>
-                <td></td>
-                <td><b>Transporttype</b></td>
-                <td><b>Fra</b></td>
-                <td><b>Til</b></td>
-                <td align="right"><b>Step Tid</b></td>
-                <td align="right"><b>Step Pris</b></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>Telstar: Lastbil</td>
-                <td>Tanger</td>
-                <td>Bumleby</td>
-                <td align="right">01:54</td>
-                <td align="right">21 $</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>Oceanic: Fly</td>
-                <td>Bumleby</td>
-                <td>Kapstaden</td>
-                <td align="right">04:13</td>
-                <td align="right">44 $</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td colspan="9" align="center">
-                    <button style="background-color:cornflowerblue" class="btn btn-default" value="Find rute" ng-click="visRute()">
-                <span><font size="4" face="Garamond">Gem denne rute</font></span>
-            </button>
+        <tr>
+            <td><b>Billigste rute</b></td>
+            <td></td>
+            <td></td>
+            <td><b>Transporttype</b></td>
+            <td><b>Fra</b></td>
+            <td><b>Til</b></td>
+            <td align="right"><b>Step Tid</b></td>
+            <td align="right"><b>Step Pris</b></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Telstar: Lastbil</td>
+            <td>Tanger</td>
+            <td>Bumleby</td>
+            <td align="right">01:54</td>
+            <td align="right">21 $</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Oceanic: Fly</td>
+            <td>Bumleby</td>
+            <td>Kapstaden</td>
+            <td align="right">04:13</td>
+            <td align="right">44 $</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="9" align="center">
+                <button style="background-color: cornflowerblue" class="btn btn-default" value="Find rute" ng-click="visRute()">
+                    <span><font size="4" face="Garamond">Gem denne rute</font></span>
+                </button>
 
-                </td>
-            </tr>
-            <tr>
-                <td bgcolor="silver" colspan="9"></td>
-            </tr>
+            </td>
+        </tr>
+        <tr>
+            <td bgcolor="silver" colspan="9"></td>
+        </tr>
 
-
-        </table>
-    </div>
-</body>
-</html>
+    </table>
+</div>
