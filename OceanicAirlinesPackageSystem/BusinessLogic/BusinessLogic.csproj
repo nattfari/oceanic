@@ -54,10 +54,10 @@
     <Compile Include="Data\by.cs">
       <DependentUpon>OceanicDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\byer.cs">
+    <Compile Include="Data\forsendelse.cs">
       <DependentUpon>OceanicDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\forsendelse.cs">
+    <Compile Include="Data\forsendelsesRute.cs">
       <DependentUpon>OceanicDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\lufthavn.cs">

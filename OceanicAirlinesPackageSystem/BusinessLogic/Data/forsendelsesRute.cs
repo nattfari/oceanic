@@ -15,12 +15,24 @@ namespace BusinessLogic.Data
 using System;
     using System.Collections.Generic;
     
-public partial class byer
+public partial class forsendelsesRute
 {
 
-    public int ID { get; set; }
+    public long Id { get; set; }
 
-    public string Navn { get; set; }
+    public Nullable<long> ForsendelsesId { get; set; }
+
+    public Nullable<long> StartBy { get; set; }
+
+    public Nullable<long> SlutBy { get; set; }
+
+    public long Price { get; set; }
+
+    public int TransportTime { get; set; }
+
+
+
+    public virtual forsendelse forsendelse { get; set; }
 
 }
 

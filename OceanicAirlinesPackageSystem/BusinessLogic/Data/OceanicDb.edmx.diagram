@@ -5,14 +5,15 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="e093e68ee8f44d1899ed39fb0e2215b3" Name="Diagram1" ZoomLevel="47" >
-        <EntityTypeShape EntityType="OA_DBModel.byer" Width="1.5" PointX="10.507140469973507" PointY="16.979156293430904" />
-        <EntityTypeShape EntityType="OA_DBModel.by" Width="1.5" PointX="1.6221442062510849" PointY="14.076476491091995" />
-        <EntityTypeShape EntityType="OA_DBModel.lufthavn" Width="1.5" PointX="5.7776099675230732" PointY="4.380711453212756" />
-        <EntityTypeShape EntityType="OA_DBModel.forsendelse" Width="1.5" PointX="4.880186634548096" PointY="21.684349174464284" />
-        <EntityTypeShape EntityType="OA_DBModel.packetType" Width="1.5" PointX="4.2840304040741319" PointY="26.891991314893584" />
-        <EntityTypeShape EntityType="OA_DBModel.pakke" Width="1.5" PointX="1.5662421312025945" PointY="31.444554745892322" />
-        <EntityTypeShape EntityType="OA_DBModel.rute" Width="1.5" PointX="8.0017325356610733" PointY="5.43069979801341" />
-        <EntityTypeShape EntityType="OA_DBModel.users" Width="1.5" PointX="4.7480385940279994" PointY="30.571685298612195" />
+        <EntityTypeShape EntityType="OA_DBModel.by" Width="1.5" PointX="0.52238648595399528" PointY="8.4245739618430733" />
+        <EntityTypeShape EntityType="OA_DBModel.forsendelse" Width="1.5" PointX="10.131197857731578" PointY="0.83375793734274706" />
+        <EntityTypeShape EntityType="OA_DBModel.forsendelsesRute" Width="1.5" PointX="2.0410143388626234" PointY="0.52552343929443668" />
+        <EntityTypeShape EntityType="OA_DBModel.lufthavn" Width="1.5" PointX="10.596828521507247" PointY="27.446213913823577" />
+        <EntityTypeShape EntityType="OA_DBModel.packetType" Width="1.5" PointX="1.3408516539916637" PointY="23.518141563757389" />
+        <EntityTypeShape EntityType="OA_DBModel.pakke" Width="1.5" PointX="6.8222421625732634" PointY="19.911475235555077" />
+        <EntityTypeShape EntityType="OA_DBModel.rute" Width="1.5" PointX="8.54300773541583" PointY="15.791509337626168" />
+        <EntityTypeShape EntityType="OA_DBModel.users" Width="1.5" PointX="5.0402225856856546" PointY="3.3593298957493762" />
+        <AssociationConnector Association="OA_DBModel.FK__forsendel__Forse__236943A5" />
         <AssociationConnector Association="OA_DBModel.FK__forsendel__Pakke__1DB06A4F" />
         <AssociationConnector Association="OA_DBModel.FK__pakke__Type__19DFD96B" />
         <AssociationConnector Association="OA_DBModel.FK__pakke__Sender__1AD3FDA4" />

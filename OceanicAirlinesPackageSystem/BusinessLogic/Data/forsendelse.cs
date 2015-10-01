@@ -18,6 +18,14 @@ using System;
 public partial class forsendelse
 {
 
+    public forsendelse()
+    {
+
+        this.forsendelsesRute = new HashSet<forsendelsesRute>();
+
+    }
+
+
     public long Id { get; set; }
 
     public Nullable<long> PakkeId { get; set; }
@@ -29,6 +37,8 @@ public partial class forsendelse
     public System.DateTime AfsendelsesDato { get; set; }
 
 
+
+    public virtual ICollection<forsendelsesRute> forsendelsesRute { get; set; }
 
     public virtual pakke pakke { get; set; }
 
