@@ -53,7 +53,7 @@ namespace WebHost.Controllers
             string measurements,
             int? weight, 
             string requirements,
-            string types)
+            string types = null)
         {
             
             // TODO: Replace dummy data with our own routes from route
