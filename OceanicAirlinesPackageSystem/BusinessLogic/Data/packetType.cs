@@ -15,22 +15,24 @@ namespace BusinessLogic.Data
 using System;
     using System.Collections.Generic;
     
-public partial class lufthavn
+public partial class packetType
 {
+
+    public packetType()
+    {
+
+        this.pakke = new HashSet<pakke>();
+
+    }
+
 
     public long Id { get; set; }
 
-    public string Navn { get; set; }
+    public string type { get; set; }
 
-    public bool Aktiv { get; set; }
 
-    public long ById { get; set; }
 
-    public string Name { get; set; }
-
-    public bool Active { get; set; }
-
-    public long CityId { get; set; }
+    public virtual ICollection<pakke> pakke { get; set; }
 
 }
 

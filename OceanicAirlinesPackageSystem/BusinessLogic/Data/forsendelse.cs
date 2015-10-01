@@ -15,22 +15,22 @@ namespace BusinessLogic.Data
 using System;
     using System.Collections.Generic;
     
-public partial class lufthavn
+public partial class forsendelse
 {
 
     public long Id { get; set; }
 
-    public string Navn { get; set; }
+    public Nullable<long> PakkeId { get; set; }
 
-    public bool Aktiv { get; set; }
+    public Nullable<long> StartBy { get; set; }
 
-    public long ById { get; set; }
+    public Nullable<long> SlutBy { get; set; }
 
-    public string Name { get; set; }
+    public System.DateTime AfsendelsesDato { get; set; }
 
-    public bool Active { get; set; }
 
-    public long CityId { get; set; }
+
+    public virtual pakke pakke { get; set; }
 
 }
 
