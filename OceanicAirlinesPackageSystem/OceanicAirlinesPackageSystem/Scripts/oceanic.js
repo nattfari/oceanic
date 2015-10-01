@@ -22,23 +22,23 @@ app.config(['$routeProvider',
     function ($routeProvider) {
         $routeProvider.
             when('/Forside', {
-                templateUrl: 'views/forside.html',
+                templateUrl: 'Scripts/templates/forside.html',
                 controller: 'ForsideController'
             }).
             when('/FindRute', {
-                templateUrl: 'views/FindRute.html',
+                templateUrl: 'Scripts/templates/FindRute.html',
                 controller: 'FindRuteController'
             }).
             when('/Ruteoversigt', {
-                templateUrl: 'views/ruteoversigt.html',
+                templateUrl: 'Scripts/templates/ruteoversigt.html',
                 controller: 'RuteoversigtController'
             }).
             when('/Priser', {
-                templateUrl: 'views/priser.html',
+                templateUrl: 'Scripts/templates/priser.html',
                 controller: 'PriserController'
             }).
             when('/Administration', {
-                templateUrl: 'views/administration.html',
+                templateUrl: 'Scripts/templates/administration.html',
                 controller: 'AdministrationController'
             }).
             otherwise({
