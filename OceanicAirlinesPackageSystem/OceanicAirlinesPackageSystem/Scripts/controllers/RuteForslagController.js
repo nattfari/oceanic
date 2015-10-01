@@ -1,4 +1,4 @@
-﻿angular.module('Oceanic').controller('FindForslagController', [
+﻿angular.module('Oceanic').controller('RuteforslagController', [
     '$scope', function ($scope) {
 
     }
