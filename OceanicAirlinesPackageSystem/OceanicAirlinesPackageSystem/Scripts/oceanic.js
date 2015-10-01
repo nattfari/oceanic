@@ -1,4 +1,4 @@
-﻿var app = angular.module('Oceanic', ['ui.bootstrap']);
+﻿var app = angular.module('Oceanic', ['ui.bootstrap', 'ngRoute']);
 
 app.controller('OceanicController', ['$scope',
     function ($scope) {
@@ -20,6 +20,29 @@ app.controller('OceanicController', ['$scope',
 
 app.config(['$routeProvider',
     function ($routeProvider) {
-        $routeProvider.when('')
+        $routeProvider.
+            when('/Forside', {
+                templateUrl: 'Scripts/templates/forside.html',
+                controller: 'ForsideController'
+            }).
+            when('/FindRute', {
+                templateUrl: 'Scripts/templates/FindRute.html',
+                controller: 'FindRuteController'
+            }).
+            when('/Ruteoversigt', {
+                templateUrl: 'Scripts/templates/ruteoversigt.html',
+                controller: 'RuteoversigtController'
+            }).
+            when('/Priser', {
+                templateUrl: 'Scripts/templates/priser.html',
+                controller: 'PriserController'
+            }).
+            when('/Administration', {
+                templateUrl: 'Scripts/templates/administration.html',
+                controller: 'AdministrationController'
+            }).
+            otherwise({
+                redirectTo: '/Forside'
+            });
     }
 ]);
