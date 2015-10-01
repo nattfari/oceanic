@@ -158,6 +158,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ApiController.cs" />
     <Compile Include="DataContracts\DTOs\CityDTO.cs" />
+    <Compile Include="DataContracts\DTOs\RuteRequest.cs" />
     <Compile Include="DataContracts\GetCitiesContract.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -200,6 +201,7 @@
     <Content Include="Scripts\controllers\FindRuteController.js" />
     <Content Include="Scripts\controllers\ForsideController.js" />
     <Content Include="Scripts\controllers\PriserController.js" />
+    <Content Include="Scripts\controllers\RuteForslagController.js" />
     <Content Include="Scripts\controllers\RuteoversigtController.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -207,6 +209,7 @@
     <Content Include="Scripts\oceanic.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\services\apiModule.js" />
     <Content Include="Scripts\templates\administration.html" />
     <Content Include="Scripts\templates\FindRute.html" />
     <Content Include="Scripts\templates\forside.html" />

@@ -15,7 +15,7 @@ namespace BusinessLogic.Data
     public partial class by
     {
         public long Id { get; set; }
-        public long ById { get; set; }
-        public string Navn { get; set; }
+        public long CityId { get; set; }
+        public string Name { get; set; }
     }
 }
