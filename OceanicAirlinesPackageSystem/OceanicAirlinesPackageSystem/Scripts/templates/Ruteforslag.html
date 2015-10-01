@@ -1,5 +1,5 @@
 ﻿<div class="container-fluid" align="center">
-    <table border="1" cellpadding="2" width="85%">
+    <table border="1" cellpadding="2" width="85%" style="margin-bottom: 30px">
         <tr>
             <td align="center"><font size="6" face="Garamond">Ruteforslag</font></td>
         </tr>
@@ -8,27 +8,62 @@
         <tr>
             <td align="left"><b>Dine valg</b></td>
             <td align="right">Fra</td>
-            <td>Tanger</td>
+            <td align="left">
+                <input type="text" style="background-color: transparent; border-style:solid; border-width: 0px 0px 1px 0px; border-color: black" ng-model="FraBy" disabled/>
+            </td>
         </tr>
         <tr>
             <td align="left"></td>
             <td align="right">Til</td>
-            <td align="left">Kapstaden</td>
+            <td align="left">
+                <input type="text" style="background-color: transparent; border-style:solid; border-width: 0px 0px 1px 0px; border-color: black" ng-model="TilBy" disabled/>
+            </td>
         </tr>
         <tr>
             <td align="left"></td>
             <td align="right">Vægt</td>
-            <td align="left">XXXX g</td>
+            <td align="left">
+                <input type="text" style="background-color: transparent; border-style:solid; border-width: 0px 0px 1px 0px; border-color: black" ng-model="Vaegt" disabled/>
+            </td>
         </tr>
         <tr>
             <td align="left"></td>
             <td align="right">Dimensioner</td>
-            <td align="left">XXxYYxZZ</td>
+            <td align="left">
+                <input type="text" style="background-color: transparent; border-style:solid; border-width: 0px 0px 1px 0px; border-color: black" ng-model="Dimensioner" disabled/>
+            </td>
+        </tr>
+        <tr>
+            <td align="left"><b>Fragttype</b></td>
+            <td align="right">Levende dyr:</td>
+            <td align="left">
+                <input type="checkbox" ng-model="LevendeDyr" disabled>
+            </td>
         </tr>
         <tr>
             <td align="left"></td>
-            <td align="right">Fragttype</td>
-            <td align="left">[Fragttype(r)]</td>
+            <td align="right">Kølevare:</td>
+            <td align="left">
+                <input type="checkbox" ng-model="Koelevare" disabled></td>
+        </tr>
+        <tr>
+            <td align="left"></td>
+            <td align="right">Anbefalet:</td>
+            <td align="left">
+                <input type="checkbox" ng-model="Anbefalet" disabled>
+            </td>
+        </tr>
+        <tr>
+            <td align="left"></td>
+            <td align="right">Våben:</td>
+            <td align="left">
+                <input type="checkbox" ng-model="Vaaben" disabled></td>
+        </tr>
+        <tr>
+            <td align="left"></td>
+            <td align="right">Forsigtig:</td>
+            <td align="left">
+                <input type="checkbox" ng-model="Forsigtig" disabled></td>
         </tr>
         <tr>
             <td bgcolor="silver" colspan="9"></td>

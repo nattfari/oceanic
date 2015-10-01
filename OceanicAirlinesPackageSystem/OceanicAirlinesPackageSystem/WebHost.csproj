@@ -167,6 +167,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ExternalApiController.cs" />
     <Compile Include="Controllers\RuteApiController.cs" />
+    <Compile Include="DataContracts\DTOs\AdministrationDTO.cs" />
     <Compile Include="DataContracts\DTOs\CityDTO.cs" />
     <Compile Include="DataContracts\DTOs\RouteDTO.cs" />
     <Compile Include="DataContracts\DTOs\RuteRequest.cs" />
@@ -187,6 +188,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="img\logo.gif" />
+    <Content Include="img\oceanic_airlines_wallpaper_by_audoman2607.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
