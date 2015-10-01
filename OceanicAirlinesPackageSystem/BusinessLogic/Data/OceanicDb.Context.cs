@@ -27,11 +27,12 @@ namespace BusinessLogic.Data
     
         public DbSet<by> by { get; set; }
         public DbSet<forsendelse> forsendelse { get; set; }
+        public DbSet<forsendelsesRute> forsendelsesRute { get; set; }
         public DbSet<lufthavn> lufthavn { get; set; }
         public DbSet<packetType> packetType { get; set; }
         public DbSet<pakke> pakke { get; set; }
         public DbSet<rute> rute { get; set; }
         public DbSet<users> users { get; set; }
-        public DbSet<forsendelsesRute> forsendelsesRute { get; set; }
+        public DbSet<transportType> transportType { get; set; }
     }
 }
