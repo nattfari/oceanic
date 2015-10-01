@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using AutoMapper;
+using BusinessLogic.Data;
 using BusinessLogic.Managers;
 using WebHost.DataContracts.DTOs;
 
@@ -17,7 +18,10 @@ namespace WebHost.Configuration
 
         protected override void Configure()
         {
-            Mapper.CreateMap<CalculationManager.Node, RuteResponseDTO>();
+            Mapper.CreateMap<CalculationManager.Node, RuteResponseDTO>().ConvertUsing<RuteResponseResolver>();
+
+            Mapper.CreateMap<@by, CityDTO>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id));
         }
     }
 }

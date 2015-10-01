@@ -16,7 +16,6 @@
         <AssociationConnector Association="OA_DBModel.FK__pakke__Sender__1AD3FDA4" />
         <EntityTypeShape EntityType="OA_DBModel.forsendelsesRute" Width="1.5" PointX="10.25" PointY="19.625" />
         <AssociationConnector Association="OA_DBModel.FK__forsendel__Forse__236943A5" />
-        <AssociationConnector Association="OA_DBModel.FK__pakke__Sender__1AD3FDA4" />
       </Diagram>
         <EntityTypeShape EntityType="OA_DBModel.transportType" Width="1.5" PointX="1.4779001853791531" PointY="18.277936422395491" />
         <EntityTypeShape EntityType="OA_DBModel.pakkeDimintioner" Width="1.5" PointX="11.992429263886265" PointY="1.6989262260957279" />

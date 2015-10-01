@@ -8,12 +8,16 @@ using WebHost.DataContracts.DTOs;
 
 namespace WebHost.Configuration
 {
-    public class RuteResponseResolver : ValueResolver<CalculationManager.Node, RuteResponseDTO>
-    {
-        protected override RuteResponseDTO ResolveCore(CalculationManager.Node source)
+    public class RuteResponseResolver : ITypeConverter<CalculationManager.Node, RuteResponseDTO>
+    {        
+        public RuteResponseDTO Convert(ResolutionContext context)
         {
-            var result = new RuteResponseDTO();
+            if (context == null || context.IsSourceValueNull)
+                return null;
 
+            CalculationManager.Node rute = (CalculationManager.Node) context.SourceValue;
+
+            var result = new RuteResponseDTO();
             return result;
         }
     }
