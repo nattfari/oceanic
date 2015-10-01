@@ -13,8 +13,9 @@
           <EntitySet Name="packetType" EntityType="OA_DBModel.Store.packetType" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="pakke" EntityType="OA_DBModel.Store.pakke" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="rute" EntityType="OA_DBModel.Store.rute" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="transportType" EntityType="OA_DBModel.Store.transportType" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="users" EntityType="OA_DBModel.Store.users" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK__forsendel__Forse__236943A5" Association="OA_DBModel.Store.FK__forsendel__Forse__236943A5">
+          <AssociationSet Name="FK__forsendel__Forse__2BFE89A6" Association="OA_DBModel.Store.FK__forsendel__Forse__2BFE89A6">
             <End Role="forsendelse" EntitySet="forsendelse" />
             <End Role="forsendelsesRute" EntitySet="forsendelsesRute" />
           </AssociationSet>
@@ -33,9 +34,9 @@
         </EntityContainer>
         <!--Errors Found During Generation:
       warning 6035: The relationship 'FK__forsendel__SlutB__1F98B2C1' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-      warning 6035: The relationship 'FK__forsendel__SlutB__25518C17' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+      warning 6035: The relationship 'FK__forsendel__SlutB__2DE6D218' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
       warning 6035: The relationship 'FK__forsendel__Start__1EA48E88' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-      warning 6035: The relationship 'FK__forsendel__Start__245D67DE' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+      warning 6035: The relationship 'FK__forsendel__Start__2CF2ADDF' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
       warning 6035: The relationship 'FK__lufthavn__CityId__70DDC3D8' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
       warning 6035: The relationship 'FK__rute__EndCity__787EE5A0' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
       warning 6035: The relationship 'FK__rute__StartCity__778AC167' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
@@ -68,6 +69,7 @@
           <Property Name="SlutBy" Type="bigint" />
           <Property Name="Price" Type="bigint" Nullable="false" />
           <Property Name="TransportTime" Type="int" Nullable="false" />
+          <Property Name="TransportType" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="lufthavn">
           <Key>
@@ -108,13 +110,23 @@
           <Property Name="StartCity" Type="bigint" Nullable="false" />
           <Property Name="EndCity" Type="bigint" Nullable="false" />
         </EntityType>
+        <EntityType Name="transportType">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="TransportType" />
+            <PropertyRef Name="Company" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TransportType" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Company" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
         <EntityType Name="users">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
-        <Association Name="FK__forsendel__Forse__236943A5">
+        <Association Name="FK__forsendel__Forse__2BFE89A6">
           <End Role="forsendelse" Type="OA_DBModel.Store.forsendelse" Multiplicity="0..1" />
           <End Role="forsendelsesRute" Type="OA_DBModel.Store.forsendelsesRute" Multiplicity="*" />
           <ReferentialConstraint>
@@ -191,6 +203,7 @@
             <End Role="users" EntitySet="users" />
             <End Role="pakke" EntitySet="pakke" />
           </AssociationSet>
+          <EntitySet Name="transportType" EntityType="OA_DBModel.transportType" />
         </EntityContainer>
         <EntityType Name="by">
           <Key>
@@ -223,6 +236,7 @@
           <Property Type="Int64" Name="Price" Nullable="false" />
           <Property Type="Int32" Name="TransportTime" Nullable="false" />
           <NavigationProperty Name="forsendelse" Relationship="OA_DBModel.FK__forsendel__Forse__236943A5" FromRole="forsendelsesRute" ToRole="forsendelse" />
+          <Property Type="Int32" Name="TransportType" Nullable="false" />
         </EntityType>
         <EntityType Name="lufthavn">
           <Key>
@@ -322,6 +336,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="transportType">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="TransportType1" />
+            <PropertyRef Name="Company" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="TransportType1" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Company" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -351,6 +375,7 @@
           <EntitySetMapping Name="forsendelsesRute">
             <EntityTypeMapping TypeName="OA_DBModel.forsendelsesRute">
               <MappingFragment StoreEntitySet="forsendelsesRute">
+                <ScalarProperty Name="TransportType" ColumnName="TransportType" />
                 <ScalarProperty Name="TransportTime" ColumnName="TransportTime" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="SlutBy" ColumnName="SlutBy" />
@@ -404,6 +429,15 @@
           <EntitySetMapping Name="users">
             <EntityTypeMapping TypeName="OA_DBModel.users">
               <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="transportType">
+            <EntityTypeMapping TypeName="OA_DBModel.transportType">
+              <MappingFragment StoreEntitySet="transportType">
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="TransportType1" ColumnName="TransportType" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
