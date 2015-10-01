@@ -19,9 +19,18 @@ namespace BusinessLogic.Managers
             public double Weight;
         }
 
-        public double BeregnPris(int length, int width , int height)
+        public double BeregnPris(pakke sendtPakke)
         {
-            return 11;
+            var typer = FindType(sendtPakke.SizeDepth, sendtPakke.SizeHight, sendtPakke.SizeWidth);
+            var priser = DataManager.HentPakkePriser();
+            var pris =
+                priser.FindAll(
+                    p =>
+                        typer.Contains(p.DimentionsNavn) && p.FromWeight <= sendtPakke.Weight &&
+                        sendtPakke.Weight <= p.ToWeight).Select(t => t.Price).ToList();
+            pris.Sort();
+
+            return pris.First();
         }
 
         public class Node : PriorityQueueNode
@@ -32,7 +41,6 @@ namespace BusinessLogic.Managers
             public List<Edge> Ruter = new List<Edge>();
         }
 
-        DataManager dataManager = new DataManager();
         public CalculationManager() { }
         private enum Politik
         {
@@ -40,7 +48,7 @@ namespace BusinessLogic.Managers
             Tid
         };
 
-        private void GetRoutes(Node node, Politik politik)
+        private void GetRoutes(Node node, Politik politik, pakke sendtPakke)
         {
             if (node.Ruter != null && node.Ruter.Any())
                 return;
@@ -60,7 +68,7 @@ namespace BusinessLogic.Managers
                         From = nodes.FirstOrDefault(p => p.By.CityId == r.Rute.StartCity),
                         To = nodes.FirstOrDefault(p => p.By.CityId == r.Rute.EndCity),
                         Route = r,
-                        Weight = politik == Politik.Pris ? BeregnPris(11, 1, 1) : r.Rute.Time
+                        Weight = politik == Politik.Pris ? BeregnPris(sendtPakke) : r.Rute.Time
             }).ToList();
 
             ruter.AddRange(ownRoutes);
@@ -93,7 +101,8 @@ namespace BusinessLogic.Managers
         private List<Node> nodes; 
         private List<IExternalServicesApi> externalServicesApis;
 
-        public Node CalculateRouteTime(by source, by target, List<IExternalServicesApi> externalServicesApis)
+        public Node CalculateRouteWeight(by source, by target, List<IExternalServicesApi> externalServicesApis,
+            pakke sendtPakke)
         {
             this.externalServicesApis = externalServicesApis;
             byliste = DataManager.HentByer().ToList();
@@ -104,7 +113,22 @@ namespace BusinessLogic.Managers
 
             byliste.RemoveAll(p => p == null);
 
-            var result = Dijstra(source, target, Politik.Tid);
+            var result = Dijstra(source, target, Politik.Pris, sendtPakke);
+            return result;
+        }
+
+        public Node CalculateRouteTime(by source, by target, List<IExternalServicesApi> externalServicesApis, pakke sendtPakke)
+        {
+            this.externalServicesApis = externalServicesApis;
+            byliste = DataManager.HentByer().ToList();
+            foreach (var externalServicesApi in externalServicesApis)
+            {
+                byliste.AddRange(externalServicesApi.GetCities().Select(e => byliste.FirstOrDefault(p => p.CityId == e.CityId) == null ? e : null));
+            }
+
+            byliste.RemoveAll(p => p == null);
+
+            var result = Dijstra(source, target, Politik.Tid, sendtPakke);
             return result;
         }
 
@@ -120,7 +144,7 @@ namespace BusinessLogic.Managers
             return from.Ruter.FirstOrDefault(p => p.From == from && p.To == to).Weight;
         }
 
-        private Node Dijstra(by source, by target, Politik politik)
+        private Node Dijstra(by source, by target, Politik politik, pakke sendtPakke)
         {
             var queue = new HeapPriorityQueue<Node>(byliste.Count * 2);
             nodes = new List<Node>();
@@ -149,7 +173,7 @@ namespace BusinessLogic.Managers
                 if (node == targetBy && node.Distance != double.MaxValue)
                     return node;
 
-                GetRoutes(node, politik);
+                GetRoutes(node, politik, sendtPakke);
 
                 foreach (var neighbour in getNeighbourghNodes(node, queue))
                 {
@@ -168,11 +192,23 @@ namespace BusinessLogic.Managers
             return null;
         }
 
-        public IEnumerable<string> FindType(int x, int y, int z)
+        private IEnumerable<string> FindType(int x, int y, int z)
         {
-            var result = new List<string>();
-            var sizes = new List<int> {1, 23,};
-            return result;
+            var size = DataManager.HentPakkeDimensioner();
+            foreach (var pakkeDimintioner in size)
+            {
+                var sortme = new List<int>(3) {pakkeDimintioner.Height, pakkeDimintioner.Width, pakkeDimintioner.Depth};
+                sortme.Sort();
+                pakkeDimintioner.Height = sortme[0];
+                pakkeDimintioner.Width = sortme[1];
+                pakkeDimintioner.Depth = sortme[2];
+            }
+
+            var sizes = new List<int>(3) {x, y, z};
+            sizes.Sort();
+            var result = size.FindAll(p => p.Height >= sizes[0] && p.Width >= sizes[1] && p.Depth >= sizes[2]);
+            
+            return result.ConvertAll(input => input.Name);
         }
     }
 }
