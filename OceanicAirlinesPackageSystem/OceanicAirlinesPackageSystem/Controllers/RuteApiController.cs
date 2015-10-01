@@ -26,17 +26,14 @@ namespace WebHost.Controllers
 
             OADbContext ctx = new OADbContext();
             var rute = new CalculationManager.Node();
-
+            var dimension = ctx.pakkeDimintioner.SingleOrDefault(x => x.Name == ruteRequest.DimensionsType);
+            
             var fraBy = ctx.by.SingleOrDefault(x => x.Name == ruteRequest.FraBy);
             var tilBy = ctx.by.SingleOrDefault(x => x.Name == ruteRequest.TilBy);
-
+            
             if(fraBy != null && tilBy != null) {
                 RouteManager routeManager = new RouteManager(externalServices);
-                CalculationManager calculationManager = new CalculationManager();
-
                 rute = routeManager.CalculateRouteTime(fraBy, tilBy, 25, 25, 25, 1000);
-                
-                //rute = calculationManager.CalculateRouteTime(fraBy, tilBy, externalServices.ToList());
             }
 
             ctx.Dispose();
