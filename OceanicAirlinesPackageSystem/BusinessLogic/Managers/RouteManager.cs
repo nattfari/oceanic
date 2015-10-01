@@ -10,6 +10,7 @@ namespace BusinessLogic.Managers
         public RouteManager(IList<IExternalApi> externalApis)
         {
             _externalApis = externalApis;
+            var CalcualationManager = new CalculationManager();
         }
     }
 }
