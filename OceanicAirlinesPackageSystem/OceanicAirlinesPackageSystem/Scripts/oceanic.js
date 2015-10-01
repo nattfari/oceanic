@@ -27,6 +27,17 @@
     }
 })
 
+.service('Parameters', function () {
+    this.params = {};
+    this.setParams = function(obj) {
+        this.params = obj;
+    };
+
+    this.getParams = function() {
+        return this.params;
+    }
+})
+
 .config(['$routeProvider',
     function ($routeProvider) {
         $routeProvider.
