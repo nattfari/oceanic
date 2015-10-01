@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,9 +22,17 @@ namespace BusinessLogic.Managers
         {
             using (var context = new OADbContext())
             {
-                return (from thing in context.rute
-                    where thing.StartCity == _by.CityId
-                    select thing).Select(r => new Route {Rute = r, TransportType = TransportType.Oceanic}).ToList();
+                return (from ruteObjekt in context.rute
+                    where ruteObjekt.StartCity == _by.CityId
+                    select ruteObjekt).Select(r => new Route {Rute = r, TransportType = TransportType.Oceanic}).ToList();
+            }
+        }
+
+        public static void AktiverBy(by by)
+        {
+            using (var context = new OADbContext())
+            {
+              //  context.by.AddOrUpdate();
             }
         }
     }

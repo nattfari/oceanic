@@ -15,9 +15,8 @@ namespace BusinessLogic.Managers
         {
             public Node From;
             public Node To;
-            public Route route;
-            public double Tid;
-            public double Pris;
+            public Route Route;
+            public double Weight;
         }
 
         public double BeregnPris(int length, int width , int height)
@@ -41,43 +40,49 @@ namespace BusinessLogic.Managers
             Tid
         };
 
-        private void GetRoutes(Node node)
+        private void GetRoutes(Node node, Politik politik)
         {
             if (node.Ruter != null && node.Ruter.Any())
                 return;
 
             var ruter = new List<Edge>();
 
-            foreach (var enemy in externalServicesApis)
+            foreach (var rute in externalServicesApis.Select(enemy => enemy.GetRoute(node.By)))
             {
-                var rute = enemy.GetRoute(node.By);
-                foreach (var route in rute)
+                ruter.AddRange(rute.Select(route => new Edge
                 {
-                    var edge = new Edge
-                    {
-                        From = nodes.FirstOrDefault(p => p.By.CityId == route.Rute.StartCity),
-                        To = nodes.FirstOrDefault(p => p.By.CityId == route.Rute.EndCity),
-                        Pris = route.Pris,
-                        Tid = route.Rute.Time,
-                        route = route
-                    };
-
-                    ruter.Add(edge);
-                }
+                    From = nodes.FirstOrDefault(p => p.By.CityId == route.Rute.StartCity), To = nodes.FirstOrDefault(p => p.By.CityId == route.Rute.EndCity), Weight = Politik.Pris == politik ? route.Pris : route.Rute.Time, Route = route
+                }));
             }
 
             var ownRoutes = DataManager.HentRuter(node.By).Select(r => new Edge
             {
                         From = nodes.FirstOrDefault(p => p.By.CityId == r.Rute.StartCity),
                         To = nodes.FirstOrDefault(p => p.By.CityId == r.Rute.EndCity),
-                        Pris = BeregnPris(11, 11, 11),
-                        Tid = r.Rute.Time,
-                        route = r
+                        Route = r,
+                        Weight = politik == Politik.Pris ? BeregnPris(11, 1, 1) : r.Rute.Time
             });
 
             ruter.AddRange(ownRoutes);
 
-            node.Ruter = ruter;
+            List<Edge> prunedList = new List<Edge>();
+            foreach (var outerRoute in ruter)
+            {
+                Boolean update = true;
+                double minWeight = outerRoute.Weight;
+                foreach (var innerRoute in ruter)
+                {
+                    if (update && outerRoute.From == innerRoute.From && outerRoute.To == innerRoute.To &&
+                        innerRoute.Weight < minWeight)
+                    {
+                        update = false;
+                    }
+                }
+                if (update)
+                    prunedList.Add(outerRoute);
+            }
+            
+            node.Ruter = prunedList;
         }
 
         private List<by> byliste;
@@ -90,8 +95,7 @@ namespace BusinessLogic.Managers
             byliste = DataManager.HentByer().ToList();
             foreach (var externalServicesApi in externalServicesApis)
             {
-                var q = externalServicesApi.GetCities();
-                byliste.AddRange(q);
+                byliste.AddRange(externalServicesApi.GetCities().Select(e => byliste.FirstOrDefault(p => p.CityId == e.CityId) == null ? e : null));
             }
 
             var result = Dijstra(source, target, Politik.Tid);
@@ -107,12 +111,7 @@ namespace BusinessLogic.Managers
 
         private double DistanceBetween(Node from, Node to, Politik politik)
         {
-            var node = from.Ruter.FirstOrDefault(p => p.From == from && p.To == to);
-
-            if (politik == Politik.Pris)
-                return node.Pris;
-
-            return node.Tid;
+            return from.Ruter.FirstOrDefault(p => p.From == from && p.To == to).Weight;
         }
 
         private Node Dijstra(by source, by target, Politik politik)
@@ -144,7 +143,7 @@ namespace BusinessLogic.Managers
                 if (node == targetBy)
                     return node;
 
-                GetRoutes(node);
+                GetRoutes(node, politik);
 
                 foreach (var neighbour in getNeighbourghNodes(node, queue))
                 {
