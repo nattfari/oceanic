@@ -167,6 +167,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ExternalApiController.cs" />
     <Compile Include="Controllers\RuteApiController.cs" />
+    <Compile Include="DataContracts\DTOs\AdministrationDTO.cs" />
     <Compile Include="DataContracts\DTOs\CityDTO.cs" />
     <Compile Include="DataContracts\DTOs\RouteDTO.cs" />
     <Compile Include="DataContracts\DTOs\RuteRequest.cs" />

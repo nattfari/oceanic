@@ -20,8 +20,8 @@
             console.log(Api.url);
         };
 
-
         $scope.fragtTyper = [{ id: "1", "name": "Våben" }, { id: "2", name: "Levende Dyr" }, { id: "3", name: "Forsigtig" }];
+
         $scope.valgteTyper = function(fragtType) {
             if (fragtType.markeret) {
                 $scope.rute.fragtTyper.push(fragtType.id);
