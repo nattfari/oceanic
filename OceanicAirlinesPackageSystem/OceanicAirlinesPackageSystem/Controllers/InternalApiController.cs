@@ -1,19 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Collections.Generic;
 using System.Web.Http;
-using BusinessLogic.ExternalInterfaces;
-using BusinessLogic.Managers;
-using ExternalServices;
 using WebHost.DataContracts;
 using WebHost.DataContracts.DTOs;
 
 namespace WebHost.Controllers
 {
-    public class InternalController : System.Web.Http.ApiController
+    public class InternalApiController : ApiController
     {
         [Route("internal/cities")]
         [HttpGet]
