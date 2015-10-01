@@ -99,9 +99,9 @@ namespace BusinessLogic.Managers
 
         private List<by> byliste;
         private List<Node> nodes; 
-        private List<IExternalServicesApi> externalServicesApis;
+        private IList<IExternalServicesApi> externalServicesApis;
 
-        public Node CalculateRouteWeight(by source, by target, List<IExternalServicesApi> externalServicesApis,
+        public Node CalculateRouteWeight(by source, by target, IList<IExternalServicesApi> externalServicesApis,
             pakke sendtPakke)
         {
             this.externalServicesApis = externalServicesApis;
@@ -117,7 +117,7 @@ namespace BusinessLogic.Managers
             return result;
         }
 
-        public Node CalculateRouteTime(by source, by target, List<IExternalServicesApi> externalServicesApis, pakke sendtPakke)
+        public Node CalculateRouteTime(by source, by target, IList<IExternalServicesApi> externalServicesApis, pakke sendtPakke)
         {
             this.externalServicesApis = externalServicesApis;
             byliste = DataManager.HentByer().ToList();
