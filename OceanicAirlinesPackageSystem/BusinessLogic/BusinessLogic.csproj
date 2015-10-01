@@ -61,9 +61,6 @@
     <Compile Include="Data\forsendelsesRute.cs">
       <DependentUpon>OceanicDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\lufthavn.cs">
-      <DependentUpon>OceanicDb.tt</DependentUpon>
-    </Compile>
     <Compile Include="Data\OceanicDb.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -85,8 +82,17 @@
     <Compile Include="Data\pakke.cs">
       <DependentUpon>OceanicDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\pakkeDimintioner.cs">
+      <DependentUpon>OceanicDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\pakkePris.cs">
+      <DependentUpon>OceanicDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\Route.cs" />
     <Compile Include="Data\rute.cs">
+      <DependentUpon>OceanicDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\transportType.cs">
       <DependentUpon>OceanicDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\users.cs">

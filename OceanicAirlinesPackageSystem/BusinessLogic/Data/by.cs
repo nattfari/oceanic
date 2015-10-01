@@ -17,5 +17,6 @@ namespace BusinessLogic.Data
         public long Id { get; set; }
         public long CityId { get; set; }
         public string Name { get; set; }
+        public bool Active { get; set; }
     }
 }

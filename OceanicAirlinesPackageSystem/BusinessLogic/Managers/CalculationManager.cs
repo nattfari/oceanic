@@ -15,8 +15,13 @@ namespace BusinessLogic.Managers
         {
             public Node From;
             public Node To;
-            public double Time;
-            public double Cost;
+            public Route Route;
+            public double Weight;
+        }
+
+        public double BeregnPris(int length, int width , int height)
+        {
+            return 11;
         }
 
         public class Node : PriorityQueueNode
@@ -35,47 +40,90 @@ namespace BusinessLogic.Managers
             Tid
         };
 
-        private void GetRoutes(Node node)
+        private void GetRoutes(Node node, Politik politik)
         {
-            if (node.Ruter != null)
+            if (node.Ruter != null && node.Ruter.Any())
                 return;
-            //Kald til hent ruter, og lav en liste med ruter, som gemmes!
+
+            var ruter = new List<Edge>();
+
+            foreach (var rute in externalServicesApis.Select(enemy => enemy.GetRoute(node.By)))
+            {
+                ruter.AddRange(rute.Select(route => new Edge
+                {
+                    From = nodes.FirstOrDefault(p => p.By.CityId == route.Rute.StartCity), To = nodes.FirstOrDefault(p => p.By.CityId == route.Rute.EndCity), Weight = Politik.Pris == politik ? route.Pris : route.Rute.Time, Route = route
+                }));
+            }
+
+            var ownRoutes = DataManager.HentRuter(node.By).Select(r => new Edge
+            {
+                        From = nodes.FirstOrDefault(p => p.By.CityId == r.Rute.StartCity),
+                        To = nodes.FirstOrDefault(p => p.By.CityId == r.Rute.EndCity),
+                        Route = r,
+                        Weight = politik == Politik.Pris ? BeregnPris(11, 1, 1) : r.Rute.Time
+            }).ToList();
+
+            ruter.AddRange(ownRoutes);
+
+            List<Edge> prunedList = new List<Edge>();
+            foreach (var outerRoute in ruter)
+            {
+                if (outerRoute.From.By.CityId != node.By.CityId)
+                {
+                    continue;
+                }
+                Boolean update = true;
+                double minWeight = outerRoute.Weight;
+                foreach (var innerRoute in ruter)
+                {
+                    if (update && outerRoute.From == innerRoute.From && outerRoute.To == innerRoute.To &&
+                        innerRoute.Weight < minWeight)
+                    {
+                        update = false;
+                    }
+                }
+                if (update)
+                    prunedList.Add(outerRoute);
+            }
+            
+            node.Ruter = prunedList;
         }
 
         private List<by> byliste;
+        private List<Node> nodes; 
+        private List<IExternalServicesApi> externalServicesApis;
 
-        public void CalculateRouteTime(by source, by target, List<IExternalServicesApi> externalServicesApis)
+        public Node CalculateRouteTime(by source, by target, List<IExternalServicesApi> externalServicesApis)
         {
+            this.externalServicesApis = externalServicesApis;
             byliste = DataManager.HentByer().ToList();
             foreach (var externalServicesApi in externalServicesApis)
             {
-                var q = externalServicesApi.GetCities();
+                byliste.AddRange(externalServicesApi.GetCities().Select(e => byliste.FirstOrDefault(p => p.CityId == e.CityId) == null ? e : null));
             }
-            byliste.Add(source);
-            byliste.Add(target);
-            Dijstra(source, target, Politik.Tid);
-            return;
+
+            byliste.RemoveAll(p => p == null);
+
+            var result = Dijstra(source, target, Politik.Tid);
+            return result;
         }
 
         private IList<Node> getNeighbourghNodes(Node source, HeapPriorityQueue<Node> queue)
         {
-            List<Node> nodes = source.Ruter.ConvertAll(input => input.To);
+            List<Node> nodeList = source.Ruter.ConvertAll(input => input.To);
 
-            return nodes;
+            return nodeList;
         }
 
         private double DistanceBetween(Node from, Node to, Politik politik)
         {
-            var node = from.Ruter.FirstOrDefault(p => p.From == from && p.To == to);
-
-            if (politik == Politik.Pris)
-                return node.Cost;
-            return node.Time;
+            return from.Ruter.FirstOrDefault(p => p.From == from && p.To == to).Weight;
         }
 
         private Node Dijstra(by source, by target, Politik politik)
         {
-            var queue = new HeapPriorityQueue<Node>(byliste.Count);
+            var queue = new HeapPriorityQueue<Node>(byliste.Count * 2);
+            nodes = new List<Node>();
             Node targetBy = null;
             foreach (var _by in byliste)
             {
@@ -84,13 +132,13 @@ namespace BusinessLogic.Managers
                     By = _by
                 };
 
-                if (_by == target)
+                if (_by.CityId == target.CityId)
                 {
                     targetBy = node;
                 }
 
-                node.Distance = _by == source ? 0 : double.MaxValue;
-                
+                node.Distance = _by.CityId == source.CityId ? 0 : double.MaxValue;
+                nodes.Add(node);
                 queue.Enqueue(node, node.Distance);
             }
 
@@ -98,10 +146,10 @@ namespace BusinessLogic.Managers
             {
                 var node = queue.Dequeue();
 
-                if (node == targetBy)
+                if (node == targetBy && node.Distance != double.MaxValue)
                     return node;
 
-                GetRoutes(node);
+                GetRoutes(node, politik);
 
                 foreach (var neighbour in getNeighbourghNodes(node, queue))
                 {
@@ -118,6 +166,13 @@ namespace BusinessLogic.Managers
                 }
             }
             return null;
+        }
+
+        public IEnumerable<string> FindType(int x, int y, int z)
+        {
+            var result = new List<string>();
+            var sizes = new List<int> {1, 23,};
+            return result;
         }
     }
 }

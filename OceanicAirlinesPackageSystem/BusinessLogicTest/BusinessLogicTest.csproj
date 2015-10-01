@@ -55,16 +55,22 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="DijkstraTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FindTypeTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
       <Project>{8E5C1718-4027-4153-9832-865655766AA2}</Project>
       <Name>BusinessLogic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ExternalServices\ExternalServices.csproj">
+      <Project>{58298849-3044-475D-B073-FC3DEDB68C2F}</Project>
+      <Name>ExternalServices</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Choose>

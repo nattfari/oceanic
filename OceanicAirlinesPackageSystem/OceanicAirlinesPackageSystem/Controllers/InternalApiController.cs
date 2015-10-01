@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
+using AutoMapper;
+using BusinessLogic.Data;
 using WebHost.DataContracts;
 using WebHost.DataContracts.DTOs;
 
@@ -11,19 +14,18 @@ namespace WebHost.Controllers
         [HttpGet]
         public GetCitiesContract GetRoutes()
         {
+            OADbContext ctx = new OADbContext();
+
+            var cities = ctx.by.ToList();
+
+            var cityDtos = Mapper.Map<List<@by>, List<CityDTO>>(cities);
+
             var result = new GetCitiesContract
             {
-                cities = new List<CityDTO>()
-                {
-                    new CityDTO() {Id = 1, Name = "Aalborg"},
-                    new CityDTO() {Id = 2, Name = "København"},
-                    new CityDTO() {Id = 3, Name = "Aarhus"},
-                    new CityDTO() {Id = 4, Name = "Roskilde"},
-                    new CityDTO() {Id = 5, Name = "Snekkersten"},
-                }
+                Cities = cityDtos
             };
+
             return result;
         }
-
     }
 }

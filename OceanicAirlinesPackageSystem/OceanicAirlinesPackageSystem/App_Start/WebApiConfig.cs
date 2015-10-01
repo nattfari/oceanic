@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web.Http;
+using Newtonsoft.Json.Serialization;
 
 namespace WebHost
 {
@@ -14,11 +16,12 @@ namespace WebHost
             // Web API routes
             config.MapHttpAttributeRoutes();
 
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
+            config.Formatters.JsonFormatter.SupportedEncodings.Add(Encoding.UTF8);
+            config.Formatters.JsonFormatter.SerializerSettings.DateFormatHandling =
+                Newtonsoft.Json.DateFormatHandling.IsoDateFormat;
+            config.Formatters.JsonFormatter.SerializerSettings.DateTimeZoneHandling = 
+                Newtonsoft.Json.DateTimeZoneHandling.Utc;
+            config.Formatters.JsonFormatter.UseDataContractJsonSerializer = true; 
         }
     }
 }

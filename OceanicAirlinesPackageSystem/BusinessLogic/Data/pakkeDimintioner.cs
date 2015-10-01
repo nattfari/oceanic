@@ -12,11 +12,18 @@ namespace BusinessLogic.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class lufthavn
+    public partial class pakkeDimintioner
     {
-        public long Id { get; set; }
+        public pakkeDimintioner()
+        {
+            this.pakkePris = new HashSet<pakkePris>();
+        }
+    
         public string Name { get; set; }
-        public bool Active { get; set; }
-        public long CityId { get; set; }
+        public int Height { get; set; }
+        public int Width { get; set; }
+        public int Depth { get; set; }
+    
+        public virtual ICollection<pakkePris> pakkePris { get; set; }
     }
 }
