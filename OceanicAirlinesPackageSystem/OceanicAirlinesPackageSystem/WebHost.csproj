@@ -215,6 +215,7 @@
     <Content Include="Scripts\controllers\FindRuteController.js" />
     <Content Include="Scripts\controllers\ForsideController.js" />
     <Content Include="Scripts\controllers\PriserController.js" />
+    <Content Include="Scripts\controllers\RuteForslagController.js" />
     <Content Include="Scripts\controllers\RuteoversigtController.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
