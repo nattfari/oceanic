@@ -8,10 +8,12 @@
             console.log("Finder Rute");
             console.log($scope.rute);
             console.log(Api.url);
+
+            //kald webservice og skift side
         }
 
-
         $scope.fragtTyper = [{ id: "1", "name": "Våben" }, { id: "2", name: "Levende Dyr" }, { id: "3", name: "Forsigtig" }];
+
         $scope.valgteTyper = function (fragtType) {
             if (fragtType.markeret) {
                 $scope.rute.fragtTyper.push(fragtType.id);
