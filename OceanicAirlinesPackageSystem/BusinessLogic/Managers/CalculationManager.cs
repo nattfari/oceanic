@@ -165,6 +165,7 @@ namespace BusinessLogic.Managers
         public IEnumerable<string> FindType(int x, int y, int z)
         {
             var result = new List<string>();
+            var sizes = new List<int> {1, 23,};
             return result;
         }
     }
