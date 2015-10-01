@@ -26,5 +26,7 @@ namespace BusinessLogic.Data
         }
     
         public DbSet<byer> byer { get; set; }
+        public DbSet<by> by { get; set; }
+        public DbSet<lufthavn> lufthavn { get; set; }
     }
 }
