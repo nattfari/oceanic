@@ -11,7 +11,7 @@ namespace BusinessLogic.Managers
     {
         private readonly IList<IExternalServicesApi> _externalApis;
         private readonly CalculationManager _calculationManager;
-        private readonly RouteManager(IList<IExternalServicesApi> externalApis)
+        public RouteManager(IList<IExternalServicesApi> externalApis)
         {
             _externalApis = externalApis;
             _calculationManager = new CalculationManager();

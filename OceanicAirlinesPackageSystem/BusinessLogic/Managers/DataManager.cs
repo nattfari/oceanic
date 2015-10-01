@@ -14,7 +14,9 @@ namespace BusinessLogic.Managers
         {
             using (var context = new OADbContext())
             {
-                return context.by.ToList();
+                return (from byen in context.@by
+                    where byen.Active
+                            select byen).ToList();
             }
         }
 
