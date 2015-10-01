@@ -84,7 +84,7 @@ namespace BusinessLogic.Managers
         private List<Node> nodes; 
         private List<IExternalServicesApi> externalServicesApis;
 
-        public void CalculateRouteTime(by source, by target, List<IExternalServicesApi> externalServicesApis)
+        public Node CalculateRouteTime(by source, by target, List<IExternalServicesApi> externalServicesApis)
         {
             this.externalServicesApis = externalServicesApis;
             byliste = DataManager.HentByer().ToList();
@@ -95,7 +95,7 @@ namespace BusinessLogic.Managers
             }
 
             var result = Dijstra(source, target, Politik.Tid);
-            return;
+            return result;
         }
 
         private IList<Node> getNeighbourghNodes(Node source, HeapPriorityQueue<Node> queue)
