@@ -23,9 +23,18 @@ namespace WebHost.Controllers
                 new MockService()
             };
 
-            CalculationManager calculationManager = new CalculationManager();
-            //calculationManager.CalculateRouteTime(new @by(), new @by(), externalServices);
+            OADbContext ctx = new OADbContext();
 
+            var fraBy = ctx.by.SingleOrDefault(x => x.Name == ruteRequest.FraBy);
+            var tilBy = ctx.by.SingleOrDefault(x => x.Name == ruteRequest.TilBy);
+
+            if(fraBy != null && tilBy != null) {
+                CalculationManager calculationManager = new CalculationManager();
+                var rute = calculationManager.CalculateRouteTime(fraBy, tilBy, externalServices.ToList());
+            }
+
+            ctx.Dispose();
+            //map rute til ruteresponsedto
             var result = new RuteResponseDTO();
 
             return result;

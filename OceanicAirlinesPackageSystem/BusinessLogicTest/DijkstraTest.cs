@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using BusinessLogic.Data;
 using BusinessLogic.ExternalInterfaces;
@@ -27,17 +28,32 @@ namespace BusinessLogicTest
     public class DijkstraTest
     {
 
+        public void printRute(CalculationManager.Node n)
+        {
+            if (n.Previous != null)
+                printRute(n.Previous);
+            Debug.WriteLine(n.By.Name);
+        }
 
         [TestMethod]
         public void TestDijkstra()
         {
             var by1 = DataManager.HentByer().First();
-            var by2 = DataManager.HentByer().ToArray()[15];
+            
             var manager = new CalculationManager();
             List<IExternalServicesApi> w = new List<IExternalServicesApi>();
             w.Add(new TestThingie());
-             manager.CalculateRouteTime(by1, by2, w);
 
+            for (int i = 1; i < 32 ; i++)
+            {
+                var by2 = DataManager.HentByer().ToArray()[i];
+            var result = manager.CalculateRouteTime(by1, by2, w);
+            if (result != null)
+            {
+                Debug.WriteLine(String.Format("Fra: {0} til {1}", by1.Name, by2.Name));
+                printRute(result);
+            }
+            }
         }
     }
 }
