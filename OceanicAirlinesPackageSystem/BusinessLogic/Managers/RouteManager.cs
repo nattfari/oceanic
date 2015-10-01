@@ -10,21 +10,21 @@ namespace BusinessLogic.Managers
     public class RouteManager
     {
         private readonly IList<IExternalServicesApi> _externalApis;
-        private readonly CalculationManager calculationManager;
-        public RouteManager(IList<IExternalServicesApi> externalApis)
+        private readonly CalculationManager _calculationManager;
+        private readonly RouteManager(IList<IExternalServicesApi> externalApis)
         {
             _externalApis = externalApis;
-            calculationManager = new CalculationManager();
+            _calculationManager = new CalculationManager();
         }
 
         public CalculationManager.Node CalculateRouteWeight(by fra, by til, pakke sendtPakke)
         {
-            return calculationManager.CalculateRouteWeight(fra, til, _externalApis, sendtPakke);
+            return _calculationManager.CalculateRouteWeight(fra, til, _externalApis, sendtPakke);
         }
 
         public CalculationManager.Node CalculateRouteTime(by fra, by til, pakke sendtPakke)
         {
-            return calculationManager.CalculateRouteTime(fra, til, _externalApis, sendtPakke);
+            return _calculationManager.CalculateRouteTime(fra, til, _externalApis, sendtPakke);
         }
 
 
