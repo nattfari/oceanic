@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using BusinessLogic.ExternalInterfaces;
+using BusinessLogic.Managers;
 
 namespace BusinessLogic.Managers
 {
@@ -11,6 +12,8 @@ namespace BusinessLogic.Managers
         public RouteManager(IList<IExternalServicesApi> externalApis)
         {
             _externalApis = externalApis;
+            var mgr = new CalculationManager();
+            
         }
 
         public IEnumerable<string> GetRoutes()

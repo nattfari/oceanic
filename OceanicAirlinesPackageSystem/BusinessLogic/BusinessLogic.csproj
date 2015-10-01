@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Priority Queue">
+      <HintPath>..\packages\OptimizedPriorityQueue.1.0.0.0\lib\net45\Priority Queue.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -51,7 +54,10 @@
     <Compile Include="Data\by.cs">
       <DependentUpon>OceanicDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\byer.cs">
+    <Compile Include="Data\forsendelse.cs">
+      <DependentUpon>OceanicDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\forsendelsesRute.cs">
       <DependentUpon>OceanicDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\lufthavn.cs">
@@ -72,7 +78,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>OceanicDb.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Data\packetType.cs">
+      <DependentUpon>OceanicDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\pakke.cs">
+      <DependentUpon>OceanicDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\rute.cs">
+      <DependentUpon>OceanicDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\users.cs">
+      <DependentUpon>OceanicDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="ExternalInterfaces\IExternalServicesApi.cs" />
+    <Compile Include="Managers\CalculationManager.cs" />
     <Compile Include="Managers\RouteManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
