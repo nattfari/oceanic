@@ -8,12 +8,12 @@
             $scope.request = Parameters.getParams();
             console.log($scope.request);
             $http.post(Api.url + '/rute/soeg', $scope.request).then(function (response) {
-                if (!response.data.ruter.length == 0) {
+                console.log(response);
+                if (!response.data.Ruter.length > 0) {
                     $scope.result.success = false;
                 } else {
                     $scope.result.success = true;
                 }
-                console.log(response);
             })
         };
         sendRequest();
