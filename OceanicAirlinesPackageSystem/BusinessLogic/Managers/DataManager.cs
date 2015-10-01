@@ -20,6 +20,15 @@ namespace BusinessLogic.Managers
             }
         }
 
+        public static void OpretRute()
+        {
+            using (var context = new OADbContext())
+            {
+              //  var forsendelses = new forsendelse{}
+
+            }
+        }
+
         public static IList<by> HentDeaktiveredeByer()
         {
             using (var context = new OADbContext())
