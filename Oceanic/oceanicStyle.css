@@ -1,0 +1,21 @@
+﻿html, body {
+    height: 100%;
+}
+
+.vertical-center {
+    height: 100%;
+    width: 100%;
+}
+
+.row-fluid {
+    padding: 10px
+}
+
+.nav-tabs > li, nav-pills > li {
+    float: none;
+    display: inline-block;
+}
+
+.nav-tabs, .nav-pills {
+    text-align: center;
+}
