@@ -17,6 +17,7 @@
             console.log($scope.rute);
             $http.post(Api.url + 'rute/soeg', $scope.rute).then(function(response) {
                 console.log(response);
+                window.location.href = '#Ruteforslag'
             });
         };
 
