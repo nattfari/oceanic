@@ -9,9 +9,11 @@ using BusinessLogic.Managers;
 using ExternalServices;
 using WebHost.DataContracts;
 using WebHost.DataContracts.DTOs;
+using WebHost.Filters;
 
 namespace WebHost.Controllers
 {
+    [AuthorizeByApiKey]
     public class ExternalApiController : ApiController
     {
         [Route("api/cities")]
