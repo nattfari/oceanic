@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Web.Http;
 using System.Net.Http;
 using System.Web;
+using BusinessLogic.Data;
 using BusinessLogic.ExternalInterfaces;
 using BusinessLogic.Managers;
 using ExternalServices;
@@ -20,7 +21,7 @@ namespace WebHost.Controllers
                 new MockService()
             };
             var routeManager = new RouteManager(externalServices);
-            //var result = routeManager.GetRoutes();
+            var result = routeManager.GetRoutes(new @by());
 
             // TODO: Replace dummy data with our own routes from datamanager
             return new string[] {"by1", "by2"};
