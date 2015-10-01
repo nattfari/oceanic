@@ -21,11 +21,11 @@
               href="Content/oceanicStyle.css"/>
     </head>
     <body>
-        <div class="container-fluid full-width" align="center" data-ng-controller="OceanicController">
+        <div class="container full-width" align="center" data-ng-controller="OceanicController">
             <div class="container" style="padding: 30px">
                 <img ng-src="{{image.path}}" width="50%"/>
             </div>
-            <div class="row-fluid">
+            <div class="row">
                 <ul class="nav nav-tabs">
                     <li><a href="#Forside"> Forside </a></li>
                     <li><a href="#FindRute"> Find Rute</a></li>
@@ -34,31 +34,9 @@
                     <li><a href="#Administration"> Administration </a></li>
                 </ul>
             </div>
-            <div class="col-md-9" align="center" style="padding: 30px">
+            <div class="container" align="center" style="padding: 30px">
                 <div ng-view></div>
             </div>
-            <!--
-            <div class="row-fluid" >
-                <label for="fra">Fra:</label>
-                <input type="text" ng-model="fraBy" id="fra" placeholder="Indtast bynavn" data-typeahead="by for by in byer | filter:$viewValue"/>
-                <label for="til">Til:</label>
-                <input type="text" ng-model="tilBy" id="til" placeholder="Indtast bynavn" data-typeahead="by for by in byer | filter:$viewValue"/>
-            </div>
-            <div class="row-fluid" >
-                <label for="vægt">Vægt:</label>
-                <input type="text" ng-model="pakkeVaegt" id="Text1"/>
-            </div>
-            <div class="row-fluid" >         
-                <label for="dimensioner">Dimensioner:</label>
-                <input type="text" ng-model="dimensioner.x"/>
-                <input type="text" ng-model="dimensioner.y"/>
-                <input type="text" ng-model="dimensioner.z"/>
-            </div>
-            <div class="row-fluid">
-                <button class="btn btn-default" value="Find rute" ng-click="visRute()">
-                    <span >Find rute</span>
-                </button>
-            </div>-->
         </div>
     </body>
 </html>

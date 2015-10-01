@@ -13,7 +13,7 @@ namespace WebHost.Controllers
         {
             var result = new GetCitiesContract
             {
-                cities = new List<CityDTO>()
+                Cities = new List<CityDTO>()
                 {
                     new CityDTO() {Id = 1, Name = "Aalborg"},
                     new CityDTO() {Id = 2, Name = "København"},

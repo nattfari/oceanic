@@ -7,6 +7,7 @@ using WebHost.DataContracts.DTOs;
 
 namespace WebHost.DataContracts
 {
+    [DataContract]
     public class GetCitiesContract
     {
         [DataMember(Name = "cities")]

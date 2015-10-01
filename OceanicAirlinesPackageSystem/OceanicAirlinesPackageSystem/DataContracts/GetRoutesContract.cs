@@ -4,6 +4,7 @@ using WebHost.DataContracts.DTOs;
 
 namespace WebHost.DataContracts
 {
+    [DataContract]
     public class GetRoutesContract
     {
         [DataMember(Name = "routes")]

@@ -28,7 +28,7 @@ namespace WebHost.Controllers
 
             var result = new GetCitiesContract()
             {
-                cities = new List<CityDTO>()
+                Cities = new List<CityDTO>()
                 {
                     new CityDTO() {Id = 1, Name = "Cario"},
                     new CityDTO() {Id = 2, Name = "Tanger"},
@@ -48,14 +48,14 @@ namespace WebHost.Controllers
             [FromUri] string id, 
             DateTime date,
             string measurements = null,
-            int? weight = null,
+            int? weight = null, 
             string requirements = null)
         {
-
+            
             // TODO: Replace dummy data with our own routes from route
             var result = new GetRoutesContract()
             {
-                routes = new List<RouteDTO>()
+                Routes = new List<RouteDTO>()
                 {
                     new RouteDTO() {destination = 1, duration = 8, price = 8},
                     new RouteDTO() {destination = 2, duration = 3, price = 8},

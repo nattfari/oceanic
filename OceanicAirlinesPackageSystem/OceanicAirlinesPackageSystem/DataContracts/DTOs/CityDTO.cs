@@ -2,7 +2,7 @@
 
 namespace WebHost.DataContracts.DTOs
 {
-    [DataContract(Name = "city")]
+    [DataContract]
     public class CityDTO
     {
         [DataMember(Name = "id")]

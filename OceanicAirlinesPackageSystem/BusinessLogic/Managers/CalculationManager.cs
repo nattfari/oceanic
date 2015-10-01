@@ -1,35 +1,33 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using BusinessLogic.Data;
+using BusinessLogic.ExternalInterfaces;
 using Priority_Queue;
 
 namespace BusinessLogic.Managers
 {
-    public class By
-    {
-        public int Id;
-        public String Navn;
-    }
-
-    public class Edge
-    {
-        public Node From;
-        public Node To;
-        public double Time;
-        public double Cost;
-    }
-
-    public class Node : PriorityQueueNode
-    {
-        public int Id;
-        public double Distance;
-        public Node Previous;
-        public List<Edge> Ruter = new List<Edge>();
-    }
-
     public class CalculationManager
     {
+        public class Edge
+        {
+            public Node From;
+            public Node To;
+            public double Time;
+            public double Cost;
+        }
+
+        public class Node : PriorityQueueNode
+        {
+            public by By;
+            public double Distance;
+            public Node Previous;
+            public List<Edge> Ruter = new List<Edge>();
+        }
+
+        DataManager dataManager = new DataManager();
         public CalculationManager() { }
         private enum Politik
         {
@@ -44,10 +42,15 @@ namespace BusinessLogic.Managers
             //Kald til hent ruter, og lav en liste med ruter, som gemmes!
         }
 
-        List<By> byliste = new List<By>();
-        public void CalculateRouteTime(By source, By target)
+        private List<by> byliste;
+
+        public void CalculateRouteTime(by source, by target, List<IExternalServicesApi> externalServicesApis)
         {
-            
+            byliste = DataManager.HentByer().ToList();
+            foreach (var externalServicesApi in externalServicesApis)
+            {
+                var q = externalServicesApi.GetCities();
+            }
             byliste.Add(source);
             byliste.Add(target);
             Dijstra(source, target, Politik.Tid);
@@ -70,23 +73,23 @@ namespace BusinessLogic.Managers
             return node.Time;
         }
 
-        private Node Dijstra(By source, By target, Politik politik)
+        private Node Dijstra(by source, by target, Politik politik)
         {
             var queue = new HeapPriorityQueue<Node>(byliste.Count);
             Node targetBy = null;
-            foreach (var by in byliste)
+            foreach (var _by in byliste)
             {
                 var node = new Node
                 {
-                    Id = by.Id
+                    By = _by
                 };
 
-                if (by == target)
+                if (_by == target)
                 {
                     targetBy = node;
                 }
 
-                node.Distance = @by == source ? 0 : double.MaxValue;
+                node.Distance = _by == source ? 0 : double.MaxValue;
                 
                 queue.Enqueue(node, node.Distance);
             }

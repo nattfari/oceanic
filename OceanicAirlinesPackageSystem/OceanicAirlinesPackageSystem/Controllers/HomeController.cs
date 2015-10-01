@@ -13,7 +13,6 @@ namespace WebHost.Controllers
         {
             var ctx = new OADbContext();
             
-            var by = ctx.by.Where(x => x.Name == "Kairo");
             ViewBag.Title = "Home Page";
             
             return View();
