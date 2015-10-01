@@ -9,7 +9,7 @@ namespace ExternalServices
 {
     public class MockService : ExternalService
     {
-        public MockService() : base("")
+        public MockService() : base(@"https://google.dk")
         {
 
         }

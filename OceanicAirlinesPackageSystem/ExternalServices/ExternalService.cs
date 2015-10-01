@@ -19,7 +19,7 @@ namespace ExternalServices
             HttpClient = new HttpClient();
             HttpClient.DefaultRequestHeaders.Accept.Clear();
             HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("charset=UTF-8"));
+            //HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("charset=UTF-8"));
             var uriBuilder = new UriBuilder(endpoint);
             HttpClient.BaseAddress = uriBuilder.Uri;
         }

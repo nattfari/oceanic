@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
+using System.Net.Http;
+using System.Web;
 using BusinessLogic.ExternalInterfaces;
 using BusinessLogic.Managers;
 using ExternalServices;
-using WebHost.DataContracts;
 
 namespace WebHost.Controllers
 {
-    public class ApiController : System.Web.Http.ApiController
+    public class ExternalApiController : ApiController
     {
         [Route("api/cities")]
         [HttpGet]
@@ -29,9 +26,17 @@ namespace WebHost.Controllers
             return new string[] {"by1", "by2"};
         }
 
-        [Route("api/cities/{id}/routes")]
-        public IEnumerable<string> GetRoute()
+        [Route("api/cities/{id}/routes/")]
+        [HttpGet]
+        public IEnumerable<string> GetRoute(
+            [FromUri] string id, 
+            [FromBody] DateTime date, 
+            string messurements = null, 
+            int? weight = null, 
+            string requirements = null)
         {
+            var routeData = Request.GetRouteData();
+            
             // TODO: Replace dummy data with our own routes from route
             return new[] {""};
         }
