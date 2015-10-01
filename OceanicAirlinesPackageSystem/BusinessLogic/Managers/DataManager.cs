@@ -46,11 +46,21 @@ namespace BusinessLogic.Managers
             }
         }
 
-        public static void AktiverBy(by by)
+        public static void DeaktiverBy(by by)
         {
+            by.Active = false;
             using (var context = new OADbContext())
             {
-              //  context.by.AddOrUpdate();
+                  context.by.AddOrUpdate(by);
+            }
+        }
+
+        public static void AktiverBy(by by)
+        {
+            by.Active = true;
+            using (var context = new OADbContext())
+            {
+                context.by.AddOrUpdate(by);
             }
         }
     }

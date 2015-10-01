@@ -11,12 +11,17 @@ namespace BusinessLogic.Managers
     {
         public void DeaktiverBy(by by)
         {
-            //DataManager.
+            DataManager.DeaktiverBy(by);
         }
 
         public void AktiverBy(by by)
         {
             DataManager.AktiverBy(by);
+        }
+
+        public List<pakkePris> HentPakkePriser ()
+        {
+            return DataManager.HentPakkePriser();
         }
     }
 }

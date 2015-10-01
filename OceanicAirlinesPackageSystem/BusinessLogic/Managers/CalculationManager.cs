@@ -93,7 +93,9 @@ namespace BusinessLogic.Managers
                 if (update)
                     prunedList.Add(outerRoute);
             }
-            
+
+            node.Ruter.FindAll(r => r.Route.TransportType == TransportType.Oceanic)
+                .ForEach(rout => rout.Route.Pris = BeregnPris(sendtPakke));
             node.Ruter = prunedList;
         }
 
