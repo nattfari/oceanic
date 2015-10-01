@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebHost", "OceanicAirlinesPackageSystem\WebHost.csproj", "{C1CFC177-3F2D-4E9D-A6E7-28AD5AB1676C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{8E5C1718-4027-4153-9832-865655766AA2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExternalServices", "ExternalServices\ExternalServices.csproj", "{58298849-3044-475D-B073-FC3DEDB68C2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogicTest", "BusinessLogicTest\BusinessLogicTest.csproj", "{3FE4BC60-19B8-4B81-A62D-3FE4A6BE3555}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +29,10 @@ Global
 		{58298849-3044-475D-B073-FC3DEDB68C2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58298849-3044-475D-B073-FC3DEDB68C2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58298849-3044-475D-B073-FC3DEDB68C2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FE4BC60-19B8-4B81-A62D-3FE4A6BE3555}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FE4BC60-19B8-4B81-A62D-3FE4A6BE3555}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FE4BC60-19B8-4B81-A62D-3FE4A6BE3555}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FE4BC60-19B8-4B81-A62D-3FE4A6BE3555}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
