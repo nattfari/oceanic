@@ -34,7 +34,8 @@
             </td>
         </tr>
         <tr>
-            <td align="left"><b>Fragttype</b></td>
+            <td align="left"><b>Valgte fragttyper</b></td>
+            <td data-ng-repeat="fragttype in fragtTyper | filter:filterFragt">{{fragttype.PacketType}}</td>
             <td align="right">Levende dyr:</td>
             <td align="left">
                 <input type="checkbox" ng-model="LevendeDyr" disabled>
