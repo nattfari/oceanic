@@ -1,0 +1,125 @@
+﻿html, body {
+    height: 100%;
+    padding: 10px;
+}
+
+.vertical-center {
+    height: 100%;
+    width: 100%;
+}
+
+.row {
+    border: 1px;
+    padding-bottom: 5px;
+        font-family:"Garamond";
+    font-size:larger;
+ 
+}
+
+.rutebox {
+    background-color: #233D92;
+    color:white;
+    padding-top:5px;
+        font-family:"Garamond";
+    font-size:larger;
+}
+
+.lysrutebox {
+    background-color: #92A4CC;
+    color:white;
+        font-family:"Garamond";
+    font-size:larger;
+
+
+}
+
+.overskrift {
+
+}
+
+/* enable absolute positioning */
+.inner-addon { 
+    position: relative; 
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+
+.col, .col-md-3, .col-md-6, .col-md-2, .col-md-12, .col-md-4 {
+    font-family:"Garamond";
+    font-size:larger;
+}
+
+.nav-tabs > li, nav-pills > li {
+    float: none;
+    display: inline-block;
+    font-size: 16pt;
+}
+
+.nav-tabs, .nav-pills {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom:0;
+}
+
+.tab-content {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    padding: 10px;
+}
+
+
+
+table {
+    width:90%;
+    padding: 10px;
+    font-family:"Garamond";
+    font-size:larger;
+}
+
+th, td {
+    padding: 10px;
+    font-family:"Garamond";
+    font-size:larger;
+}
+
+input[type=checkbox]
+{
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
+  padding: 10px;
+}
+
+input[type=radio] {
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
+  padding: 10px;
+}
+
+input[type=text] {
+ font-family:"Garamond";
+    font-size:medium;
+}
+
+input[type=number] {
+ font-family:"Garamond";
+    font-size:medium;
+}
+
