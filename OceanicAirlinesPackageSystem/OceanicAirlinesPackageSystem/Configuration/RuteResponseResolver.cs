@@ -26,7 +26,7 @@ namespace WebHost.Configuration
 
             RuteTrinDTO ruteTrinAggregate = new RuteTrinDTO();
 
-            Route previousRuteTrin;
+            Route previousRuteTrin = null;
             string previousOperator = "";
 
             while (rute.Previous != null)
@@ -46,12 +46,13 @@ namespace WebHost.Configuration
 
                 if (!String.IsNullOrEmpty(previousOperator) && previousOperator != ruteTrin.TransportType.ToString() || rute.Previous == null)
                 {
+
                     //transport type changed - set fraBy and add step aggregate to steps                    
                     ruteTrinAggregate.FraBy = rute.By.Name;
                     result.RuteTrin.Add(ruteTrinAggregate);
-
                     //step added - reset
-                    ruteTrinAggregate = new RuteTrinDTO();                 
+                    ruteTrinAggregate = new RuteTrinDTO();
+
                 }
                 else
                 {
@@ -62,14 +63,20 @@ namespace WebHost.Configuration
                 previousOperator = ruteTrin.TransportType.ToString();
 
                 rute = rute.Previous;
-                previousRuteTrin = ruteTrin;
 
                 if (rute.Previous == null)
                 {
+                    if (previousRuteTrin != null && ruteTrinAggregate.TilBy == null)
+                          ruteTrinAggregate.TilBy = DataManager.HentBy(previousRuteTrin.Rute.StartCity).Name;
                     //last node - finish and add step
+                    ruteTrinAggregate.TransportType = ruteTrin.TransportType.ToString();
+                    ruteTrinAggregate.Pris += ruteTrin.Pris;
+                    ruteTrinAggregate.Tid += ruteTrin.Rute.Time;
                     ruteTrinAggregate.FraBy = rute.By.Name;
                     result.RuteTrin.Add(ruteTrinAggregate);
                 }
+
+                previousRuteTrin = ruteTrin;
             }
 
             return result;

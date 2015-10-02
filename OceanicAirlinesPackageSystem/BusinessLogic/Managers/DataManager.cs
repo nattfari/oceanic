@@ -20,6 +20,14 @@ namespace BusinessLogic.Managers
             }
         }
 
+        public static @by HentBy(long Id)
+        {
+            using (var context = new OADbContext())
+            {
+                return context.by.FirstOrDefault(p => p.CityId == Id);
+            }
+        }
+
         public static long OpretRute(forsendelse rute)
         {
             using (var context = new OADbContext())

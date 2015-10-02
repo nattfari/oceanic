@@ -71,5 +71,10 @@ namespace ExternalServices
             };
             return result;
         }
+
+        protected override TransportType GetTransportType()
+        {
+            return TransportType.Oceanic;
+        }
     }
 }
