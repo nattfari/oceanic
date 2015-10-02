@@ -4,7 +4,7 @@
             createUser: function(user) {
                 var deferred = $q.defer();
                 $http({
-                    url: Api.root + '/user/create',
+                    url: Api.url + '/user/create',
                     method: "POST",
                     data: user
                 }).success(deferred.resolve).error(deferred.reject);
@@ -13,7 +13,7 @@
             loginUser: function(user) {
                 var deferred = $q.defer();
                 $http({
-                    url: Api.root + '/user/login',
+                    url: Api.url + '/user/login',
                     method: "POST",
                     data: user
                 }).success(deferred.resolve).error(deferred.reject);

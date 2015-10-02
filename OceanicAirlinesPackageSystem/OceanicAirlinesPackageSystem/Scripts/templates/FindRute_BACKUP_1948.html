@@ -26,11 +26,12 @@
         <div class="col-md-3" align="center">
             <div class="inner-addon left-addon">
                 <i class="glyphicon glyphicon-scale "></i>
-                <input type="number" data-ng-model="rute.Vaegt" placeholder="Vægt i gram" max="99999" class="form-control" />
+                <input type="number" data-ng-model="rute.Vaegt" placeholder="Vægt" max="99999" class="form-control" />
             </div>
         </div>
 
     </div>
+<<<<<<< HEAD
     <div class="row">
         <div class="col-md-3 col-md-offset-3" align="left">
             <h3>Pakketype</h3>
@@ -39,8 +40,41 @@
                 <input type="checkbox" data-ng-model="fragtType.markeret" data-ng-change="valgteTyper(fragtType)">
                 {{fragtType.PacketType}}
             </div>
+=======
+    <div class="row" data-ng-repeat="fragtType in fragtTyper">
+        <div class="col-md-6" align="left">
+        </div>
+        <div class="col-md-3" align="left">
+            <input type="checkbox" data-ng-model="fragtType.markeret" data-ng-change="valgteTyper(fragtType)">
+            {{fragtType.PacketType}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6" align="left">
+        </div>
+        <div class="col-md-3" align="left">
+            <input type="radio" name="Dimension" value="A" ng-model="rute.DimensionsType">
+            A: 25x60x25
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6" align="left">
+        </div>
+        <div class="col-md-3" align="left">
+            <input type="radio" name="Dimension" value="B" ng-model="rute.DimensionsType">
+            B: 40x40x40
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6" align="left">
+        </div>
+        <div class="col-md-3" align="left">
+            <input type="radio" name="Dimension" value="C" ng-model="rute.DimensionsType">
+            C: 15x100x15
+>>>>>>> 1b6f60c108682c66bfe7b94763972e17389b6419
         </div>
         <div class="col-md-6" align="left">
+<<<<<<< HEAD
             <h3>Pakkestørrelse</h3>
             <div>
                 <input type="radio" name="Dimension" value="A" ng-model="rute.DimensionsType">
@@ -62,6 +96,20 @@
                 <input type="radio" name="Dimension" value="E" ng-model="rute.DimensionsType">
                 E: 30x50x30
             </div>
+=======
+        </div>
+        <div class="col-md-3" align="left">
+            <input type="radio" name="Dimension" value="D" ng-model="rute.DimensionsType">
+            D: 20x80x20
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6" align="left">
+        </div>
+        <div class="col-md-3" align="left">
+            <input type="radio" name="Dimension" value="E" ng-model="rute.DimensionsType">
+            E: 30x50x30
+>>>>>>> 1b6f60c108682c66bfe7b94763972e17389b6419
         </div>
     </div>
     

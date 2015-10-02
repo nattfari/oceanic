@@ -16,5 +16,12 @@ namespace WebHost.DataContracts.DTOs
         public string Username { get; set; }
         public string Password { get; set; }
         public string ConfirmPassword { get; set; }
+        public bool IsAdmin { get; set; }
+    }
+
+    public class UserLoginResponse
+    {
+        public bool Result { get; set; }
+        public bool IsAdmin { get; set; }
     }
 }

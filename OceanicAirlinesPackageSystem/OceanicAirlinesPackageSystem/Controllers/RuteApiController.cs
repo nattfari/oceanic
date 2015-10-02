@@ -31,12 +31,14 @@ namespace WebHost.Controllers
             
             var fraBy = ctx.by.SingleOrDefault(x => x.Name == ruteRequest.FraBy);
             var tilBy = ctx.by.SingleOrDefault(x => x.Name == ruteRequest.TilBy);
-            int Id;
-            if (ruteRequest.FragtTyper.Length == 0)
-                Id = Convert.ToInt32(ruteRequest.FragtTyper.First());
+            List<long> Id = new List<long>();
+            if (ruteRequest.FragtTyper.Length > 0)
+            {
+                Id.AddRange(ruteRequest.FragtTyper.Select(typer => Convert.ToInt64(typer)));
+            }
             else
             {
-                Id = Int32.MaxValue;
+                Id.Add(Int32.MaxValue);
             }
             
             if(fraBy != null && tilBy != null) {

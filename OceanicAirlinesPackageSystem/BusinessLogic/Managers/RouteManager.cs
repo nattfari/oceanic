@@ -45,7 +45,7 @@ namespace BusinessLogic.Managers
             return -1; //We never get here, but meh.
         }
 
-        public Tuple<CalculationManager.Node, long> CalculateRouteWeight(by fra, by til, int height, int depth, int width, int weight, int pakkeTypeId)
+        public Tuple<CalculationManager.Node, long> CalculateRouteWeight(by fra, by til, int height, int depth, int width, int weight, List<long> pakkeTypeId)
         {
             var pakke = new pakke
             {
@@ -60,7 +60,7 @@ namespace BusinessLogic.Managers
             return new Tuple<CalculationManager.Node, long> (result, forsendelsesId);
         }
 
-        public Tuple<CalculationManager.Node, long> CalculateRouteTime(by fra, by til, int height, int depth, int width, int weight, int pakkeTypeId)
+        public Tuple<CalculationManager.Node, long> CalculateRouteTime(by fra, by til, int height, int depth, int width, int weight, List<long> pakkeTypeId)
         {
             var pakke = new pakke
             {

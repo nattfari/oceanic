@@ -6,14 +6,17 @@
     </table>
     <table border="0" cellpadding="2" align="center">
         <tr>
-            
             <td align="center">
-                <input type="text" ng-model="Brugernavn" placeholder="Indtast brugernavn" style="padding-left: 4px"/></td>
+                <input type="text" ng-model="user.Username" placeholder="Indtast brugernavn" style="padding-left: 4px"/></td>
         </tr>
         <tr>
-            
             <td align="center">
-                <input type="text" ng-model="Password" placeholder="Indtast password" style="padding-left: 4px"/></td>
+                <input type="password" ng-model="user.Password" placeholder="Indtast password" style="padding-left: 4px"/></td>
+        </tr>
+        <tr>
+            <td align="center">
+                <a ng-click="doLogin()" type="button" class="btn btn-success">Log In</a>
+            </td>
         </tr>
     </table>
 </div>

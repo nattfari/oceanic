@@ -1,11 +1,27 @@
 ﻿angular.module('Oceanic').controller('ForsideController', [
-    '$scope', 'userInteractionRepository', '$location', function ($scope, userInteractionRepository, $location) {
+    '$scope', 'userInteractionRepository', '$location', 'AuthService', function ($scope, userInteractionRepository, $location, AuthService) {
         $scope.user = {};
         $scope.doLogin = function () {
-            userInteractionRepository.loginUser(user).then(function (result) {
+            userInteractionRepository.loginUser($scope.user).then(function (result) {
                 $scope.loggedIn = result;
-                $location.path("/FindRute");
+                if (result.Result) {
+                    AuthService.username = $scope.user.Username;
+                    AuthService.password = $scope.user.Password;
+                    AuthService.isAuthenticated = true;
+
+                    if (result.isAdmin) {
+                        authService.isAdmin = true;
+                        $location.path("/Administration");
+                    }
+
+                    $location.path("/FindRute");
+                } else {
+                    $scope.errorMessage = 'Forkert brugernavn eller password.';
+                }
             }, function (result) {
+                AuthService.username = "";
+                AuthService.password = "";
+                AuthService.isAuthenticated = false;
                 $scope.error = true;
             });
         };
