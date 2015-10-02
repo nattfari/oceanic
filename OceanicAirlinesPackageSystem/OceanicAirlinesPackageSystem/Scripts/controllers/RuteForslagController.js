@@ -1,8 +1,11 @@
 ﻿angular.module('Oceanic').controller('RuteforslagController', [
     '$scope', '$http', 'Api', 'Parameters', function ($scope, $http, Api, Parameters) {
         $scope.result = {
-            success: undefined
-        }
+            success: false,
+            notFound: false,
+            waiting: true,
+            error: false
+    }
         $scope.fragtTyper = Parameters.getFragtTyper() || [];
         $scope.request = {};
         $scope.Ruter = [];
@@ -11,12 +14,18 @@
             console.log($scope.request);
             $http.post(Api.url + 'rute/soeg', $scope.request).then(function (response) {
                 console.log(response);
-                if (!response.data.Ruter.length > 0) {
-                    $scope.result.success = false;
-                } else {
-                    $scope.result.success = true;
-                    $scope.Ruter = response.data.Ruter;
+                if (response.status == 200) {
+                    $scope.result.waiting = false;
+                    if (response.data.Ruter.length > 0) {
+                        $scope.result.success = true;
+                        $scope.Ruter = response.data.Ruter;
+                    } else {
+                        $scope.result.success = false;
+                    }
                 }
+            }, function(response) {
+                $scope.result.waiting = false;
+                $scope.result.error = true;
             })
         };
         sendRequest();
@@ -29,10 +38,6 @@
             //}
             //return retArray;
         }
-
-        $scope.result = {
-            success: true
-        };
 
         $scope.ruteDTO = {
             RuteType: "EnType",

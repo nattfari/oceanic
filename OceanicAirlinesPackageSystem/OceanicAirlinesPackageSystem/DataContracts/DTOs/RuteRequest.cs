@@ -9,7 +9,7 @@ namespace WebHost.DataContracts.DTOs
     {
         public string FraBy { get; set; }
         public string TilBy { get; set; }
-        public double Vaegt { get; set; }
+        public int Vaegt { get; set; }
         public string[] FragtTyper { get; set; }
         public string DimensionsType { get; set; }
     }

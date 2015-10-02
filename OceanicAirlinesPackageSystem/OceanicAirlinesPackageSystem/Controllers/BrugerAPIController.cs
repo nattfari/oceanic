@@ -20,7 +20,8 @@ namespace WebHost.Controllers
             users user = new users()
             {
                 BrugerNavn = bruger.Username,
-                password = bruger.Password
+                password = bruger.Password,
+                IsAdmin = bruger.IsAdmin
             };
 
             ctx.users.Add(user);
@@ -31,7 +32,7 @@ namespace WebHost.Controllers
 
         [Route("user/login")]
         [HttpPost]
-        public bool Login([FromBody] UserLoginDTO bruger)
+        public UserLoginResponse Login([FromBody] UserLoginDTO bruger)
         {
             OADbContext ctx = new OADbContext();
 
@@ -39,9 +40,22 @@ namespace WebHost.Controllers
 
             if (user != null)
             {
-                return true;
+                UserLoginResponse loginSuccess = new UserLoginResponse()
+                {
+                    IsAdmin = user.IsAdmin,
+                    Result = true
+                };
+
+                return loginSuccess;
             }
-            return false;
+
+            UserLoginResponse loginFailed = new UserLoginResponse()
+            {
+                Result = false,
+                IsAdmin = false
+            };
+
+            return loginFailed;
         }
     }
 }

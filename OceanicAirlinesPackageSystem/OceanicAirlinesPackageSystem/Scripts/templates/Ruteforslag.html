@@ -1,4 +1,22 @@
-﻿<div class="container-fluid" align="center" data-ng-show="result.success">
+﻿<div class="container" align="center" data-ng-show="result.waiting">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Vi prøver at finde en rute fra {{request.FraBy}} til {{request.TilBy}} </h2>
+            <h3>Vent venligst</h3>
+        </div>
+    </div>
+</div>
+
+<div class="container" align="center" data-ng-show="result.error">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Der er opstået en fejl i planlægning af din rute</h2>
+            <h3>Venligst prøv igen og hvis fejlen gentager sig må du kontakte support: support@oceanic.com</h3>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid" align="center" data-ng-show="result.success">
 
     <div class="row overskrift">
         <div class="col-md-3" align="center">
@@ -141,7 +159,7 @@
     </div>-->
 
 </div>
-<div class="container" align="center" data-ng-hide="result.success">
+<div class="container" align="center" data-ng-show="result.notFound">
     <div class="row">
         <div class="col-md-12">
             <h2>Den ønskede rute kunne desværre ikke planlægges fra {{request.FraBy}} til {{request.TilBy}} </h2>
