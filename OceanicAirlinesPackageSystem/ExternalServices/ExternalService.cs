@@ -71,7 +71,7 @@ namespace ExternalServices
                             new Route()
                             {
                                 TransportType = GetTransportType(),
-                                Pris = route.price,
+                                Pris = (route.price / 100),
                                 Rute =
                                     new rute()
                                     {

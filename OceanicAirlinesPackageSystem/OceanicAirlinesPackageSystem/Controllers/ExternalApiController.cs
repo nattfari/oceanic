@@ -33,7 +33,7 @@ namespace WebHost.Controllers
             [FromUri] int id, 
             DateTime date,
             string measurements,
-            int weight, 
+            double weight, 
             string requirements = null)
         {
             var routesResult = new GetRoutesContract();
@@ -50,7 +50,7 @@ namespace WebHost.Controllers
                     SizeDepth = depth,
                     SizeWidth = width,
                     SizeHight = height,
-                    Weight = weight,
+                    Weight = (int)(weight * 1000),
                     forsendelse = new List<forsendelse>
                     {
                         new forsendelse
@@ -65,6 +65,11 @@ namespace WebHost.Controllers
                 var calculationManager = new CalculationManager();
 
                 var forsendelsesTyper = GetForsendelsesType(requirements).Select(x => x.packetTypeId.Value).ToList();
+
+                if (!forsendelsesTyper.Any())
+                {
+                    forsendelsesTyper = new List<long>() { Int32.MaxValue };
+                }
                 var multiplier = DataManager.HentPakkeType(forsendelsesTyper);
 
                 routes = new List<RouteDTO>();
@@ -74,7 +79,7 @@ namespace WebHost.Controllers
                     {
                         destination = route.Rute.EndCity,
                         duration = route.Rute.Time,
-                        price = Convert.ToInt32(calculationManager.BeregnPris(package, multiplier))
+                        price = 100 * Convert.ToInt32(calculationManager.BeregnPris(package, multiplier))
                     });
                 }
             }
@@ -89,8 +94,13 @@ namespace WebHost.Controllers
 
         private ICollection<forsendelsesType> GetForsendelsesType(string requirements)
         {
+            List<forsendelsesType> result = new List<forsendelsesType>();
+            if (requirements == null)
+            {
+                return result;
+            }
             var splittedRequirements = requirements.Split(',');
-            var result = splittedRequirements.Select(splittedRequirement => new forsendelsesType {packetTypeId = int.Parse(splittedRequirement)}).ToList();
+            result = splittedRequirements.Select(splittedRequirement => new forsendelsesType {packetTypeId = int.Parse(splittedRequirement)}).ToList();
             return result;
         }
     }
