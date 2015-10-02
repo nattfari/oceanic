@@ -40,7 +40,8 @@ namespace BusinessLogicTest
         {
             var by1 = DataManager.HentAktiveredeByer().First();
             List<IExternalServicesApi> w = new List<IExternalServicesApi>();
-            w.Add(new MockService());
+            w.Add(new TelstarService());
+            w.Add(new EITService());
             var manager = new RouteManager(w);
 
             //List<IExternalServicesApi> w = new List<IExternalServicesApi>();

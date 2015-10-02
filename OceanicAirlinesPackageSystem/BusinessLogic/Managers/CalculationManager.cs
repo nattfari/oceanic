@@ -177,7 +177,7 @@ namespace BusinessLogic.Managers
 
                 foreach (var neighbour in getNeighbourghNodes(node, queue))
                 {
-                    if (!queue.Contains(neighbour))
+                    if (neighbour == null || !queue.Contains(neighbour))
                         continue;
 
                     var dist = node.Distance + DistanceBetween(node, neighbour, politik);
