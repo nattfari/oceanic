@@ -4,7 +4,7 @@
             getAdmin: function() {
                 var deferred = $q.defer();
                 $http({
-                    url: Api.url + '/user/hentAdministration',
+                    url: Api.url + 'user/hentAdministration',
                     method: "GET"                    
                 }).success(deferred.resolve).error(deferred.reject);
                 return deferred.promise;
