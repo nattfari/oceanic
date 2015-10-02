@@ -17,7 +17,7 @@ namespace BusinessLogic.Managers
             public double Weight;
         }
 
-        public double BeregnPris(pakke sendtPakke)
+        public double BeregnPris(pakke sendtPakke, float multiplier)
         {
             var typer = FindType(sendtPakke.SizeDepth, sendtPakke.SizeHight, sendtPakke.SizeWidth);
             var priser = DataManager.HentPakkePriser();
@@ -28,7 +28,7 @@ namespace BusinessLogic.Managers
                         sendtPakke.Weight <= p.ToWeight).Select(t => t.Price).ToList();
             pris.Sort();
 
-            return pris.First();
+            return pris.First() * multiplier;
         }
 
         public class Node : PriorityQueueNode
@@ -46,7 +46,7 @@ namespace BusinessLogic.Managers
             Tid
         };
 
-        private void GetRoutes(Node node, Politik politik, pakke sendtPakke)
+        private void GetRoutes(Node node, Politik politik, pakke sendtPakke, float multiplier)
         {
             if (node.Ruter != null && node.Ruter.Any())
                 return;
@@ -66,7 +66,7 @@ namespace BusinessLogic.Managers
                         From = _nodes.FirstOrDefault(p => p.By.CityId == r.Rute.StartCity),
                         To = _nodes.FirstOrDefault(p => p.By.CityId == r.Rute.EndCity),
                         Route = r,
-                        Weight = politik == Politik.Pris ? BeregnPris(sendtPakke) : r.Rute.Time
+                        Weight = politik == Politik.Pris ? BeregnPris(sendtPakke, multiplier) : r.Rute.Time
             }).ToList();
 
             ruter.AddRange(ownRoutes);
@@ -93,7 +93,7 @@ namespace BusinessLogic.Managers
             }
 
             prunedList.FindAll(r => r.Route.TransportType == TransportType.Oceanic)
-                .ForEach(rout => rout.Route.Pris = BeregnPris(sendtPakke));
+                .ForEach(rout => rout.Route.Pris = BeregnPris(sendtPakke, multiplier));
             node.Ruter = prunedList;
         }
 
@@ -102,7 +102,7 @@ namespace BusinessLogic.Managers
         private IList<IExternalServicesApi> _externalServicesApis;
 
         public Node CalculateRouteWeight(by source, by target, IList<IExternalServicesApi> externalServicesApis,
-            pakke sendtPakke)
+            pakke sendtPakke, float multiplier)
         {
             _externalServicesApis = externalServicesApis;
             _byliste = DataManager.HentAktiveredeByer().ToList();
@@ -113,11 +113,11 @@ namespace BusinessLogic.Managers
 
             _byliste.RemoveAll(p => p == null);
 
-            var result = Dijstra(source, target, Politik.Pris, sendtPakke);
+            var result = Dijstra(source, target, Politik.Pris, sendtPakke, multiplier);
             return result;
         }
 
-        public Node CalculateRouteTime(by source, by target, IList<IExternalServicesApi> externalServicesApis, pakke sendtPakke)
+        public Node CalculateRouteTime(by source, by target, IList<IExternalServicesApi> externalServicesApis, pakke sendtPakke, float multiplier)
         {
             _externalServicesApis = externalServicesApis;
             _byliste = DataManager.HentAktiveredeByer().ToList();
@@ -128,7 +128,7 @@ namespace BusinessLogic.Managers
 
             _byliste.RemoveAll(p => p == null);
 
-            var result = Dijstra(source, target, Politik.Tid, sendtPakke);
+            var result = Dijstra(source, target, Politik.Tid, sendtPakke, multiplier);
             return result;
         }
 
@@ -144,7 +144,7 @@ namespace BusinessLogic.Managers
             return from.Ruter.FirstOrDefault(p => p.From == from && p.To == to).Weight;
         }
 
-        private Node Dijstra(by source, by target, Politik politik, pakke sendtPakke)
+        private Node Dijstra(by source, by target, Politik politik, pakke sendtPakke, float multiplier)
         {
             var queue = new HeapPriorityQueue<Node>(_byliste.Count * 2);
             _nodes = new List<Node>();
@@ -173,7 +173,7 @@ namespace BusinessLogic.Managers
                 if (node == targetBy && node.Distance != double.MaxValue)
                     return node;
 
-                GetRoutes(node, politik, sendtPakke);
+                GetRoutes(node, politik, sendtPakke, multiplier);
 
                 foreach (var neighbour in getNeighbourghNodes(node, queue))
                 {

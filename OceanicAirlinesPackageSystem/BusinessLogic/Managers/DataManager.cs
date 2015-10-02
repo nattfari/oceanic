@@ -20,12 +20,13 @@ namespace BusinessLogic.Managers
             }
         }
 
-        public static void OpretRute()
+        public static long OpretRute(forsendelse rute)
         {
             using (var context = new OADbContext())
             {
-              //  var forsendelses = new forsendelse{}
-
+                var id = context.forsendelse.Add(rute);
+                context.SaveChanges();
+                return id.Id;
             }
         }
 
@@ -57,6 +58,25 @@ namespace BusinessLogic.Managers
             }
         }
 
+        public static void GemForsendelse(long forsendelsesId)
+        {
+            using (var context = new OADbContext())
+            {
+                var forsend = context.forsendelse.FirstOrDefault(p => p.Id == forsendelsesId);
+                forsend.Saved = true;
+                context.forsendelse.AddOrUpdate(forsend);
+                context.SaveChanges();
+            }
+        }
+
+        public static List<forsendelse> HentGemteForsendelser()
+        {
+            using (var context = new OADbContext())
+            {
+                return context.forsendelse.ToList().FindAll(p => p.Saved);
+            }
+        }
+
         public static List<pakkePris> HentPakkePriser()
         {
             using (var context = new OADbContext())
@@ -65,12 +85,24 @@ namespace BusinessLogic.Managers
             }
         }
 
+        public static float HentPakkeType(int Id)
+        {
+            if (Id == Int32.MaxValue)
+                return 1;
+
+            using (var context = new OADbContext())
+            {
+                return context.packetType.FirstOrDefault(p => p.Id == Id).multiplier;
+            }
+        }
+
         public static void DeaktiverBy(by by)
         {
             by.Active = false;
             using (var context = new OADbContext())
             {
-                  context.by.AddOrUpdate(by);
+                 context.by.AddOrUpdate(by);
+                 context.SaveChanges();
             }
         }
 
@@ -80,6 +112,7 @@ namespace BusinessLogic.Managers
             using (var context = new OADbContext())
             {
                 context.by.AddOrUpdate(by);
+                context.SaveChanges();
             }
         }
     }

@@ -21,14 +21,12 @@ namespace BusinessLogic.Data
     
         public long Id { get; set; }
         public int Weight { get; set; }
-        public Nullable<long> Type { get; set; }
         public Nullable<long> Sender { get; set; }
         public int SizeHight { get; set; }
         public int SizeWidth { get; set; }
         public int SizeDepth { get; set; }
     
         public virtual ICollection<forsendelse> forsendelse { get; set; }
-        public virtual packetType packetType { get; set; }
         public virtual users users { get; set; }
     }
 }

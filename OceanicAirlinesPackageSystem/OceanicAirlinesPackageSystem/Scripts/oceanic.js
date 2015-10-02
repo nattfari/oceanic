@@ -29,13 +29,18 @@
 
 .service('Parameters', function () {
     this.params = {};
+    this.fragtTyper = [{ Id: 1, PacketType: "Levende Dyr" }, { Id: 2, PacketType: "Fødevare" }, { Id: 3, PacketType: "Anbefalet" }, { Id: 4, PacketType: "Våben" }, { Id: 5, PacketType: "Forsigtig forsendel" }];
     this.setParams = function(obj) {
         this.params = obj;
     };
 
-    this.getParams = function() {
+    this.getParams = function () {
         return this.params;
-    }
+    };
+
+    this.getFragtTyper = function() {
+        return this.fragtTyper;
+    };
 })
 
 .config(['$routeProvider',

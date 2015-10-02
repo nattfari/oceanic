@@ -58,7 +58,7 @@ namespace ExternalServices
             queryString["date"] = DateTime.Now.AddDays(1).ToString("o");
             queryString["measurements"] = string.Format("{0}x{1}x{2}", pakke.SizeDepth, pakke.SizeHight, pakke.SizeWidth);
             queryString["weight"] = (pakke.Weight * 0.001).ToString(CultureInfo.InvariantCulture);
-            queryString["requirements"] = GetRequirements(pakke.packetType.forsendelsesType);
+            queryString["requirements"] = GetRequirements(pakke.forsendelse);
             var queryParams = queryString.ToString();
 
             //var result = HttpClient.GetAsync(uriBuilder.ToString()).Result;
@@ -91,9 +91,17 @@ namespace ExternalServices
             return routes;
         }
 
-        private static string GetRequirements(IEnumerable<forsendelsesType> requirements)
+        private static string GetRequirements(ICollection<forsendelse> forsendelser)
         {
-            var packedIds = requirements.Select(forsendelsesType => forsendelsesType.packetTypeId.ToString());
+            var packedIds = new List<long>();
+            foreach (var forsendelse in forsendelser)
+            {
+                foreach (var forsendelsesType in forsendelse.forsendelsesType)
+                {
+                    packedIds.Add(forsendelsesType.packetTypeId.Value);
+                }
+
+            }
             return string.Join(", ", packedIds);
         }
 

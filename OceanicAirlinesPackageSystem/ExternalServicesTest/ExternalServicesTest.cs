@@ -43,11 +43,14 @@ namespace ExternalServicesTest
                 SizeHight = 50,
                 SizeWidth = 30,
                 Weight = 4500,
-                packetType = new packetType()
+                forsendelse = new List<forsendelse>()
                 {
-                    forsendelsesType = new List<forsendelsesType>()
+                    new forsendelse()
                     {
-                        new forsendelsesType(){packetTypeId = 1}
+                        forsendelsesType = new List<forsendelsesType>()
+                        {
+                            new forsendelsesType(){packetTypeId = 1}
+                        }
                     }
                 }
             };

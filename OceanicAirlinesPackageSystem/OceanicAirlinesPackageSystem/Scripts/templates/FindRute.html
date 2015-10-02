@@ -1,16 +1,11 @@
 ﻿<div class="container" align="center">
-    
-
-
     <div class="row overskrift">
         <div class="col-md-3" align="center">
-            
         </div>
         <div class="col-md-9" align="left"><font size="6" face="Garamond"><b>Find din rute</b></font></div>
     </div>
     <div class="row">
         <div class="col-md-3" align="center">
-            
         </div>
         <div class="col-md-3" align="center">
             <div class="inner-addon left-addon">
@@ -31,70 +26,59 @@
         <div class="col-md-3" align="center">
             <div class="inner-addon left-addon">
                 <i class="glyphicon glyphicon-scale "></i>
-                <input type="number" data-ng-model="rute.Vaegt" placeholder="Vægt" max="99999" class="form-control" />
+                <input type="number" data-ng-model="rute.Vaegt" placeholder="Vægt i gram" max="99999" class="form-control" />
             </div>
         </div>
 
-        </div>
     </div>
-
     <div class="row" data-ng-repeat="fragtType in fragtTyper">
-        <div class="col-md-3" align="left">
-            
+        <div class="col-md-6" align="left">
         </div>
         <div class="col-md-3" align="left">
             <input type="checkbox" data-ng-model="fragtType.markeret" data-ng-change="valgteTyper(fragtType)">
-            {{fragtType.name}}
+            {{fragtType.PacketType}}
         </div>
     </div>
     <div class="row">
-        <div class="col-md-3" align="left">
-            
+        <div class="col-md-6" align="left">
         </div>
-
-        
+        <div class="col-md-3" align="left">
+            <input type="radio" name="Dimension" value="A" ng-model="rute.DimensionsType">
+            A: 25x60x25
+        </div>
     </div>
-
-
-
-    <table cellspacing="3" width="85%" style="padding: 30px">
-        
-       
-        <tr>
-            <td bgcolor="silver" colspan="3"></td>
-        </tr>
-        <tr>
-            <td align="left"><b>Dimensioner</b></td>
-            <td align="right">A:</td>
-            <td align="left">
-                <input type="radio" name="Dimension" value="A" ng-model="rute.DimensionsType">
-                25x60x25</td>
-        </tr>
-        <tr>
-            <td align="right">B:</td>
-            <td align="left">
-                <input type="radio" name="Dimension" value="B" ng-model="rute.DimensionsType">
-                40x40x40</td>
-        </tr>
-        <tr>
-            <td align="right">C:</td>
-            <td align="left">
-                <input type="radio" name="Dimension" value="C" ng-model="rute.DimensionsType">
-                15x100x15</td>
-        </tr>
-        <tr>
-            <td align="right">D:</td>
-            <td align="left">
-                <input type="radio" name="Dimension" value="D" ng-model="rute.DimensionsType">
-                20x80x20</td>
-        </tr>
-        <tr>
-            <td align="right">E:</td>
-            <td align="left">
-                <input type="radio" name="Dimension" value="E" ng-model="rute.DimensionsType">
-                30x50x30</td>
-        </tr>
-    </table>
+    <div class="row">
+        <div class="col-md-6" align="left">
+        </div>
+        <div class="col-md-3" align="left">
+            <input type="radio" name="Dimension" value="B" ng-model="rute.DimensionsType">
+            B: 40x40x40
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6" align="left">
+        </div>
+        <div class="col-md-3" align="left">
+            <input type="radio" name="Dimension" value="C" ng-model="rute.DimensionsType">
+            C: 15x100x15
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6" align="left">
+        </div>
+        <div class="col-md-3" align="left">
+            <input type="radio" name="Dimension" value="D" ng-model="rute.DimensionsType">
+            D: 20x80x20
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6" align="left">
+        </div>
+        <div class="col-md-3" align="left">
+            <input type="radio" name="Dimension" value="E" ng-model="rute.DimensionsType">
+            E: 30x50x30
+        </div>
+    </div>
     <div class="row">
         <button class="btn btn-default" value="Find rute" ng-click="findRute()">
             <span><font size="4" face="Garamond">Find rute</font></span>
