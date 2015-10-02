@@ -3,6 +3,8 @@
         <div class="col-md-12">
             <h2>Vi prøver at finde en rute fra {{request.FraBy}} til {{request.TilBy}} </h2>
             <h3>Vent venligst</h3>
+            
+            <h2 style="font-size: 36px;"><i class="fa fa-spinner fa-spin"></i></h2>
         </div>
     </div>
 </div>
@@ -55,7 +57,7 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
     <div class="col-md-12 row">
     </div>
@@ -81,13 +83,22 @@
             </div>
         </div>
         <div class="col-md-12 row" align="left">
-            <i class="glyphicon glyphicon-time"> {{rute.TotalTid}}</i>
-            <i class="glyphicon glyphicon-usd"> {{rute.TotalPris}}</i>
+            <i class="glyphicon glyphicon-time">{{rute.TotalTid}}</i>
+            <i class="glyphicon glyphicon-usd">{{rute.TotalPris}}</i>
         </div>
         <div class="col-md-12 row" align="left" data-ng-repeat="ruteTrin in rute.RuteTrin">
             <div class="col-md-2">
             </div>
             <div class="col-md-2">
+                <span ng-show="ruteTrin.TransportType == 'TELSTAR'">
+                    <i class="fa fa-truck"></i>
+                </span>
+                <span ng-show="ruteTrin.TransportType == 'EIC'">
+                    <i class="fa fa-ship"></i>
+                </span>
+                <span ng-show="ruteTrin.TransportType == 'Oceanic'">
+                    <i class="fa fa-plane"></i>
+                </span>
                 {{ruteTrin.TransportType}}
             </div>
             <div class="col-md-2">
