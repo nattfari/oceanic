@@ -1,16 +1,16 @@
 ﻿angular.module('Oceanic', ['ui.bootstrap', 'ngRoute'])
 
-.run(function ($rootScope, $route, $location, AuthService) {
-    $rootScope.$on('$locationChangeStart', function (ev, next, current) {
+//.run(function ($rootScope, $route, $location, AuthService) {
+//    $rootScope.$on('$locationChangeStart', function (ev, next, current) {
 
-        var nextPath = $location.path();
-        var nextRoute = $route.routes[nextPath];
+//        var nextPath = $location.path();
+//        var nextRoute = $route.routes[nextPath];
 
-        if (nextRoute.auth && !AuthService.isAuthenticated) {
-            $location.path("/Forside");
-        }
-    });
-})
+//        if (nextRoute.auth && !AuthService.isAuthenticated) {
+//            $location.path("/Forside");
+//        }
+//    });
+//})
 
 .controller('OceanicController', ['$scope', function ($scope) {
 
@@ -41,13 +41,18 @@
 
 .service('Parameters', function () {
     this.params = {};
+    this.fragtTyper = [{ Id: 1, PacketType: "Levende Dyr" }, { Id: 2, PacketType: "Fødevare" }, { Id: 3, PacketType: "Anbefalet" }, { Id: 4, PacketType: "Våben" }, { Id: 5, PacketType: "Forsigtig forsendelse" }];
     this.setParams = function(obj) {
         this.params = obj;
     };
 
-    this.getParams = function() {
+    this.getParams = function () {
         return this.params;
-    }
+    };
+
+    this.getFragtTyper = function() {
+        return this.fragtTyper;
+    };
 })
 
 .config(['$routeProvider',

@@ -110,17 +110,15 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="App.Config" />
     <EntityDeploy Include="Data\OceanicDb.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>OceanicDb.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
     <None Include="Data\OceanicDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>OceanicDb.Context.cs</LastGenOutput>
       <DependentUpon>OceanicDb.edmx</DependentUpon>
+      <LastGenOutput>OceanicDb.Context.cs</LastGenOutput>
     </None>
     <None Include="Data\OceanicDb.edmx.diagram">
       <DependentUpon>OceanicDb.edmx</DependentUpon>

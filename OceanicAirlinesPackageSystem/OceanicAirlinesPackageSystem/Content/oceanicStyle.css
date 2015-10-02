@@ -13,12 +13,21 @@
     padding-bottom: 5px;
 }
 
+.rutebox {
+    background-color: #233D92;
+    color:white;
+    padding-top:5px;
+}
+
+.lysrutebox {
+    background-color: #92A4CC;
+    color:white;
+
+
+}
+
 .overskrift {
-    background-clip: padding-box;
-    border-radius: 5px;
-    border-color: black;
-    border-width: 1px;
-    border: 1px;
+
 }
 
 /* enable absolute positioning */
@@ -55,8 +64,17 @@
 
 .nav-tabs, .nav-pills {
     text-align: center;
-    font-size: 16pt
+    font-size: 16pt;
+    margin-bottom: 0;
 }
+
+.tab-content {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    padding: 10px;
+}
+
+
 
 table {
     width:90%;
