@@ -1,5 +1,5 @@
 ﻿angular.module('Oceanic').controller('RuteforslagController', [
-    '$scope', '$http', 'Api', 'Parameters', function ($scope, $http, Api, Parameters) {
+    '$scope', '$http', 'Api', 'Parameters', 'userInteractionRepository', function ($scope, $http, Api, Parameters, userInteractionRepository) {
         $scope.result = {
             success: false,
             notFound: false,
@@ -40,5 +40,16 @@
             TotalPris: 10,
             RuteTrin: []
         };
+
+        $scope.gemSoegning = function (rute) {
+            var id = rute.RuteId;
+            rute.loading = true;
+            userInteractionRepository.gemSoegning(id).then(function(result) {
+                rute.saved = true;
+                rute.loading = false;
+            }, function(error) {
+                $scope.error = true;
+            });
+        }
     }
 ]);

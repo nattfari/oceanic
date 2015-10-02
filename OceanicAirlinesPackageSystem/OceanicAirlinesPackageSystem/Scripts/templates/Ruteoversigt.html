@@ -1,187 +1,234 @@
-﻿<div class="container-fluid" align="center">
-    <div class="row overskrift">
-        <div class="col-md-3" align="center">
-        </div>
-        <div class="col-md-9" align="left"><font size="6" face="Garamond"><b>Dine ruter</b></font></div>
+﻿<div class="row overskrift">
+    <div class="col-md-3" align="center">
     </div>
-    <div class="col-md-12 row rutebox img-rounded">
-        <div class="col-md-3 row">
-            <div class="col-md-12" align="center">
-                FraBy unmapped
-            </div>
-        </div>
-        <div class="col-md-3 row">
-            <div class="col-md-12 row" align="left">
-                <i class="glyphicon glyphicon-time"> tid unmapped</i>
-            </div>
-            <div class="col-md-12 row" align="left">
-                <i class="glyphicon glyphicon-usd"> pris unmapped</i>
-            </div>
-        </div>
-        <div class="col-md-3 row">
-            <div class="col-md-12" align="left">
-                tilBy unmapped
-            </div>
-        </div>
-        <div class="col-md-3 row lysrutebox img-rounded">
-            <div class="col-md-12 row" align="left">
-                Info om pakken:    
-            </div>
-            <div class="col-md-12 row" align="left">
-                Vægt unmapped    
-            </div>
-            <div class="col-md-12 row" align="left">
-                dimensioner unmapped
-            </div>
-            <div class="col-md-12 row" align="left">
-                tilvalg 1 unmapped
-            </div>
-            <div class="col-md-12 row" align="left">
-                tilvalg 2 unmapped
-            </div>
-            <div class="col-md-12 row" align="left">
-                tilvalg 3 unmapped
-            </div>
-            <div class="col-md-12 row" align="left">
-                tilvalg 4 unmapped
-            </div>
-            <div class="col-md-12 row" align="left">
-                tilvalg 5 unmapped
-            </div>
+    <div class="col-md-9" align="left"><font size="6" face="Garamond"><b>Dine ruter</b></font></div>
+</div>
 
+<div class="col-md-12 row lysrutebox img-rounded" data-ng-repeat="rute in Ruter" style="margin-bottom: 15px;">
+    <div class="col-md-12 row" align="left">
+        <div class="col-md-2">
+            {{rute.RuteType}}
+        </div>
+        <div class="col-md-2">
+            Transporttype
+        </div>
+        <div class="col-md-2">
+            Fra
+        </div>
+        <div class="col-md-2">
+            Til
+        </div>
+        <div class="col-md-2">
+            Step tid
+        </div>
+        <div class="col-md-2">
+            Step pris
         </div>
     </div>
-    <div class="col-md-12 row lysrutebox img-rounded">
-        <div class="col-md-12 row" align="left">
-            <div class="col-md-2">
-                Ruten step by step
-            </div>
-            <div class="col-md-2">
-                Transporttype
-            </div>
-            <div class="col-md-2">
-                Fra
-            </div>
-            <div class="col-md-2">
-                Til
-            </div>
-            <div class="col-md-2">
-                Step tid
-            </div>
-            <div class="col-md-2">
-                Step pris
-            </div>
-        </div>
-        <div class="col-md-12 row" align="left">
-            <div class="col-md-2">
-            </div>
-            <div class="col-md-2">
-                Lastbil unmapped
-            </div>
-            <div class="col-md-2">
-                fraBy unmapped
-            </div>
-            <div class="col-md-2">
-                tilBy unmapped
-            </div>
-            <div class="col-md-2">
-                Step tid unmapped
-            </div>
-            <div class="col-md-2">
-                Step pris unmapped
-            </div>
-        </div>
+    <div class="col-md-12 row" align="left">
+        <i class="glyphicon glyphicon-time">{{rute.TotalTid}}</i>
+        <i class="glyphicon glyphicon-usd">{{rute.TotalPris}}</i>
     </div>
-    <div class="col-md-12 row">
-    </div>
-    <div class="col-md-12 row rutebox img-rounded">
-        <div class="col-md-3 row">
-            <div class="col-md-12" align="center">
-                FraBy unmapped
-            </div>
+    <div class="col-md-12 row" align="left" data-ng-repeat="ruteTrin in rute.RuteTrin">
+        <div class="col-md-2">
         </div>
-        <div class="col-md-3 row">
-            <div class="col-md-12 row" align="left">
-                <i class="glyphicon glyphicon-time"> tid unmapped</i>
-            </div>
-            <div class="col-md-12 row" align="left">
-                <i class="glyphicon glyphicon-usd"> pris unmapped</i>
-            </div>
+        <div class="col-md-2">
+            {{ruteTrin.TransportType}}
         </div>
-        <div class="col-md-3 row">
-            <div class="col-md-12" align="left">
-                tilBy unmapped
-            </div>
+        <div class="col-md-2">
+            {{ruteTrin.FraBy}}
         </div>
-        <div class="col-md-3 row lysrutebox img-rounded">
-            <div class="col-md-12 row" align="left">
-                Info om pakken:    
-            </div>
-            <div class="col-md-12 row" align="left">
-                Vægt unmapped    
-            </div>
-            <div class="col-md-12 row" align="left">
-                dimensioner unmapped
-            </div>
-            <div class="col-md-12 row" align="left">
-                tilvalg 1 unmapped
-            </div>
-            <div class="col-md-12 row" align="left">
-                tilvalg 2 unmapped
-            </div>
-            <div class="col-md-12 row" align="left">
-                tilvalg 3 unmapped
-            </div>
-            <div class="col-md-12 row" align="left">
-                tilvalg 4 unmapped
-            </div>
-            <div class="col-md-12 row" align="left">
-                tilvalg 5 unmapped
-            </div>
-
+        <div class="col-md-2">
+            {{ruteTrin.TilBy}}
         </div>
-    </div>
-    <div class="col-md-12 row lysrutebox img-rounded">
-        <div class="col-md-12 row" align="left">
-            <div class="col-md-2">
-                Ruten step by step
-            </div>
-            <div class="col-md-2">
-                Transporttype
-            </div>
-            <div class="col-md-2">
-                Fra
-            </div>
-            <div class="col-md-2">
-                Til
-            </div>
-            <div class="col-md-2">
-                Step tid
-            </div>
-            <div class="col-md-2">
-                Step pris
-            </div>
+        <div class="col-md-2">
+            {{ruteTrin.Tid}}
         </div>
-        <div class="col-md-12 row" align="left">
-            <div class="col-md-2">
-            </div>
-            <div class="col-md-2">
-                Lastbil unmapped
-            </div>
-            <div class="col-md-2">
-                fraBy unmapped
-            </div>
-            <div class="col-md-2">
-                tilBy unmapped
-            </div>
-            <div class="col-md-2">
-                Step tid unmapped
-            </div>
-            <div class="col-md-2">
-                Step pris unmapped
-            </div>
+        <div class="col-md-2">
+            {{ruteTrin.Pris}}
         </div>
-    </div>
-    <div class="col-md-12 row">
     </div>
 </div>
+<!--<div class="container-fluid" align="center">
+
+    <div class="col-md-12 row rutebox img-rounded">
+        <div class="col-md-3 row">
+            <div class="col-md-12" align="center">
+                FraBy unmapped
+            </div>
+        </div>
+        <div class="col-md-3 row">
+            <div class="col-md-12 row" align="left">
+                <i class="glyphicon glyphicon-time">tid unmapped</i>
+            </div>
+            <div class="col-md-12 row" align="left">
+                <i class="glyphicon glyphicon-usd">pris unmapped</i>
+            </div>
+        </div>
+        <div class="col-md-3 row">
+            <div class="col-md-12" align="left">
+                tilBy unmapped
+            </div>
+        </div>
+        <div class="col-md-3 row lysrutebox img-rounded">
+            <div class="col-md-12 row" align="left">
+                Info om pakken:    
+            </div>
+            <div class="col-md-12 row" align="left">
+                Vægt unmapped    
+            </div>
+            <div class="col-md-12 row" align="left">
+                dimensioner unmapped
+            </div>
+            <div class="col-md-12 row" align="left">
+                tilvalg 1 unmapped
+            </div>
+            <div class="col-md-12 row" align="left">
+                tilvalg 2 unmapped
+            </div>
+            <div class="col-md-12 row" align="left">
+                tilvalg 3 unmapped
+            </div>
+            <div class="col-md-12 row" align="left">
+                tilvalg 4 unmapped
+            </div>
+            <div class="col-md-12 row" align="left">
+                tilvalg 5 unmapped
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-12 row lysrutebox img-rounded">
+        <div class="col-md-12 row" align="left">
+            <div class="col-md-2">
+                Ruten step by step
+            </div>
+            <div class="col-md-2">
+                Transporttype
+            </div>
+            <div class="col-md-2">
+                Fra
+            </div>
+            <div class="col-md-2">
+                Til
+            </div>
+            <div class="col-md-2">
+                Step tid
+            </div>
+            <div class="col-md-2">
+                Step pris
+            </div>
+        </div>
+        <div class="col-md-12 row" align="left">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-2">
+                Lastbil unmapped
+            </div>
+            <div class="col-md-2">
+                fraBy unmapped
+            </div>
+            <div class="col-md-2">
+                tilBy unmapped
+            </div>
+            <div class="col-md-2">
+                Step tid unmapped
+            </div>
+            <div class="col-md-2">
+                Step pris unmapped
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 row">
+    </div>
+    <div class="col-md-12 row rutebox img-rounded">
+        <div class="col-md-3 row">
+            <div class="col-md-12" align="center">
+                FraBy unmapped
+            </div>
+        </div>
+        <div class="col-md-3 row">
+            <div class="col-md-12 row" align="left">
+                <i class="glyphicon glyphicon-time">tid unmapped</i>
+            </div>
+            <div class="col-md-12 row" align="left">
+                <i class="glyphicon glyphicon-usd">pris unmapped</i>
+            </div>
+        </div>
+        <div class="col-md-3 row">
+            <div class="col-md-12" align="left">
+                tilBy unmapped
+            </div>
+        </div>
+        <div class="col-md-3 row lysrutebox img-rounded">
+            <div class="col-md-12 row" align="left">
+                Info om pakken:    
+            </div>
+            <div class="col-md-12 row" align="left">
+                Vægt unmapped    
+            </div>
+            <div class="col-md-12 row" align="left">
+                dimensioner unmapped
+            </div>
+            <div class="col-md-12 row" align="left">
+                tilvalg 1 unmapped
+            </div>
+            <div class="col-md-12 row" align="left">
+                tilvalg 2 unmapped
+            </div>
+            <div class="col-md-12 row" align="left">
+                tilvalg 3 unmapped
+            </div>
+            <div class="col-md-12 row" align="left">
+                tilvalg 4 unmapped
+            </div>
+            <div class="col-md-12 row" align="left">
+                tilvalg 5 unmapped
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-12 row lysrutebox img-rounded">
+        <div class="col-md-12 row" align="left">
+            <div class="col-md-2">
+                Ruten step by step
+            </div>
+            <div class="col-md-2">
+                Transporttype
+            </div>
+            <div class="col-md-2">
+                Fra
+            </div>
+            <div class="col-md-2">
+                Til
+            </div>
+            <div class="col-md-2">
+                Step tid
+            </div>
+            <div class="col-md-2">
+                Step pris
+            </div>
+        </div>
+        <div class="col-md-12 row" align="left">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-2">
+                Lastbil unmapped
+            </div>
+            <div class="col-md-2">
+                fraBy unmapped
+            </div>
+            <div class="col-md-2">
+                tilBy unmapped
+            </div>
+            <div class="col-md-2">
+                Step tid unmapped
+            </div>
+            <div class="col-md-2">
+                Step pris unmapped
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 row">
+    </div>
+</div>-->

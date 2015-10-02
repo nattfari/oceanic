@@ -104,8 +104,11 @@
             </div>
         </div>
         <div class="col-md-12 row" align="center">
-            <button class="btn btn-default" value="gem rute" ng-click="gemRute()">
+            <button class="btn btn-default" value="gem rute" ng-disable="rute.loading" ng-hide="rute.saved" ng-click="gemSoegning(rute)">
                 <span><font size="4" face="Garamond">Gem denne rute</font></span>
+            </button>
+            <button class="btn btn-success" value="gem rute" ng-disable="true" ng-show="rute.saved">
+                <span><font size="4" face="Garamond">Rute gemt</font></span>
             </button>
         </div>
     </div>

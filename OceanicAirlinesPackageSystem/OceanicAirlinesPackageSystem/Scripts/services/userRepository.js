@@ -18,6 +18,25 @@
                     data: user
                 }).success(deferred.resolve).error(deferred.reject);
                 return deferred.promise;
+            },
+            gemSoegning: function(id) {
+                var deferred = $q.defer();
+                $http({
+                    url: Api.url + '/internal/gemSoegning',
+                    method: "POST",
+                    data: {
+                        forsendelseId : id
+                    }
+                }).success(deferred.resolve).error(deferred.reject);
+                return deferred.promise;
+            },
+            hentSoegninger: function () {
+                var deferred = $q.defer();
+                $http({
+                    url: Api.url + 'rute/historik',
+                    method: "GET"
+                }).success(deferred.resolve).error(deferred.reject);
+                return deferred.promise;
             }
         }
     }

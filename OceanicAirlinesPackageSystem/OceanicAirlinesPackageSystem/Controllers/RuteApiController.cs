@@ -9,6 +9,7 @@ using BusinessLogic.Data;
 using BusinessLogic.ExternalInterfaces;
 using BusinessLogic.Managers;
 using ExternalServices;
+using WebHost.Configuration;
 using WebHost.DataContracts.DTOs;
 using WebHost.Factories;
 
@@ -16,6 +17,24 @@ namespace WebHost.Controllers
 {
     public class RuteApiController : ApiController
     {
+        [Route("rute/historik")]
+        [HttpGet]
+        public List<RuteDTO> GetGemtSoegninger()
+        {
+            OADbContext ctx = new OADbContext();
+
+            var ruter = ctx.forsendelse.Where(x => x.Saved).Select(x => (int)x.Id).ToList();
+            var dtos = new List<RuteDTO>();
+            var routeConverter = new GetRouteFromDatabase();
+            
+            foreach (var i in ruter)
+            {
+                dtos.Add(routeConverter.Convert(i));
+            }
+            
+            return dtos;
+        }
+
         [Route("rute/soeg")]
         [HttpPost]
         public RuteResponseDTO GetRoutes([FromBody] RuteRequest ruteRequest)
@@ -42,8 +61,8 @@ namespace WebHost.Controllers
             {
                 Id.Add(Int32.MaxValue);
             }
-            
-            if(fraBy != null && tilBy != null)
+
+            if (fraBy != null && tilBy != null)
             {
                 var routeManager = ManagerFactory.GetRouteManager();
                 var routeManagerResult = routeManager.CalculateRouteTime(fraBy, tilBy, dimension.Height, dimension.Depth, dimension.Width, ruteRequest.Vaegt, Id);
