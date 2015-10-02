@@ -2,15 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
-using System.Net.Http;
-using System.Web;
 using BusinessLogic.Data;
-using BusinessLogic.ExternalInterfaces;
 using BusinessLogic.Managers;
-using ExternalServices;
 using WebHost.DataContracts;
 using WebHost.DataContracts.DTOs;
-using WebHost.Factories;
 using WebHost.Filters;
 
 namespace WebHost.Controllers
@@ -24,9 +19,9 @@ namespace WebHost.Controllers
         {
             var aktiveByer = DataManager.HentAktiveredeByer();
             
-            var citiesContract = new GetCitiesContract()
+            var citiesContract = new GetCitiesContract
             {
-                Cities = aktiveByer.Select(city => new CityDTO(){Id = city.CityId, Name = city.Name}).ToList()
+                Cities = aktiveByer.Select(city => new CityDTO {Id = city.CityId, Name = city.Name}).ToList()
             };
 
             return citiesContract;
@@ -35,24 +30,67 @@ namespace WebHost.Controllers
         [Route("api/cities/{id}/routes/")]
         [HttpGet]
         public GetRoutesContract GetRoute(
-            [FromUri] string id, 
+            [FromUri] int id, 
             DateTime date,
             string measurements,
-            int? weight, 
+            int weight, 
             string requirements = null)
         {
-            var routeManager = ManagerFactory.GetRouteManager();
-            // TODO: Replace dummy data with our own routes from route
-            var result = new GetRoutesContract()
+            var routesResult = new GetRoutesContract();
+            List<RouteDTO> routes = new List<RouteDTO>();
+            try
             {
-                Routes = new List<RouteDTO>()
+                var splittedMeasurements = measurements.Split('x');
+
+                var depth = (int) Convert.ToDouble(splittedMeasurements[0]);
+                var width = (int) Convert.ToDouble(splittedMeasurements[1]);
+                var height = (int) Convert.ToDouble(splittedMeasurements[2]);
+                var package = new pakke
                 {
-                    new RouteDTO() {destination = 1, duration = 8, price = 8},
-                    new RouteDTO() {destination = 2, duration = 3, price = 8},
-                    new RouteDTO() {destination = 3, duration = 7, price = 8},
-                    new RouteDTO() {destination = 4, duration = 1, price = 8},
+                    SizeDepth = depth,
+                    SizeWidth = width,
+                    SizeHight = height,
+                    Weight = weight,
+                    forsendelse = new List<forsendelse>
+                    {
+                        new forsendelse
+                        {
+                            AfsendelsesDato = date,
+                            forsendelsesType = GetForsendelsesType(requirements)
+                        }
+                    }
+                };
+                var ruter = DataManager.HentRuter(new @by {CityId = id});
+
+                var calculationManager = new CalculationManager();
+
+                var forsendelsesTyper = GetForsendelsesType(requirements).Select(x => x.packetTypeId.Value).ToList();
+                var multiplier = DataManager.HentPakkeType(forsendelsesTyper);
+
+                routes = new List<RouteDTO>();
+                foreach (var route in ruter)
+                {
+                    routes.Add(new RouteDTO
+                    {
+                        destination = route.Rute.EndCity,
+                        duration = route.Rute.Time,
+                        price = Convert.ToInt32(calculationManager.BeregnPris(package, multiplier))
+                    });
                 }
-            };
+            }
+            catch (Exception)
+            {
+
+            }
+
+            routesResult.Routes = routes;
+            return routesResult;
+        }
+
+        private ICollection<forsendelsesType> GetForsendelsesType(string requirements)
+        {
+            var splittedRequirements = requirements.Split(',');
+            var result = splittedRequirements.Select(splittedRequirement => new forsendelsesType {packetTypeId = int.Parse(splittedRequirement)}).ToList();
             return result;
         }
     }
