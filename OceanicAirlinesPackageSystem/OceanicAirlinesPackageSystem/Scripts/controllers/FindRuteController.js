@@ -1,5 +1,5 @@
 ﻿angular.module('Oceanic').controller('FindRuteController', [
-    '$scope', 'Api', '$http', function ($scope, Api, $http) {
+    '$scope', 'Api', '$http', 'Parameters', function ($scope, Api, $http, Parameters) {
 
         $scope.byer = [];
         $scope.hentByer = function() {
@@ -15,10 +15,8 @@
         $scope.findRute = function () {
             console.log("Finder Rute");
             console.log($scope.rute);
-            $http.post(Api.url + 'rute/soeg', $scope.rute).then(function(response) {
-                console.log(response);
-                window.location.href = '#Ruteforslag'
-            });
+            Parameters.setParams($scope.rute);
+            window.location.href = '#Ruteforslag';
         };
 
         $scope.fragtTyper = [{ id: "1", "name": "Våben" }, { id: "2", name: "Levende Dyr" }, { id: "3", name: "Forsigtig" }];
@@ -31,5 +29,15 @@
                 $scope.rute.FragtTyper.splice(index, 1);
             }
         };
+
+        serialize = function (obj) {
+            var str = [];
+            for (var p in obj) {
+                if (obj.hasOwnProperty(p)) {
+                    str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                }
+            }
+            return str.join("&");
+        }
     }
 ]);

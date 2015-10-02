@@ -18,11 +18,12 @@ namespace ExternalServices
     {
         protected HttpClient HttpClient;
 
-        protected ExternalService(string endpoint)
+        protected ExternalService(string endpoint, string apiKey)
         {
             HttpClient = new HttpClient();
             HttpClient.DefaultRequestHeaders.Accept.Clear();
             HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(apiKey);
             //HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("charset=UTF-8"));
             var uriBuilder = new UriBuilder(endpoint);
             HttpClient.BaseAddress = uriBuilder.Uri;

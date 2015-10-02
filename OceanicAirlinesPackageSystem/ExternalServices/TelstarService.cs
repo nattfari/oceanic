@@ -15,7 +15,7 @@ namespace ExternalServices
     public class TelstarService : ExternalService
     {
         public TelstarService()
-            : base(@"https://telstarlogistics-ces.azurewebsites.net")
+            : base(@"https://telstarlogistics-ces.azurewebsites.net", "bb4952b4-1d5d-4150-9679-402146913031")
         {
         }
 

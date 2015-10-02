@@ -15,7 +15,7 @@ namespace ExternalServices
     public class EITService : ExternalService
     {
         public EITService()
-            : base(@"https://eastindiatrading-ces.azurewebsites.net/")
+            : base(@"https://eastindiatrading-ces.azurewebsites.net/", "f701a1b0-8c20-40b1-8dbd-8dc566653cdd")
         {
         }
 
