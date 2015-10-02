@@ -8,7 +8,7 @@ namespace WebHost.DataContracts.DTOs
     public class AdministrationResponse
     {
         public List<FragtTypeMultiplierDTO> FragtTypeMultipliers { get; set; } 
-        public List<CityDTO> Lufthavne { get; set; } 
+        public List<LufthavnDTO> Lufthavne { get; set; } 
         public List<PakkeDimensionDto> PakkeDimensioner { get; set; } 
     }
 

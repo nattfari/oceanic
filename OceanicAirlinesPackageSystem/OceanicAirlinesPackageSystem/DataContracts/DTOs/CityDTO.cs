@@ -14,4 +14,13 @@ namespace WebHost.DataContracts.DTOs
         [DataMember(Name="isActive")]
         public bool IsActive { get; set; }
     }
+
+    public class LufthavnDTO
+    {
+        public long Id { get; set; }
+
+        public string Name { get; set; }
+
+        public bool IsActive { get; set; }
+    }
 }
