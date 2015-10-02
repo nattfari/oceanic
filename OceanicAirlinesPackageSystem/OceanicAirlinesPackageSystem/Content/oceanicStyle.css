@@ -21,15 +21,13 @@
 
 .lysrutebox {
     background-color: #92A4CC;
+    color:white;
+
 
 }
 
 .overskrift {
-    background-clip: padding-box;
-    border-radius: 5px;
-    border-color: black;
-    border-width: 1px;
-    border: 1px;
+
 }
 
 /* enable absolute positioning */
