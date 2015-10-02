@@ -29,7 +29,8 @@ namespace WebHost.Configuration
                     FraBy = DataManager.HentBy(forsendelsesRute.StartBy.Value).Name,
                     TilBy = DataManager.HentBy(forsendelsesRute.SlutBy.Value).Name,
                     Tid = forsendelsesRute.TransportTime,
-                    Pris = forsendelsesRute.Price
+                    Pris = forsendelsesRute.Price,
+                    TransportType = ((TransportType)forsendelsesRute.TransportType.Value).ToString()
                 };
                 DTO.RuteTrin.Add(trin);
                 totalpris += (int)(forsendelsesRute.Price);
