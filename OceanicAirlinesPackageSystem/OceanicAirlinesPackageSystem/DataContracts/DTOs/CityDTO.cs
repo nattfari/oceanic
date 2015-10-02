@@ -6,7 +6,7 @@ namespace WebHost.DataContracts.DTOs
     public class CityDTO
     {
         [DataMember(Name = "id")]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         [DataMember(Name = "name")]
         public string Name { get; set; }

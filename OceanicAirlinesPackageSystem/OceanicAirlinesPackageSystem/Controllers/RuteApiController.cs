@@ -10,6 +10,7 @@ using BusinessLogic.ExternalInterfaces;
 using BusinessLogic.Managers;
 using ExternalServices;
 using WebHost.DataContracts.DTOs;
+using WebHost.Factories;
 
 namespace WebHost.Controllers
 {
@@ -19,11 +20,6 @@ namespace WebHost.Controllers
         [HttpPost]
         public RuteResponseDTO GetRoutes([FromBody] RuteRequest ruteRequest)
         {
-            IList<IExternalServicesApi> externalServices = new List<IExternalServicesApi>()
-            {
-                new EITService(),
-                new TelstarService()
-            };
 
             OADbContext ctx = new OADbContext();
             var rute = new CalculationManager.Node();
@@ -42,8 +38,9 @@ namespace WebHost.Controllers
                 Id.Add(Int32.MaxValue);
             }
             
-            if(fraBy != null && tilBy != null) {
-                RouteManager routeManager = new RouteManager(externalServices);
+            if(fraBy != null && tilBy != null)
+            {
+                var routeManager = ManagerFactory.GetRouteManager();
                 var routeManagerResult = routeManager.CalculateRouteTime(fraBy, tilBy, 25, 25, 25, 1000, Id);
                 rute = routeManagerResult.Item1;
             }

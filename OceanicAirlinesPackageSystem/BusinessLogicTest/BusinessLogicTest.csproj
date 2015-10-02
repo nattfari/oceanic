@@ -67,6 +67,10 @@
       <Project>{58298849-3044-475D-B073-FC3DEDB68C2F}</Project>
       <Name>ExternalServices</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OceanicAirlinesPackageSystem\WebHost.csproj">
+      <Project>{C1CFC177-3F2D-4E9D-A6E7-28AD5AB1676C}</Project>
+      <Name>WebHost</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
