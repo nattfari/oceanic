@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
 using System.Net.Http;
 using System.Web;
@@ -9,6 +10,7 @@ using BusinessLogic.Managers;
 using ExternalServices;
 using WebHost.DataContracts;
 using WebHost.DataContracts.DTOs;
+using WebHost.Factories;
 using WebHost.Filters;
 
 namespace WebHost.Controllers
@@ -20,29 +22,14 @@ namespace WebHost.Controllers
         [HttpGet]
         public GetCitiesContract GetCitites()
         {
-            IList<IExternalServicesApi> externalServices = new List<IExternalServicesApi>()
+            var aktiveByer = DataManager.HentAktiveredeByer();
+            
+            var citiesContract = new GetCitiesContract()
             {
-                new MockService()
+                Cities = aktiveByer.Select(city => new CityDTO(){Id = city.CityId, Name = city.Name}).ToList()
             };
 
-            var routeManager = new RouteManager(externalServices);
-            // TODO: Replace dummy data with our own routes from datamanager
-
-
-            var result = new GetCitiesContract()
-            {
-                Cities = new List<CityDTO>()
-                {
-                    new CityDTO() {Id = 1, Name = "Cario"},
-                    new CityDTO() {Id = 2, Name = "Tanger"},
-                    new CityDTO() {Id = 3, Name = "Tunis"},
-                    new CityDTO() {Id = 4, Name = "Tripoli"},
-                    new CityDTO() {Id = 5, Name = "De Kanariske Øer"},
-
-                }
-            };
-
-            return result;
+            return citiesContract;
         }
 
         [Route("api/cities/{id}/routes/")]
@@ -54,7 +41,7 @@ namespace WebHost.Controllers
             int? weight, 
             string requirements = null)
         {
-            
+            var routeManager = ManagerFactory.GetRouteManager();
             // TODO: Replace dummy data with our own routes from route
             var result = new GetRoutesContract()
             {

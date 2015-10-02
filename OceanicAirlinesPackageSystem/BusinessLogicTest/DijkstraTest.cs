@@ -7,6 +7,7 @@ using BusinessLogic.ExternalInterfaces;
 using BusinessLogic.Managers;
 using ExternalServices;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using WebHost.Factories;
 
 namespace BusinessLogicTest
 {
@@ -39,10 +40,7 @@ namespace BusinessLogicTest
         public void TestDijkstra()
         {
             var by1 = DataManager.HentAktiveredeByer().First();
-            List<IExternalServicesApi> w = new List<IExternalServicesApi>();
-            w.Add(new TelstarService());
-            w.Add(new EITService());
-            var manager = new RouteManager(w);
+            var manager = ManagerFactory.GetRouteManager();
 
             //List<IExternalServicesApi> w = new List<IExternalServicesApi>();
 
