@@ -1,7 +1,9 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using BusinessLogic.Data;
@@ -84,6 +86,14 @@ namespace BusinessLogic.Managers
             using (var context = new OADbContext())
             {
                 return context.forsendelse.ToList().FindAll(p => p.Saved);
+            }
+        }
+
+        public static List<forsendelsesRute> HentForsendelsesRute (long Id)
+        {
+            using (var context = new OADbContext())
+            {
+                return context.forsendelsesRute.ToList().FindAll(p => p.forsendelse.Id == Id);
             }
         }
 
