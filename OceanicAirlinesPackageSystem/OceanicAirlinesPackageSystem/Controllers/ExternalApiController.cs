@@ -2,15 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
-using System.Net.Http;
-using System.Web;
 using BusinessLogic.Data;
-using BusinessLogic.ExternalInterfaces;
 using BusinessLogic.Managers;
-using ExternalServices;
 using WebHost.DataContracts;
 using WebHost.DataContracts.DTOs;
-using WebHost.Factories;
 using WebHost.Filters;
 
 namespace WebHost.Controllers
@@ -24,9 +19,9 @@ namespace WebHost.Controllers
         {
             var aktiveByer = DataManager.HentAktiveredeByer();
             
-            var citiesContract = new GetCitiesContract()
+            var citiesContract = new GetCitiesContract
             {
-                Cities = aktiveByer.Select(city => new CityDTO(){Id = city.CityId, Name = city.Name}).ToList()
+                Cities = aktiveByer.Select(city => new CityDTO {Id = city.CityId, Name = city.Name}).ToList()
             };
 
             return citiesContract;
@@ -50,22 +45,22 @@ namespace WebHost.Controllers
                 var depth = (int) Convert.ToDouble(splittedMeasurements[0]);
                 var width = (int) Convert.ToDouble(splittedMeasurements[1]);
                 var height = (int) Convert.ToDouble(splittedMeasurements[2]);
-                var package = new pakke()
+                var package = new pakke
                 {
                     SizeDepth = depth,
                     SizeWidth = width,
                     SizeHight = height,
                     Weight = weight,
-                    forsendelse = new List<forsendelse>()
+                    forsendelse = new List<forsendelse>
                     {
-                        new forsendelse()
+                        new forsendelse
                         {
                             AfsendelsesDato = date,
                             forsendelsesType = GetForsendelsesType(requirements)
                         }
                     }
                 };
-                var ruter = DataManager.HentRuter(new @by() {CityId = id});
+                var ruter = DataManager.HentRuter(new @by {CityId = id});
 
                 var calculationManager = new CalculationManager();
 
@@ -75,7 +70,7 @@ namespace WebHost.Controllers
                 routes = new List<RouteDTO>();
                 foreach (var route in ruter)
                 {
-                    routes.Add(new RouteDTO()
+                    routes.Add(new RouteDTO
                     {
                         destination = route.Rute.EndCity,
                         duration = route.Rute.Time,
@@ -95,7 +90,7 @@ namespace WebHost.Controllers
         private ICollection<forsendelsesType> GetForsendelsesType(string requirements)
         {
             var splittedRequirements = requirements.Split(',');
-            var result = splittedRequirements.Select(splittedRequirement => new forsendelsesType() {packetTypeId = int.Parse(splittedRequirement)}).ToList();
+            var result = splittedRequirements.Select(splittedRequirement => new forsendelsesType {packetTypeId = int.Parse(splittedRequirement)}).ToList();
             return result;
         }
     }

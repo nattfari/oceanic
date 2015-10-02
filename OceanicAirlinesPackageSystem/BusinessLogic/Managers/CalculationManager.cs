@@ -109,6 +109,8 @@ namespace BusinessLogic.Managers
             foreach (var externalServicesApi in externalServicesApis)
             {
                 _byliste.AddRange(externalServicesApi.GetCities().Select(e => _byliste.FirstOrDefault(p => p != null && p.CityId == e.CityId) == null ? e : null));
+                var q = externalServicesApi.GetCities().ToList();
+                q.Clear();
             }
 
             _byliste.RemoveAll(p => p == null);

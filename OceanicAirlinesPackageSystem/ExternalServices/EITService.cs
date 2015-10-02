@@ -9,6 +9,7 @@ using AutoMapper;
 using BusinessLogic.Data;
 using ExternalServices.DataContracts;
 using Newtonsoft.Json;
+using TransportType = BusinessLogic.Data.TransportType;
 
 namespace ExternalServices
 {
@@ -19,5 +20,9 @@ namespace ExternalServices
         {
         }
 
+        protected override TransportType GetTransportType()
+        {
+            return TransportType.EIC;
+        }
     }
 }

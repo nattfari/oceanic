@@ -41,7 +41,7 @@ namespace ExternalServices
                 var jsonResponse = result.Content.ReadAsStringAsync().Result;
                 var convertedResponse = JsonConvert.DeserializeObject<CitiesResponseContract>(jsonResponse);
 
-                cities = convertedResponse.cities.Select(city => new @by() { Id = city.id, Name = city.name }).ToList();
+                cities = convertedResponse.cities.Select(city => new @by() { Id = city.id, Name = city.name, CityId = city.id}).ToList();
             }
 //            else
 //            {
@@ -73,6 +73,7 @@ namespace ExternalServices
                         route =>
                             new Route()
                             {
+                                TransportType = GetTransportType(),
                                 Pris = route.price,
                                 Rute =
                                     new rute()
@@ -104,6 +105,8 @@ namespace ExternalServices
             }
             return string.Join(", ", packedIds);
         }
+
+        protected abstract TransportType GetTransportType();
 
         public void Dispose()
         {
