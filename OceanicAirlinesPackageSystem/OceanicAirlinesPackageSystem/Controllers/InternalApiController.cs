@@ -51,7 +51,7 @@ namespace WebHost.Controllers
 
             var byer = ctx.by.ToList();
 
-            var pakkedimensioner = ctx.pakkeDimintioner;
+            var pakkedimensioner = ctx.pakkeDimintioner.ToList();
 
             var result = new AdministrationResponse()
             {
@@ -84,7 +84,7 @@ namespace WebHost.Controllers
                 Name = x.PacketType1
 
             }).ToList();
-
+            ctx.Dispose();
             return result;
         }
 

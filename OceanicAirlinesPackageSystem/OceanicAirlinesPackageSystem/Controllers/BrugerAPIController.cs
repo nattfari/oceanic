@@ -72,7 +72,7 @@ namespace WebHost.Controllers
                 Name = x.PacketType1
 
             }).ToList();
-
+            ctx.Dispose();
             return result;
         }
 
@@ -100,7 +100,7 @@ namespace WebHost.Controllers
                 Result = false,
                 IsAdmin = false
             };
-
+            ctx.Dispose();
             return loginFailed;
         }
     }
