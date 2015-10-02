@@ -34,7 +34,7 @@ namespace WebHost.Controllers
             
             if(fraBy != null && tilBy != null) {
                 RouteManager routeManager = new RouteManager(externalServices);
-                rute = routeManager.CalculateRouteTime(fraBy, tilBy, 25, 25, 25, 1000);                
+                rute = routeManager.CalculateRouteTime(fraBy, tilBy, dimension.Height, dimension.Depth, dimension.Width, ruteRequest.Vaegt);                
             }
 
             ctx.Dispose();
@@ -46,6 +46,7 @@ namespace WebHost.Controllers
             {
                 ruteDto.TotalTid += ruteTrin.Tid;
                 ruteDto.TotalPris += ruteTrin.Pris;
+                ruteDto.RuteType = "Hurtigste Rute";
             }
 
             RuteResponseDTO result = new RuteResponseDTO()
