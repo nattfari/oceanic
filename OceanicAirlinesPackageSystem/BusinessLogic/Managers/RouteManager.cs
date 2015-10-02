@@ -76,12 +76,12 @@ namespace BusinessLogic.Managers
         }
 
 
-        public IEnumerable<Route> GetRoutes(by by)
+        public IEnumerable<Route> GetRoutes(by by, pakke pakke)
         {
             var result = new List<Route>();
             foreach (var externalServicesApi in _externalApis)
             {
-                result.AddRange(externalServicesApi.GetRoute(by));
+                result.AddRange(externalServicesApi.GetRoute(by, pakke));
             }
             return result;
         }

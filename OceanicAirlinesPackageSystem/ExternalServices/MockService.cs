@@ -27,7 +27,7 @@ namespace ExternalServices
             return result;
         }
 
-        public override IEnumerable<Route> GetRoute(by by)
+        public override IEnumerable<Route> GetRoute(by by, pakke pakke)
         {
             var result = new List<Route>()
             {

@@ -53,7 +53,7 @@ namespace BusinessLogic.Managers
 
             var ruter = new List<Edge>();
 
-            foreach (var rute in _externalServicesApis.Select(enemy => enemy.GetRoute(node.By)))
+            foreach (var rute in _externalServicesApis.Select(enemy => enemy.GetRoute(node.By, sendtPakke)))
             {
                 ruter.AddRange(rute.Select(route => new Edge
                 {
@@ -177,7 +177,7 @@ namespace BusinessLogic.Managers
 
                 foreach (var neighbour in getNeighbourghNodes(node, queue))
                 {
-                    if (!queue.Contains(neighbour))
+                    if (neighbour == null || !queue.Contains(neighbour))
                         continue;
 
                     var dist = node.Distance + DistanceBetween(node, neighbour, politik);

@@ -42,6 +42,8 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataContracts\CitiesResponseContract.cs" />
+    <Compile Include="DataContracts\RouteResponseContract.cs" />
     <Compile Include="ExternalService.cs" />
     <Compile Include="MockService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
