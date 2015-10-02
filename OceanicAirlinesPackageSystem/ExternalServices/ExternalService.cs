@@ -43,10 +43,7 @@ namespace ExternalServices
 
                 cities = convertedResponse.cities.Select(city => new @by() { Id = city.id, Name = city.name, CityId = city.id}).ToList();
             }
-//            else
-//            {
-//                throw new WebException(string.Format("GetCities from {0} failed", HttpClient.BaseAddress));
-//            }
+
             return cities;
         }
 

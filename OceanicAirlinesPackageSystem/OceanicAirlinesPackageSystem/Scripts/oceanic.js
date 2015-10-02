@@ -1,22 +1,32 @@
 ﻿angular.module('Oceanic', ['ui.bootstrap', 'ngRoute'])
 
-//.run(function ($rootScope, $route, $location, AuthService) {
-//    $rootScope.$on('$locationChangeStart', function (ev, next, current) {
+.run(function ($rootScope, $route, $location, AuthService) {
+    $rootScope.$on('$locationChangeStart', function (ev, next, current) {
 
-//        var nextPath = $location.path();
-//        var nextRoute = $route.routes[nextPath];
+        var nextPath = $location.path();
+        var nextRoute = $route.routes[nextPath];
+        
+        if (AuthService.isAuthenticated) {
+            $rootScope.isAuthenticated = true;
+        }
 
-//        if (nextRoute.auth && !AuthService.isAuthenticated) {
-//            $location.path("/Forside");
-//        }
-//    });
-//})
+        if (AuthService.isAdmin) {
+            $rootScope.isAdmin = true;
+        }
 
-.controller('OceanicController', ['$scope', function ($scope) {
+        if (nextRoute.auth && !AuthService.isAuthenticated) {
+            $location.path("/Forside");
+        }
+    });
+})
+
+.controller('OceanicController', ['$scope', 'AuthService', function ($scope, AuthService) {
 
     $scope.image = {
         path: "img/logo.gif"
     };
+
+    $scope.authService = AuthService;
 
     $scope.byer = ['Tanger', 'Tunis', 'Tripoli', 'Cairo', 'De Kanariske Øer', 'Marakesh', 'Sahara', 'Omdurman', 'Suakin', 'Dakar', 'Timbuktu', 'Wadai', 'Darfur', 'Addis Abeba', 'Kap Guardafui', 'Sierra Leone', 'Guldkysten', 'Slavekysten', 'Bahrel Ghazal', 'Victoriasøen', 'Zanzibar', 'Congo', 'Kabalo', 'St. Helena', 'Luanda', 'Mocambique', 'Victoriafaldene', 'Amatave', 'Kap St. Marie', 'Dragebjerget', 'Hvalbugten', 'Kapstaden'];
     $scope.lufthavne = ['Tanger', 'Tripoli', 'Cairo', 'Marrakesh', 'Suakin', 'Sierra Leone', 'Guldkysten', 'Darfur', 'Victoriasøen', 'Kap Guardafui', 'Kabalo', 'Luanda', 'St. Helena', 'Amatave', 'Hvalbugten', 'Dragebjerget', 'Kap St. Marie', 'Kapstaden'];
@@ -34,15 +44,15 @@
         this.url = 'http://localhost:59996/';
     }
     else {
-        this.root = 'http://oa.azurewebsites.com/api';
-        this.url = 'http://oa.azurewebsites.com';
+        this.root = 'https://oceanicairlines-ces.azurewebsites.net//api';
+        this.url = 'https://oceanicairlines-ces.azurewebsites.net/';
     }
 })
 
 .service('Parameters', function () {
     this.params = {};
     this.fragtTyper = [{ Id: 1, PacketType: "Levende Dyr" }, { Id: 2, PacketType: "Fødevare" }, { Id: 3, PacketType: "Anbefalet" }, { Id: 4, PacketType: "Våben" }, { Id: 5, PacketType: "Forsigtig forsendelse" }];
-    this.setParams = function(obj) {
+    this.setParams = function (obj) {
         this.params = obj;
     };
 
@@ -50,7 +60,7 @@
         return this.params;
     };
 
-    this.getFragtTyper = function() {
+    this.getFragtTyper = function () {
         return this.fragtTyper;
     };
 })
@@ -71,7 +81,7 @@
             when('/Ruteforslag', {
                 templateUrl: 'Scripts/templates/Ruteforslag.html',
                 controller: 'RuteforslagController',
-                auth:true
+                auth: true
             }).
             when('/Ruteoversigt', {
                 templateUrl: 'Scripts/templates/Ruteoversigt.html',

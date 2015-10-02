@@ -46,7 +46,7 @@ namespace WebHost.Controllers
             if(fraBy != null && tilBy != null)
             {
                 var routeManager = ManagerFactory.GetRouteManager();
-                var routeManagerResult = routeManager.CalculateRouteTime(fraBy, tilBy, 25, 25, 25, 1000, Id);
+                var routeManagerResult = routeManager.CalculateRouteTime(fraBy, tilBy, dimension.Height, dimension.Depth, dimension.Width, ruteRequest.Vaegt, Id);
 
                 rute = routeManagerResult.Item1;
                 hurtigsteRuteId = routeManagerResult.Item2;
