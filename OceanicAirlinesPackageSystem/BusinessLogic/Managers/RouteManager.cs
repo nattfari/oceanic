@@ -41,8 +41,7 @@ namespace BusinessLogic.Managers
 
             rute.forsendelsesRute.Add(forsendelse);
 
-            SaveRoute(destination.Previous, rute, pakke);
-            return -1; //We never get here, but meh.
+            return SaveRoute(destination.Previous, rute, pakke);
         }
 
         public Tuple<CalculationManager.Node, long> CalculateRouteWeight(by fra, by til, int height, int depth, int width, int weight, List<long> pakkeTypeId)
