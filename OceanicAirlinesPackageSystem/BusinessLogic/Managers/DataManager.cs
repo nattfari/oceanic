@@ -85,14 +85,17 @@ namespace BusinessLogic.Managers
             }
         }
 
-        public static float HentPakkeType(int Id)
+        public static float HentPakkeType(List<long> Id)
         {
-            if (Id == Int32.MaxValue)
-                return 1;
+            float multiplier = 1;
+            if (Id.First() == Int32.MaxValue)
+                return multiplier;
 
             using (var context = new OADbContext())
             {
-                return context.packetType.FirstOrDefault(p => p.Id == Id).multiplier;
+                var res = context.packetType.ToList().FindAll(p => Id.Contains(p.Id));
+                res.ForEach(r => multiplier = multiplier * r.multiplier);
+                return multiplier;
             }
         }
 
