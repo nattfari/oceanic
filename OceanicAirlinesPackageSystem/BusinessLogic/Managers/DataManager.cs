@@ -20,12 +20,13 @@ namespace BusinessLogic.Managers
             }
         }
 
-        public static void OpretRute(forsendelse rute)
+        public static long OpretRute(forsendelse rute)
         {
             using (var context = new OADbContext())
             {
-                context.forsendelse.Add(rute);
+                var id = context.forsendelse.Add(rute);
                 context.SaveChanges();
+                return id.Id;
             }
         }
 
@@ -57,12 +58,13 @@ namespace BusinessLogic.Managers
             }
         }
 
-        public static void GemForsendelse(forsendelse forsendelse)
+        public static void GemForsendelse(long forsendelsesId)
         {
             using (var context = new OADbContext())
             {
-                forsendelse.Saved = true;
-                context.forsendelse.AddOrUpdate(forsendelse);
+                var forsend = context.forsendelse.FirstOrDefault(p => p.Id == forsendelsesId);
+                forsend.Saved = true;
+                context.forsendelse.AddOrUpdate(forsend);
                 context.SaveChanges();
             }
         }
@@ -80,6 +82,17 @@ namespace BusinessLogic.Managers
             using (var context = new OADbContext())
             {
                 return context.pakkePris.ToList();
+            }
+        }
+
+        public static float HentPakkeType(int Id)
+        {
+            if (Id == Int32.MaxValue)
+                return 1;
+
+            using (var context = new OADbContext())
+            {
+                return context.packetType.FirstOrDefault(p => p.Id == Id).multiplier;
             }
         }
 

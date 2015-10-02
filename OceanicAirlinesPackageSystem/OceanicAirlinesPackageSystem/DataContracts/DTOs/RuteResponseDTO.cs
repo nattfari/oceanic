@@ -23,6 +23,7 @@ namespace WebHost.DataContracts.DTOs
 
     public class RuteDTO
     {
+        public long RuteId { get; set; }
         public string RuteType { get; set; }
         public double TotalTid { get; set; }
         public double TotalPris { get; set; }
