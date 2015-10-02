@@ -3,7 +3,8 @@
         $scope.result = {
             success: false,
             notFound: false,
-            waiting: true
+            waiting: true,
+            error: false
     }
         $scope.fragtTyper = Parameters.getFragtTyper() || [];
         $scope.request = {};
@@ -21,10 +22,10 @@
                     } else {
                         $scope.result.success = false;
                     }
-                } else {
-                    console.log("Noget gik i stykker");
                 }
-                
+            }, function(response) {
+                $scope.result.waiting = false;
+                $scope.result.error = true;
             })
         };
         sendRequest();
