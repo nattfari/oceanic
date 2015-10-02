@@ -233,6 +233,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\services\apiModule.js" />
     <Content Include="Scripts\services\authService.js" />
+    <Content Include="Scripts\services\adminRepository.js" />
     <Content Include="Scripts\services\userRepository.js" />
     <Content Include="Scripts\templates\administration.html" />
     <Content Include="Scripts\templates\AdminLogin.html" />
