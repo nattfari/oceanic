@@ -5,6 +5,7 @@
         }
         $scope.fragtTyper = Parameters.getFragtTyper() || [];
         $scope.request = {};
+        $scope.Ruter = [];
         sendRequest = function() {
             $scope.request = Parameters.getParams();
             console.log($scope.request);
@@ -14,6 +15,7 @@
                     $scope.result.success = false;
                 } else {
                     $scope.result.success = true;
+                    $scope.Ruter = response.data.Ruter;
                 }
             })
         };

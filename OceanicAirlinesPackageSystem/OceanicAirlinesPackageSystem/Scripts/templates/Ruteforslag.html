@@ -8,20 +8,14 @@
     <div class="col-md-12 row rutebox img-rounded">
         <div class="col-md-3 row">
             <div class="col-md-12" align="center">
-                FraBy unmapped
+                {{request.FraBy}}
             </div>
         </div>
         <div class="col-md-3 row">
-            <div class="col-md-12 row" align="left">
-                <i class="glyphicon glyphicon-time"> tid unmapped</i>
-            </div>
-            <div class="col-md-12 row" align="left">
-                <i class="glyphicon glyphicon-usd"> pris unmapped</i>
-            </div>
         </div>
         <div class="col-md-3 row">
             <div class="col-md-12" align="left">
-                tilBy unmapped
+                {{request.TilBy}}
             </div>
         </div>
         <div class="col-md-3 row lysrutebox img-rounded">
@@ -29,35 +23,28 @@
                 Dine valg:    
             </div>
             <div class="col-md-12 row" align="left">
-                Vægt unmapped    
+                Vægt: {{request.Vaegt}} 
             </div>
             <div class="col-md-12 row" align="left">
-                dimensioner unmapped
+                Dimensionsklasse: {{request.DimensionsType}}
             </div>
             <div class="col-md-12 row" align="left">
-                tilvalg 1 unmapped
+                Fragttyper:
             </div>
-            <div class="col-md-12 row" align="left">
-                tilvalg 2 unmapped
+            <div data-ng-repeat="fragttype in fragtTyper | filter:filterFragt">
+                <div class="col-md-12 row" align="left">
+                    {{fragttype.PacketType}}
+                </div>
             </div>
-            <div class="col-md-12 row" align="left">
-                tilvalg 3 unmapped
-            </div>
-            <div class="col-md-12 row" align="left">
-                tilvalg 4 unmapped
-            </div>
-            <div class="col-md-12 row" align="left">
-                tilvalg 5 unmapped
-            </div>
-
         </div>
+        
     </div>
     <div class="col-md-12 row">
     </div>
-    <div class="col-md-12 row lysrutebox img-rounded">
+    <div class="col-md-12 row lysrutebox img-rounded" data-ng-repeat="rute in Ruter">
         <div class="col-md-12 row" align="left">
             <div class="col-md-2">
-                Billigste rute
+                {{rute.RuteType}}
             </div>
             <div class="col-md-2">
                 Transporttype
@@ -76,22 +63,26 @@
             </div>
         </div>
         <div class="col-md-12 row" align="left">
+            <i class="glyphicon glyphicon-time"> {{rute.TotalTid}}</i>
+            <i class="glyphicon glyphicon-usd"> {{rute.TotalPris}}</i>
+        </div>
+        <div class="col-md-12 row" align="left" data-ng-repeat="ruteTrin in rute.RuteTrin">
             <div class="col-md-2">
             </div>
             <div class="col-md-2">
-                Lastbil unmapped
+                {{ruteTrin.TransportType}}
             </div>
             <div class="col-md-2">
-                fraBy unmapped
+                {{ruteTrin.FraBy}}
             </div>
             <div class="col-md-2">
-                tilBy unmapped
+                {{ruteTrin.TilBy}}
             </div>
             <div class="col-md-2">
-                Step tid unmapped
+                {{ruteTrin.Tid}}
             </div>
             <div class="col-md-2">
-                Step pris unmapped
+                {{ruteTrin.Pris}}
             </div>
         </div>
         <div class="col-md-12 row" align="center">
@@ -100,7 +91,7 @@
             </button>
         </div>
     </div>
-    <div class="col-md-12 row">
+    <!--<div class="col-md-12 row">
     </div>
     <div class="col-md-12 row lysrutebox img-rounded">
         <div class="col-md-12 row" align="left">
@@ -147,7 +138,7 @@
                 <span><font size="4" face="Garamond">Gem denne rute</font></span>
             </button>
         </div>
-    </div>
+    </div>-->
 
 </div>
 <div class="container" align="center" data-ng-hide="result.success">
