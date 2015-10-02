@@ -6,6 +6,6 @@ namespace BusinessLogic.ExternalInterfaces
     public interface IExternalServicesApi
     {
         IEnumerable<by> GetCities();
-        IEnumerable<Route> GetRoute(by by);
+        IEnumerable<Route> GetRoute(by by, pakke pakke);
     }
 }

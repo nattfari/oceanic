@@ -53,7 +53,7 @@ namespace BusinessLogic.Managers
 
             var ruter = new List<Edge>();
 
-            foreach (var rute in _externalServicesApis.Select(enemy => enemy.GetRoute(node.By)))
+            foreach (var rute in _externalServicesApis.Select(enemy => enemy.GetRoute(node.By, sendtPakke)))
             {
                 ruter.AddRange(rute.Select(route => new Edge
                 {

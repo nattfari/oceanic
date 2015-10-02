@@ -17,7 +17,7 @@ namespace BusinessLogicTest
             return new[] { new @by { CityId = 344, Id = 344, Name = "njdsak" }, new by { CityId = 344, Id = 344, Name = "jkjkj" } };
         }
 
-        public virtual IEnumerable<Route> GetRoute(by by)
+        public virtual IEnumerable<Route> GetRoute(by by, pakke pakke)
         {
             return new[] { new Route { TransportType = TransportType.EIC, Pris = 11, Rute = new rute { Time = 8, StartCity = 1, EndCity = 2 } } };
         }
