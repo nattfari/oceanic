@@ -26,6 +26,7 @@ namespace WebHost.Controllers
 
             OADbContext ctx = new OADbContext();
             var rute = new CalculationManager.Node();
+
             var dimension = ctx.pakkeDimintioner.SingleOrDefault(x => x.Name == ruteRequest.DimensionsType);
             
             var fraBy = ctx.by.SingleOrDefault(x => x.Name == ruteRequest.FraBy);
@@ -41,9 +42,16 @@ namespace WebHost.Controllers
             //map rute til ruteresponsedto
             var ruteDto = Mapper.Map<RuteDTO>(rute);
 
+            foreach (var ruteTrin in ruteDto.RuteTrin)
+            {
+                ruteDto.TotalTid += ruteTrin.Tid;
+                ruteDto.TotalPris += ruteTrin.Pris;
+            }
+
             RuteResponseDTO result = new RuteResponseDTO()
             {
-                Ruter = new List<RuteDTO>() { ruteDto }
+                Ruter = new List<RuteDTO>() { ruteDto },
+                RuteRequest = ruteRequest                
             };
 
             return result;
