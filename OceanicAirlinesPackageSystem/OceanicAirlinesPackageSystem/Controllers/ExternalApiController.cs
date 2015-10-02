@@ -79,7 +79,7 @@ namespace WebHost.Controllers
                     {
                         destination = route.Rute.EndCity,
                         duration = route.Rute.Time,
-                        price = Convert.ToInt32(calculationManager.BeregnPris(package, multiplier))
+                        price = 100 * Convert.ToInt32(calculationManager.BeregnPris(package, multiplier))
                     });
                 }
             }
