@@ -41,7 +41,8 @@ namespace WebHost.Controllers
             
             if(fraBy != null && tilBy != null) {
                 RouteManager routeManager = new RouteManager(externalServices);
-                rute = routeManager.CalculateRouteTime(fraBy, tilBy, 25, 25, 25, 1000, Id);
+                var routeManagerResult = routeManager.CalculateRouteTime(fraBy, tilBy, 25, 25, 25, 1000, Id);
+                rute = routeManagerResult.Item1;
             }
 
             ctx.Dispose();

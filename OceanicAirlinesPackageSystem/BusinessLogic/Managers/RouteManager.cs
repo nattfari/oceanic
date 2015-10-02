@@ -18,14 +18,13 @@ namespace BusinessLogic.Managers
             _calculationManager = new CalculationManager();
         }
 
-        private void SaveRoute(CalculationManager.Node destination, forsendelse rute, pakke pakke)
+        private long SaveRoute(CalculationManager.Node destination, forsendelse rute, pakke pakke)
         {
             if (destination.Previous == null)
             {
                 rute.pakke = pakke;
                 rute.StartBy = destination.By.CityId;
-                DataManager.OpretRute(rute);
-                return;
+                return DataManager.OpretRute(rute);
             }
 
             if (rute.SlutBy == null)
@@ -43,9 +42,10 @@ namespace BusinessLogic.Managers
             rute.forsendelsesRute.Add(forsendelse);
 
             SaveRoute(destination.Previous, rute, pakke);
+            return -1; //We never get here, but meh.
         }
 
-        public CalculationManager.Node CalculateRouteWeight(by fra, by til, int height, int depth, int width, int weight, int pakkeTypeId)
+        public Tuple<CalculationManager.Node, long> CalculateRouteWeight(by fra, by til, int height, int depth, int width, int weight, int pakkeTypeId)
         {
             var pakke = new pakke
             {
@@ -56,11 +56,11 @@ namespace BusinessLogic.Managers
             };
 
             var result = _calculationManager.CalculateRouteWeight(fra, til, _externalApis, pakke, DataManager.HentPakkeType(pakkeTypeId));
-            SaveRoute(result, new forsendelse(), pakke);
-            return result;
+            long forsendelsesId = SaveRoute(result, new forsendelse(), pakke);
+            return new Tuple<CalculationManager.Node, long> (result, forsendelsesId);
         }
 
-        public CalculationManager.Node CalculateRouteTime(by fra, by til, int height, int depth, int width, int weight, int pakkeTypeId)
+        public Tuple<CalculationManager.Node, long> CalculateRouteTime(by fra, by til, int height, int depth, int width, int weight, int pakkeTypeId)
         {
             var pakke = new pakke
             {
@@ -71,8 +71,8 @@ namespace BusinessLogic.Managers
             };
 
             var result = _calculationManager.CalculateRouteTime(fra, til, _externalApis, pakke, DataManager.HentPakkeType(pakkeTypeId));
-            SaveRoute(result, new forsendelse(), pakke);
-            return result;
+            var routeId = SaveRoute(result, new forsendelse(), pakke);
+            return new Tuple<CalculationManager.Node, long>(result, routeId);
         }
 
 

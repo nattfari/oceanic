@@ -53,8 +53,8 @@ namespace BusinessLogicTest
             var result = manager.CalculateRouteWeight(by1, by2, pakke.SizeWidth, pakke.SizeDepth, pakke.SizeHight, pakke.Weight, 1);
             if (result != null)
             {
-                Debug.WriteLine(String.Format("Fra: {0} til {1}, det kostede i alt {2}", by1.Name, by2.Name, result.Distance));
-                printRute(result);
+                Debug.WriteLine(String.Format("Fra: {0} til {1}, det kostede i alt {2}", by1.Name, by2.Name, result.Item1.Distance));
+                printRute(result.Item1);
             }
             }
         }

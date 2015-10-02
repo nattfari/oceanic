@@ -20,12 +20,13 @@ namespace BusinessLogic.Managers
             }
         }
 
-        public static void OpretRute(forsendelse rute)
+        public static long OpretRute(forsendelse rute)
         {
             using (var context = new OADbContext())
             {
-                context.forsendelse.Add(rute);
+                var id = context.forsendelse.Add(rute);
                 context.SaveChanges();
+                return id.Id;
             }
         }
 
