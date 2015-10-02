@@ -29,6 +29,14 @@
                     }
                 }).success(deferred.resolve).error(deferred.reject);
                 return deferred.promise;
+            },
+            hentSoegninger: function () {
+                var deferred = $q.defer();
+                $http({
+                    url: Api.url + 'rute/historik',
+                    method: "GET"
+                }).success(deferred.resolve).error(deferred.reject);
+                return deferred.promise;
             }
         }
     }

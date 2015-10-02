@@ -16,6 +16,19 @@ namespace WebHost.Controllers
 {
     public class RuteApiController : ApiController
     {
+        [Route("rute/historik")]
+        [HttpGet]
+        public List<RuteDTO> GetGemtSoegninger()
+        {
+            OADbContext ctx = new OADbContext();
+
+            var ruter = ctx.forsendelse.Where(x => x.Saved).Select(x => (int) x.Id).ToList();
+
+            var dtos = Mapper.Map<List<int>, List<RuteDTO>>(ruter);
+
+            return dtos;
+        }
+
         [Route("rute/soeg")]
         [HttpPost]
         public RuteResponseDTO GetRoutes([FromBody] RuteRequest ruteRequest)
