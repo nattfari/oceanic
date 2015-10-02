@@ -3,7 +3,11 @@
     </div>
     <div class="col-md-9" align="left"><font size="6" face="Garamond"><b>Dine ruter</b></font></div>
 </div>
-
+<div class="row" ng-show="loading">
+        <div class="col-md-12">            
+            <h2 style="font-size: 36px;"><i class="fa fa-spinner fa-spin"></i></h2>
+        </div>
+    </div>
 <div class="col-md-12 row lysrutebox img-rounded" data-ng-repeat="rute in Ruter" style="margin-bottom: 15px;">
     <div class="col-md-12 row" align="left">
         <div class="col-md-2">
