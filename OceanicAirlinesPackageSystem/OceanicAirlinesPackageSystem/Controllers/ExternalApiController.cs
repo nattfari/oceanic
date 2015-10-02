@@ -65,6 +65,11 @@ namespace WebHost.Controllers
                 var calculationManager = new CalculationManager();
 
                 var forsendelsesTyper = GetForsendelsesType(requirements).Select(x => x.packetTypeId.Value).ToList();
+
+                if (!forsendelsesTyper.Any())
+                {
+                    forsendelsesTyper = new List<long>() { Int32.MaxValue };
+                }
                 var multiplier = DataManager.HentPakkeType(forsendelsesTyper);
 
                 routes = new List<RouteDTO>();
@@ -89,8 +94,13 @@ namespace WebHost.Controllers
 
         private ICollection<forsendelsesType> GetForsendelsesType(string requirements)
         {
+            List<forsendelsesType> result = new List<forsendelsesType>();
+            if (requirements == null)
+            {
+                return result;
+            }
             var splittedRequirements = requirements.Split(',');
-            var result = splittedRequirements.Select(splittedRequirement => new forsendelsesType {packetTypeId = int.Parse(splittedRequirement)}).ToList();
+            result = splittedRequirements.Select(splittedRequirement => new forsendelsesType {packetTypeId = int.Parse(splittedRequirement)}).ToList();
             return result;
         }
     }
