@@ -21,7 +21,8 @@ namespace WebHost.Controllers
         {
             IList<IExternalServicesApi> externalServices = new List<IExternalServicesApi>()
             {
-                new MockService()
+                new EITService(),
+                new TelstarService()
             };
 
             OADbContext ctx = new OADbContext();
