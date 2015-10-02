@@ -43,7 +43,7 @@ namespace WebHost.Controllers
             return pakkeTyper;
         }
 
-        [Route("internal/administration")]
+        [Route("internal/hentAdministration")]
         [HttpGet]
         public AdministrationResponse getAdministrationInfo()
         {
@@ -56,7 +56,7 @@ namespace WebHost.Controllers
             var result = new AdministrationResponse()
             {
                 PakkeDimensioner = new List<PakkeDimensionDto>(),
-                Lufthavne = new List<CityDTO>()
+                Lufthavne = new List<LufthavnDTO>()
             };
 
             foreach (var pakkedimension in pakkedimensioner)
@@ -76,7 +76,7 @@ namespace WebHost.Controllers
                 result.PakkeDimensioner.Add(dimension);
             }
 
-            result.Lufthavne = Mapper.Map<List<@by>,List<CityDTO>>(byer);
+            result.Lufthavne = Mapper.Map<List<@by>,List<LufthavnDTO>>(byer);
 
             result.FragtTypeMultipliers = ctx.packetType.Select(x => new FragtTypeMultiplierDTO()
             {
