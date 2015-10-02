@@ -1,168 +1,154 @@
 ﻿<div class="container-fluid" align="center" data-ng-show="result.success">
-    <table border="1" cellpadding="2" width="85%" style="margin-bottom: 30px">
-        <tr>
-            <td align="center"><font size="6" face="Garamond">Ruteforslag</font></td>
-        </tr>
-    </table>
-    <table bgcolor="silver" frame="box" cellpadding="2" width="85%">
-        <tr>
-            <td align="left"><b>Dine valg</b></td>
-            <td align="right">Fra</td>
-            <td align="left">
-                <input type="text" style="background-color: transparent; border-style:solid; border-width: 0px 0px 1px 0px; border-color: black" ng-model="request.FraBy" disabled/>
-            </td>
-        </tr>
-        <tr>
-            <td align="left"></td>
-            <td align="right">Til</td>
-            <td align="left">
-                <input type="text" style="background-color: transparent; border-style:solid; border-width: 0px 0px 1px 0px; border-color: black" ng-model="request.TilBy" disabled/>
-            </td>
-        </tr>
-        <tr>
-            <td align="left"></td>
-            <td align="right">Vægt</td>
-            <td align="left">
-                <input type="text" style="background-color: transparent; border-style:solid; border-width: 0px 0px 1px 0px; border-color: black" ng-model="request.Vaegt" disabled/>
-            </td>
-        </tr>
-        <tr>
-            <td align="left"></td>
-            <td align="right">Dimensioner</td>
-            <td align="left">
-                <input type="text" style="background-color: transparent; border-style:solid; border-width: 0px 0px 1px 0px; border-color: black" ng-model="request.DimensionsType" disabled/>
-            </td>
-        </tr>
-        <tr>
-            <td align="left"><b>Valgte fragttyper</b></td>
-            <td data-ng-repeat="fragttype in fragtTyper | filter:filterFragt">{{fragttype.PacketType}}</td>
-            <td align="right">Levende dyr:</td>
-            <td align="left">
-                <input type="checkbox" ng-model="LevendeDyr" disabled>
-            </td>
-        </tr>
-        <tr>
-            <td align="left"></td>
-            <td align="right">Kølevare:</td>
-            <td align="left">
-                <input type="checkbox" ng-model="Koelevare" disabled></td>
-        </tr>
-        <tr>
-            <td align="left"></td>
-            <td align="right">Anbefalet:</td>
-            <td align="left">
-                <input type="checkbox" ng-model="Anbefalet" disabled>
-            </td>
-        </tr>
-        <tr>
-            <td align="left"></td>
-            <td align="right">Våben:</td>
-            <td align="left">
-                <input type="checkbox" ng-model="Vaaben" disabled></td>
-        </tr>
-        <tr>
-            <td align="left"></td>
-            <td align="right">Forsigtig:</td>
-            <td align="left">
-                <input type="checkbox" ng-model="Forsigtig" disabled></td>
-        </tr>
-        <tr>
-            <td bgcolor="silver" colspan="9"></td>
-        </tr>
-    </table>
-    <table border="0" cellpadding="2" width="85%">
 
-        <tr>
-            <td><b>Hurtigste rute</b></td>
-            <td></td>
-            <td></td>
-            <td><b>Transporttype</b></td>
-            <td><b>Fra</b></td>
-            <td><b>Til</b></td>
-            <td align="right"><b>Step Tid</b></td>
-            <td align="right"><b>Step Pris</b></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>Telstar: Lastbil</td>
-            <td>Tanger</td>
-            <td>Bumleby</td>
-            <td align="right">01:54</td>
-            <td align="right">21 $</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>Oceanic: Fly</td>
-            <td>Bumleby</td>
-            <td>Kapstaden</td>
-            <td align="right">04:13</td>
-            <td align="right">44 $</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td colspan="9" align="center">
-                <button style="background-color: cornflowerblue" class="btn btn-default" ng-click="gemRute($event)">
-                    <span><font size="4" face="Garamond">Gem denne rute</font></span>
-                </button>
+    <div class="row overskrift">
+        <div class="col-md-3" align="center">
+        </div>
+        <div class="col-md-9" align="left"><font size="6" face="Garamond"><b>Vælg din rute</b></font></div>
+    </div>
+    <div class="col-md-12 row rutebox img-rounded">
+        <div class="col-md-3 row">
+            <div class="col-md-12" align="center">
+                FraBy unmapped
+            </div>
+        </div>
+        <div class="col-md-3 row">
+            <div class="col-md-12 row" align="left">
+                <i class="glyphicon glyphicon-time"> tid unmapped</i>
+            </div>
+            <div class="col-md-12 row" align="left">
+                <i class="glyphicon glyphicon-usd"> pris unmapped</i>
+            </div>
+        </div>
+        <div class="col-md-3 row">
+            <div class="col-md-12" align="left">
+                tilBy unmapped
+            </div>
+        </div>
+        <div class="col-md-3 row lysrutebox img-rounded">
+            <div class="col-md-12 row" align="left">
+                Dine valg:    
+            </div>
+            <div class="col-md-12 row" align="left">
+                Vægt unmapped    
+            </div>
+            <div class="col-md-12 row" align="left">
+                dimensioner unmapped
+            </div>
+            <div class="col-md-12 row" align="left">
+                tilvalg 1 unmapped
+            </div>
+            <div class="col-md-12 row" align="left">
+                tilvalg 2 unmapped
+            </div>
+            <div class="col-md-12 row" align="left">
+                tilvalg 3 unmapped
+            </div>
+            <div class="col-md-12 row" align="left">
+                tilvalg 4 unmapped
+            </div>
+            <div class="col-md-12 row" align="left">
+                tilvalg 5 unmapped
+            </div>
 
-            </td>
-        </tr>
-        <tr>
-            <td bgcolor="silver" colspan="9"></td>
-        </tr>
+        </div>
+    </div>
+    <div class="col-md-12 row">
+    </div>
+    <div class="col-md-12 row lysrutebox img-rounded">
+        <div class="col-md-12 row" align="left">
+            <div class="col-md-2">
+                Billigste rute
+            </div>
+            <div class="col-md-2">
+                Transporttype
+            </div>
+            <div class="col-md-2">
+                Fra
+            </div>
+            <div class="col-md-2">
+                Til
+            </div>
+            <div class="col-md-2">
+                Step tid
+            </div>
+            <div class="col-md-2">
+                Step pris
+            </div>
+        </div>
+        <div class="col-md-12 row" align="left">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-2">
+                Lastbil unmapped
+            </div>
+            <div class="col-md-2">
+                fraBy unmapped
+            </div>
+            <div class="col-md-2">
+                tilBy unmapped
+            </div>
+            <div class="col-md-2">
+                Step tid unmapped
+            </div>
+            <div class="col-md-2">
+                Step pris unmapped
+            </div>
+        </div>
+        <div class="col-md-12 row" align="center">
+            <button class="btn btn-default" value="gem rute" ng-click="gemRute()">
+                <span><font size="4" face="Garamond">Gem denne rute</font></span>
+            </button>
+        </div>
+    </div>
+    <div class="col-md-12 row">
+    </div>
+    <div class="col-md-12 row lysrutebox img-rounded">
+        <div class="col-md-12 row" align="left">
+            <div class="col-md-2">
+                Hurtigste rute
+            </div>
+            <div class="col-md-2">
+                Transporttype
+            </div>
+            <div class="col-md-2">
+                Fra
+            </div>
+            <div class="col-md-2">
+                Til
+            </div>
+            <div class="col-md-2">
+                Step tid
+            </div>
+            <div class="col-md-2">
+                Step pris
+            </div>
+        </div>
+        <div class="col-md-12 row" align="left">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-2">
+                Lastbil unmapped
+            </div>
+            <div class="col-md-2">
+                fraBy unmapped
+            </div>
+            <div class="col-md-2">
+                tilBy unmapped
+            </div>
+            <div class="col-md-2">
+                Step tid unmapped
+            </div>
+            <div class="col-md-2">
+                Step pris unmapped
+            </div>
+        </div>
+        <div class="col-md-12 row" align="center">
+            <button class="btn btn-default" value="gem rute" ng-click="gemRute()">
+                <span><font size="4" face="Garamond">Gem denne rute</font></span>
+            </button>
+        </div>
+    </div>
 
-        <tr>
-            <td><b>Billigste rute</b></td>
-            <td></td>
-            <td></td>
-            <td><b>Transporttype</b></td>
-            <td><b>Fra</b></td>
-            <td><b>Til</b></td>
-            <td align="right"><b>Step Tid</b></td>
-            <td align="right"><b>Step Pris</b></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>Telstar: Lastbil</td>
-            <td>Tanger</td>
-            <td>Bumleby</td>
-            <td align="right">01:54</td>
-            <td align="right">21 $</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>Oceanic: Fly</td>
-            <td>Bumleby</td>
-            <td>Kapstaden</td>
-            <td align="right">04:13</td>
-            <td align="right">44 $</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td colspan="9" align="center">
-                <button style="background-color: cornflowerblue" class="btn btn-default" ng-click="gemRute($event)">
-                    <span><font size="4" face="Garamond">Gem denne rute</font></span>
-                </button>
-
-            </td>
-        </tr>
-        <tr>
-            <td bgcolor="silver" colspan="9"></td>
-        </tr>
-
-    </table>
 </div>
 <div class="container" align="center" data-ng-hide="result.success">
     <div class="row">

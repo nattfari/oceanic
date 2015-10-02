@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Versioning;
 using BusinessLogic.Data;
@@ -17,12 +18,31 @@ namespace BusinessLogic.Managers
             _calculationManager = new CalculationManager();
         }
 
-        private void SaveRoute(CalculationManager.Node destination, forsendelse forsendelse)
+        private void SaveRoute(CalculationManager.Node destination, forsendelse rute, pakke pakke)
         {
+            if (destination.Previous == null)
+            {
+                rute.pakke = pakke;
+                rute.StartBy = destination.By.CityId;
+                DataManager.OpretRute(rute);
+                return;
+            }
+
+            if (rute.SlutBy == null)
+                rute.SlutBy = destination.By.CityId;
+
+            var sd = destination.Previous.Ruter.FirstOrDefault(p => p.From == destination.Previous && p.To == destination);
+
+            var forsendelse = new forsendelsesRute();
+            forsendelse.StartBy = destination.Previous.By.CityId;
             forsendelse.SlutBy = destination.By.CityId;
-            
-            //    forsendelse.
-            //    destination.
+            forsendelse.Price = Convert.ToUInt32(sd.Route.Pris);
+            forsendelse.TransportTime = sd.Route.Rute.Time;
+            forsendelse.TransportType = (Int64)sd.Route.TransportType;
+
+            rute.forsendelsesRute.Add(forsendelse);
+
+            SaveRoute(destination.Previous, rute, pakke);
         }
 
         public CalculationManager.Node CalculateRouteWeight(by fra, by til, int height, int depth, int width, int weight)
@@ -35,7 +55,9 @@ namespace BusinessLogic.Managers
                 Weight = weight
             };
 
-            return _calculationManager.CalculateRouteWeight(fra, til, _externalApis, pakke);
+            var result = _calculationManager.CalculateRouteWeight(fra, til, _externalApis, pakke);
+            SaveRoute(result, new forsendelse(), pakke);
+            return result;
         }
 
         public CalculationManager.Node CalculateRouteTime(by fra, by til, int height, int depth, int width, int weight)
@@ -48,7 +70,9 @@ namespace BusinessLogic.Managers
                 Weight = weight
             };
 
-            return _calculationManager.CalculateRouteTime(fra, til, _externalApis, pakke);
+            var result = _calculationManager.CalculateRouteTime(fra, til, _externalApis, pakke);
+            SaveRoute(result, new forsendelse(), pakke);
+            return result;
         }
 
 

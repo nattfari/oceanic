@@ -20,8 +20,9 @@ namespace BusinessLogic.Data
         public Nullable<long> SlutBy { get; set; }
         public long Price { get; set; }
         public int TransportTime { get; set; }
-        public int TransportType { get; set; }
+        public Nullable<long> TransportType { get; set; }
     
         public virtual forsendelse forsendelse { get; set; }
+        public virtual transportType transportType1 { get; set; }
     }
 }

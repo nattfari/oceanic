@@ -14,8 +14,15 @@ namespace BusinessLogic.Data
     
     public partial class transportType
     {
+        public transportType()
+        {
+            this.forsendelsesRute = new HashSet<forsendelsesRute>();
+        }
+    
         public long Id { get; set; }
         public string TransportType1 { get; set; }
         public string Company { get; set; }
+    
+        public virtual ICollection<forsendelsesRute> forsendelsesRute { get; set; }
     }
 }

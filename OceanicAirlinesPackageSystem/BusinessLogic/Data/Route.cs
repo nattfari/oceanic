@@ -8,9 +8,9 @@ namespace BusinessLogic.Data
 {
     public enum TransportType
     {
-        TELSTAR,
-        EIC,
-        Oceanic
+        Oceanic = 1,
+        TELSTAR = 2,
+        EIC = 3
     }
 
     public class Route
