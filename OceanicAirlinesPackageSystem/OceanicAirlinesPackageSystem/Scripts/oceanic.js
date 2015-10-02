@@ -44,7 +44,7 @@
         this.url = 'http://localhost:59996/';
     }
     else {
-        this.root = 'https://oceanicairlines-ces.azurewebsites.net//api';
+        this.root = 'https://oceanicairlines-ces.azurewebsites.net/api';
         this.url = 'https://oceanicairlines-ces.azurewebsites.net/';
     }
 })

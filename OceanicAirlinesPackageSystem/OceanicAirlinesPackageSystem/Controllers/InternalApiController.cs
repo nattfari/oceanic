@@ -89,7 +89,6 @@ namespace WebHost.Controllers
         }
 
         
-
         [Route("internal/gemSoegning")]
         [HttpPost]
         public void GemSoegning([FromBody] GemSoegningRequest request)
@@ -107,7 +106,7 @@ namespace WebHost.Controllers
 
         [Route("internal/administration")]
         [HttpPost]
-        public void saveAdministrationInfo([FromBody] AdministrationResponse administration)
+        public void SaveAdministrationInfo([FromBody] AdministrationResponse administration)
         {
             OADbContext ctx = new OADbContext();
 
@@ -124,6 +123,7 @@ namespace WebHost.Controllers
                     }
                 }
             }
+            ctx.SaveChanges();
 
             //byer foreach id sæt aktiv/deaktiv
             foreach (var lufthavn in administration.Lufthavne)
@@ -134,6 +134,8 @@ namespace WebHost.Controllers
                     ctx.by.AddOrUpdate(dbLufthavn);
                 }
             }
+
+            ctx.SaveChanges();
 
             //pakketyper where name == administration.pakketype
             foreach (var pakkeType in administration.FragtTypeMultipliers)

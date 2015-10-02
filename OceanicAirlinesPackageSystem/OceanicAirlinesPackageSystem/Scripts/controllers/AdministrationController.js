@@ -1,9 +1,8 @@
-﻿angular.module('Oceanic').controller('AdministrationController',[
-    '$scope', 'adminRepository', function ($scope, adminRepository) {
+﻿angular.module('Oceanic').controller('AdministrationController',
+    ['$scope', 'adminRepository', function ($scope, adminRepository) {
 
         adminRepository.getAdmin().then(function(result) {
             $scope.result = result;
-
         }, function(error) {
             $scope.error = true;
         });
