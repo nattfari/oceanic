@@ -5,7 +5,7 @@
             notFound: false,
             waiting: true,
             error: false
-    }
+        };
         $scope.fragtTyper = Parameters.getFragtTyper() || [];
         $scope.request = {};
         $scope.Ruter = [];
@@ -30,14 +30,9 @@
         };
         sendRequest();
 
-        $scope.filterFragt = function (item) {
+        $scope.filterFragt = function(item) {
             return ($scope.request.FragtTyper.indexOf(item.Id) !== -1);
-            //var retArray = [];
-            //if ($scope.request.FragtTyper.indexOf(item.Id) !== -1) {
-            //    retArray.push(item);
-            //}
-            //return retArray;
-        }
+        };
 
         $scope.ruteDTO = {
             RuteType: "EnType",
