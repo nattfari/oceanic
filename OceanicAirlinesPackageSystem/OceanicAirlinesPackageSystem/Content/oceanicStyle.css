@@ -26,10 +26,6 @@
 
 }
 
-.overskrift {
-
-}
-
 /* enable absolute positioning */
 .inner-addon { 
     position: relative; 
@@ -65,16 +61,14 @@
 .nav-tabs, .nav-pills {
     text-align: center;
     font-size: 16pt;
-    margin-bottom: 0;
+    margin-bottom: 0pt;
 }
 
 .tab-content {
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
-    padding: 10px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    padding: 10px;
 }
-
-
 
 table {
     width:90%;
