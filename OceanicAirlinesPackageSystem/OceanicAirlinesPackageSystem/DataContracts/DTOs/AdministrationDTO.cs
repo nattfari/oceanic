@@ -7,23 +7,28 @@ namespace WebHost.DataContracts.DTOs
 {
     public class AdministrationResponse
     {
-        public double FragtTypeMultiplierKoel { get; set; }
-        public double FragtTypeMultiplierVaaben { get; set; }
-        public double FragtTypeMultiplierForsigtig { get; set; }
-
-        public List<LufthavnDTO> Lufthavne { get; set; } 
+        public List<FragtTypeMultiplierDTO> FragtTypeMultipliers { get; set; } 
+        public List<CityDTO> Lufthavne { get; set; } 
+        public List<PakkeDimensionDto> PakkeDimensioner { get; set; } 
     }
 
-    public class LufthavnDTO
+    public class FragtTypeMultiplierDTO
     {
-        public Guid Id { get; set; }
-        public string Navn { get; set; }
-        public bool Aktiv { get; set; }
+        public float Multiplier { get; set; }
+        public string Name { get; set; }
     }
 
-    public class PakkeDimension
+    public class PakkeDimensionDto
     {
-        
+        public string DimensionNavn { get; set; }
+        public List<PakkePriserDto> PakkePriser { get; set; } 
     }
 
+    public class PakkePriserDto
+    {
+        public int FromWeight { get; set; }
+        public int ToWeight { get; set; }
+        public int Price { get; set; }
+        public long Id { get; set; }
+    }
 }

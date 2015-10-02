@@ -1,8 +1,7 @@
 ﻿<div class="container-fluid" align="center">
-    <div class="row overskrift">
-        <div class="col-md-3" align="center">
-        </div>
-        <div class="col-md-9" align="left"><font size="6" face="Garamond"><b>Administration</b></font></div>
+    <div class="overskrift" style="text-align: center;">
+        <font size="6" face="Garamond"><b>Administration</b></font>
+        
     </div>
     <div class="col-md-12 row rutebox img-rounded" align="left">
         <div class="col-md-12 row">
@@ -13,136 +12,52 @@
                 Vægt:
             </div>
             <div class="col-md-2">
-                Under 1 kg
+                {{result.PakkeDimensioner[0].PakkePriser[0].FromWeight}} - 
+                {{result.PakkeDimensioner[0].PakkePriser[0].ToWeight}} g
             </div>
             <div class="col-md-2">
-                1 - 5 kg
+                {{result.PakkeDimensioner[1].PakkePriser[1].FromWeight}} - 
+                {{result.PakkeDimensioner[1].PakkePriser[1].ToWeight}} g
             </div>
             <div class="col-md-2">
-                Over 5 kg
+                {{result.PakkeDimensioner[2].PakkePriser[2].FromWeight}} - 
+                {{result.PakkeDimensioner[2].PakkePriser[2].ToWeight}} g
             </div>
         </div>
-        <div class="col-md-12 row">
+        <div class="col-md-12 row" ng-repeat="pakkeDimension in result.PakkeDimensioner">
             <div class="col-md-3" align="right">
                 Dimensionstype:
             </div>
             <div class="col-md-3" align="right">
-                A:
+                {{pakkeDimension.DimensionNavn}}:
             </div>
             <div class="col-md-2">
                 <div class="inner-addon left-addon">
-                    <input type="text" placeholder="40 $" class="form-control" />
+                    <input type="text" ng-model="pakkeDimension.PakkePriser[0].Price" placeholder="40 $" class="form-control" />
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="inner-addon left-addon">
-                    <input type="text" placeholder="60 $" class="form-control" />
+                    <input type="text" ng-model="pakkeDimension.PakkePriser[1].Price" placeholder="60 $" class="form-control" />
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="inner-addon left-addon">
-                    <input type="text" placeholder="80 $" class="form-control" />
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12 row">
-            <div class="col-md-3" align="right">
-            </div>
-            <div class="col-md-3" align="right">
-                B:
-            </div>
-            <div class="col-md-2">
-                <div class="inner-addon left-addon">
-                    <input type="text" placeholder="48 $" class="form-control" />
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="inner-addon left-addon">
-                    <input type="text" placeholder="68 $" class="form-control" />
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="inner-addon left-addon">
-                    <input type="text" placeholder="88 $" class="form-control" />
+                    <input type="text" ng-model="pakkeDimension.PakkePriser[2].Price" placeholder="80 $" class="form-control" />
                 </div>
             </div>
         </div>
-        <div class="col-md-12 row">
-            <div class="col-md-3" align="right">
-            </div>
-            <div class="col-md-3" align="right">
-                C:
-            </div>
-            <div class="col-md-2">
-                <div class="inner-addon left-addon">
-                    <input type="text" placeholder="56 $" class="form-control" />
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="inner-addon left-addon">
-                    <input type="text" placeholder="76 $" class="form-control" />
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="inner-addon left-addon">
-                    <input type="text" placeholder="96 $" class="form-control" />
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12 row">
-            <div class="col-md-3" align="right">
-            </div>
-            <div class="col-md-3" align="right">
-                D:
-            </div>
-            <div class="col-md-2">
-                <div class="inner-addon left-addon">
-                    <input type="text" placeholder="64 $" class="form-control" />
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="inner-addon left-addon">
-                    <input type="text" placeholder="84 $" class="form-control" />
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="inner-addon left-addon">
-                    <input type="text" placeholder="104 $" class="form-control" />
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12 row">
-            <div class="col-md-3" align="right">
-            </div>
-            <div class="col-md-3" align="right">
-                E:
-            </div>
-            <div class="col-md-2">
-                <div class="inner-addon left-addon">
-                    <input type="text" placeholder="80 $" class="form-control" />
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="inner-addon left-addon">
-                    <input type="text" placeholder="100 $" class="form-control" />
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="inner-addon left-addon">
-                    <input type="text" placeholder="120 $" class="form-control" />
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12 row">
+       
+        <div class="col-md-12 row" ng-repeat="fragtType in result.FragtTypeMultipliers">
             <div class="col-md-3" align="right">
                 Fragttypefaktor
             </div>
             <div class="col-md-3" align="right">
-                Levende dyr
+                {{fragtType.Name}}
             </div>
             <div class="col-md-2">
                 <div class="inner-addon left-addon">
-                    <input type="text" placeholder="-" class="form-control" disabled />
+                    <input type="text" ng-model="fragtType.Multiplier" placeholder="-" class="form-control" />
                 </div>
             </div>
             <div class="col-md-2">
@@ -150,70 +65,7 @@
             <div class="col-md-2">
             </div>
         </div>
-        <div class="col-md-12 row">
-            <div class="col-md-3" align="right">
-            </div>
-            <div class="col-md-3" align="right">
-                Kølevare
-            </div>
-            <div class="col-md-2">
-                <div class="inner-addon left-addon">
-                    <input type="text" placeholder="1.10" class="form-control" />
-                </div>
-            </div>
-            <div class="col-md-2">
-            </div>
-            <div class="col-md-2">
-            </div>
-        </div>
-        <div class="col-md-12 row">
-            <div class="col-md-3" align="right">
-            </div>
-            <div class="col-md-3" align="right">
-                Anbefalet
-            </div>
-            <div class="col-md-2">
-                <div class="inner-addon left-addon">
-                    <input type="text" placeholder="-" class="form-control" disabled />
-                </div>
-            </div>
-            <div class="col-md-2">
-            </div>
-            <div class="col-md-2">
-            </div>
-        </div>
-        <div class="col-md-12 row">
-            <div class="col-md-3" align="right">
-            </div>
-            <div class="col-md-3" align="right">
-                Våben
-            </div>
-            <div class="col-md-2">
-                <div class="inner-addon left-addon">
-                    <input type="text" placeholder="2.00" class="form-control" />
-                </div>
-            </div>
-            <div class="col-md-2">
-            </div>
-            <div class="col-md-2">
-            </div>
-        </div>
-        <div class="col-md-12 row">
-            <div class="col-md-3" align="right">
-            </div>
-            <div class="col-md-3" align="right">
-                Forsigtig
-            </div>
-            <div class="col-md-2">
-                <div class="inner-addon left-addon">
-                    <input type="text" placeholder="1.75" class="form-control" />
-                </div>
-            </div>
-            <div class="col-md-2">
-            </div>
-            <div class="col-md-2">
-            </div>
-        </div>
+        
     </div>
     <div class="col-md-12 row">
     </div>
@@ -229,23 +81,16 @@
                 
             </div>
         </div>
-        <div class="col-md-12 row" ng-repeat="lufthavn in lufthavne">
-            <div class="col-md-4">
-                
-            </div>
-            <div class="col-md-4" align="right">{{lufthavn.navn}} :
-                
-            </div>
-            <div class="col-md-4" align="left"><input type="checkbox" ng-model="lufthavn.aktiveret">
-                Lufthavn aktiv.
-                
+        <div class="col-md-12 row">
+            <div class="col-md-4" ng-repeat="lufthavn in result.Lufthavne">
+                 <input type="checkbox" ng-model="lufthavn.isActive"> {{lufthavn.name}}
             </div>
         </div>
         
     </div>
 
     <div class="row">
-        <button class="btn btn-default" value="Find rute" ng-click="visRute()">
+        <button class="btn btn-default" value="Find rute" ng-click="saveAdmin()">
             <span><font size="4" face="Garamond">Gem Ændringer</font></span>
         </button>
     </div>

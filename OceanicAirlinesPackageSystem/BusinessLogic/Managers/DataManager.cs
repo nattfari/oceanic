@@ -20,6 +20,14 @@ namespace BusinessLogic.Managers
             }
         }
 
+        public static @by HentBy(long Id)
+        {
+            using (var context = new OADbContext())
+            {
+                return context.by.FirstOrDefault(p => p.CityId == Id);
+            }
+        }
+
         public static long OpretRute(forsendelse rute)
         {
             using (var context = new OADbContext())
@@ -44,9 +52,11 @@ namespace BusinessLogic.Managers
         {
             using (var context = new OADbContext())
             {
-                return (from ruteObjekt in context.rute
+                var res = (from ruteObjekt in context.rute
                     where ruteObjekt.StartCity == _by.CityId
                     select ruteObjekt).Select(r => new Route {Rute = r, TransportType = TransportType.Oceanic}).ToList();
+                res.ForEach(q => q.Rute.Time = q.Rute.Time*60);
+                return res;
             }
         }
 
