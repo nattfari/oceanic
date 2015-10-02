@@ -10,7 +10,7 @@ namespace WebHost.DataContracts.DTOs
     public class RouteDTO
     {
         [DataMember(Name = "destination")]
-        public int destination { get; set; }
+        public long destination { get; set; }
         [DataMember(Name = "price")]
         public int price { get; set; }
         [DataMember(Name = "duration")]
