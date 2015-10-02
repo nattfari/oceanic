@@ -58,12 +58,13 @@ namespace BusinessLogic.Managers
             }
         }
 
-        public static void GemForsendelse(forsendelse forsendelse)
+        public static void GemForsendelse(long forsendelsesId)
         {
             using (var context = new OADbContext())
             {
-                forsendelse.Saved = true;
-                context.forsendelse.AddOrUpdate(forsendelse);
+                var forsend = context.forsendelse.FirstOrDefault(p => p.Id == forsendelsesId);
+                forsend.Saved = true;
+                context.forsendelse.AddOrUpdate(forsend);
                 context.SaveChanges();
             }
         }
