@@ -9,14 +9,14 @@ using WebHost.DataContracts.DTOs;
 
 namespace WebHost.Configuration
 {
-    public class GetRouteFromDatabase : ITypeConverter<int, RuteDTO>
+    public class GetRouteFromDatabase 
     {
-        public RuteDTO Convert(ResolutionContext sa)
+        public RuteDTO Convert(int q)
         {
-            var q = (int)sa.SourceValue;
             var gemteForsendelser = DataManager.HentGemteForsendelser().FirstOrDefault(p => p.Id == q);
             var DTO = new RuteDTO
             {
+                RuteTrin = new List<RuteTrinDTO>(),
                 RuteId = gemteForsendelser.Id
             };
             var forsendelsesRuter = DataManager.HentForsendelsesRute(q);

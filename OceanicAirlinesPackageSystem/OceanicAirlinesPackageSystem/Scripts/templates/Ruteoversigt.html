@@ -3,54 +3,53 @@
     </div>
     <div class="col-md-9" align="left"><font size="6" face="Garamond"><b>Dine ruter</b></font></div>
 </div>
-<div class="row">
-    <div class="col-md-12 row lysrutebox img-rounded" data-ng-repeat="rute in Ruter" style="margin-bottom: 15px;">
-        <div class="col-md-12 row" align="left">
-            <div class="col-md-2">
-                {{rute.RuteType}}
-            </div>
-            <div class="col-md-2">
-                Transporttype
-            </div>
-            <div class="col-md-2">
-                Fra
-            </div>
-            <div class="col-md-2">
-                Til
-            </div>
-            <div class="col-md-2">
-                Step tid
-            </div>
-            <div class="col-md-2">
-                Step pris
-            </div>
+
+<div class="col-md-12 row lysrutebox img-rounded" data-ng-repeat="rute in Ruter" style="margin-bottom: 15px;">
+    <div class="col-md-12 row" align="left">
+        <div class="col-md-2">
+            {{rute.RuteType}}
         </div>
-        <div class="col-md-12 row" align="left">
-            <i class="glyphicon glyphicon-time">{{rute.TotalTid}}</i>
-            <i class="glyphicon glyphicon-usd">{{rute.TotalPris}}</i>
+        <div class="col-md-2">
+            Transporttype
         </div>
-        <div class="col-md-12 row" align="left" data-ng-repeat="ruteTrin in rute.RuteTrin">
-            <div class="col-md-2">
-            </div>
-            <div class="col-md-2">
-                {{ruteTrin.TransportType}}
-            </div>
-            <div class="col-md-2">
-                {{ruteTrin.FraBy}}
-            </div>
-            <div class="col-md-2">
-                {{ruteTrin.TilBy}}
-            </div>
-            <div class="col-md-2">
-                {{ruteTrin.Tid}}
-            </div>
-            <div class="col-md-2">
-                {{ruteTrin.Pris}}
-            </div>
+        <div class="col-md-2">
+            Fra
+        </div>
+        <div class="col-md-2">
+            Til
+        </div>
+        <div class="col-md-2">
+            Step tid
+        </div>
+        <div class="col-md-2">
+            Step pris
+        </div>
+    </div>
+    <div class="col-md-12 row" align="left">
+        <i class="glyphicon glyphicon-time">{{rute.TotalTid}}</i>
+        <i class="glyphicon glyphicon-usd">{{rute.TotalPris}}</i>
+    </div>
+    <div class="col-md-12 row" align="left" data-ng-repeat="ruteTrin in rute.RuteTrin">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-2">
+            {{ruteTrin.TransportType}}
+        </div>
+        <div class="col-md-2">
+            {{ruteTrin.FraBy}}
+        </div>
+        <div class="col-md-2">
+            {{ruteTrin.TilBy}}
+        </div>
+        <div class="col-md-2">
+            {{ruteTrin.Tid}}
+        </div>
+        <div class="col-md-2">
+            {{ruteTrin.Pris}}
         </div>
     </div>
 </div>
-<div class="container-fluid" align="center">
+<!--<div class="container-fluid" align="center">
 
     <div class="col-md-12 row rutebox img-rounded">
         <div class="col-md-3 row">
@@ -232,4 +231,4 @@
     </div>
     <div class="col-md-12 row">
     </div>
-</div>
+</div>-->

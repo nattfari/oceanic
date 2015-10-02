@@ -88,14 +88,17 @@ namespace WebHost.Controllers
             return result;
         }
 
+        
+
         [Route("internal/gemSoegning")]
         [HttpPost]
-        public void GemSoegning([FromBody] long forsendelseId)
+        public void GemSoegning([FromBody] GemSoegningRequest request)
         {
             OADbContext ctx = new OADbContext();
 
-            var forsendelse = ctx.forsendelse.SingleOrDefault(x => x.Id == forsendelseId);
-            forsendelse.Saved = true;
+            var forsendelse = ctx.forsendelse.SingleOrDefault(x => x.Id == request.forsendelseId);
+            if(forsendelse != null)
+                forsendelse.Saved = true;
 
             ctx.forsendelse.AddOrUpdate(forsendelse);
 
@@ -145,5 +148,9 @@ namespace WebHost.Controllers
             ctx.SaveChanges();
             ctx.Dispose();
         }
+    }
+    public class GemSoegningRequest
+    {
+        public long forsendelseId { get; set; }
     }
 }
