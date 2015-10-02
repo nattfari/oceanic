@@ -8,11 +8,14 @@
             $scope.error = true;
         });
 
-        $scope.saveAdmin = function() {
+        $scope.saveAdmin = function () {
+            $scope.loading = true;
             adminRepository.saveAdmin($scope.result).then(function(result) {
-                $scope.saved = true;
+                $scope.success = true;
+                $scope.loading = false;
             }, function(error) {
-                $scope.error = true;
+                $scope.errorMessage = "Oops, something went wrong!";
+                $scope.loading = false;
             });
         }
     }

@@ -9,9 +9,8 @@
                     AuthService.password = $scope.user.Password;
                     AuthService.isAuthenticated = true;
 
-                    if (result.isAdmin) {
-                        authService.isAdmin = true;
-                        $location.path("/Administration");
+                    if (result.IsAdmin) {
+                        AuthService.isAdmin = true;
                     }
 
                     $location.path("/FindRute");

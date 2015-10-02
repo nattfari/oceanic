@@ -1,7 +1,7 @@
 ﻿<div class="container-fluid" align="center">
     <div class="overskrift" style="text-align: center;">
         <font size="6" face="Garamond"><b>Administration</b></font>
-        
+
     </div>
     <div class="col-md-12 row rutebox img-rounded" align="left">
         <div class="col-md-12 row">
@@ -47,7 +47,7 @@
                 </div>
             </div>
         </div>
-       
+
         <div class="col-md-12 row" ng-repeat="fragtType in result.FragtTypeMultipliers">
             <div class="col-md-3" align="right">
                 Fragttypefaktor
@@ -65,7 +65,7 @@
             <div class="col-md-2">
             </div>
         </div>
-        
+
     </div>
     <div class="col-md-12 row">
     </div>
@@ -75,23 +75,31 @@
                 Lufthavne
             </div>
             <div class="col-md-4" align="right">
-                
             </div>
             <div class="col-md-4" align="left">
-                
             </div>
         </div>
         <div class="col-md-12 row">
             <div class="col-md-4" ng-repeat="lufthavn in result.Lufthavne">
-                 <input type="checkbox" ng-model="lufthavn.isActive"> {{lufthavn.name}}
+                <input type="checkbox" ng-model="lufthavn.isActive">
+                {{lufthavn.name}}
             </div>
         </div>
-        
+
     </div>
 
     <div class="row">
         <button class="btn btn-default" value="Find rute" ng-click="saveAdmin()">
-            <span><font size="4" face="Garamond">Gem Ændringer</font></span>
+            <span><font size="4" face="Garamond">Gem Ændringer</font>
+            </span>
         </button>
+
+        <span ng-show="loading">
+            <i class="fa fa-spinner fa-spin"></i>
+        </span>
+        <span ng-show="success">
+            <i class="fa fa-check"></i>
+        </span>
+        <span class="text-danger">{{errorMessage}}</span>
     </div>
 </div>

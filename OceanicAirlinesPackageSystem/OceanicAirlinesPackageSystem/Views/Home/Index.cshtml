@@ -10,6 +10,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-route.js"></script>
         <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        
         <script src="Scripts/oceanic.js"></script>
         <script src="Scripts/services/apiModule.js"></script>
         <script src="Scripts/controllers/ForsideController.js"></script>
@@ -32,13 +34,13 @@
             <div class="container" style="padding: 30px">
                 <img ng-src="{{image.path}}" width="50%"/>
             </div>
-            <div class="row">
+            <div class="row" ng-show="isAuthenticated">
                 <ul class="nav nav-tabs">
-                    <li><a href="#Forside"> Forside </a></li>
+                    
                     <li><a href="#FindRute"> Find Rute</a></li>
                     <li><a href="#Ruteoversigt"> Ruteoversigt </a></li>
                     <li><a href="#Priser"> Priser </a></li>
-                    <li><a href="#Administration"> Administration </a></li>
+                    <li ng-show="isAdmin"><a href="#Administration"> Administration </a></li>
                 </ul>
             </div>
             <div class="container" align="center" style="padding: 30px">
