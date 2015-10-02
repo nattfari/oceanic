@@ -5,25 +5,24 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="dbe025fffc4b451fa6a7c7b328029e52" Name="Diagram1">
-        <EntityTypeShape EntityType="OA_DBModel.by" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="OA_DBModel.forsendelse" Width="1.5" PointX="8.25" PointY="3.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="OA_DBModel.forsendelsesRute" Width="1.5" PointX="10.5" PointY="3.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="OA_DBModel.forsendelsesType" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OA_DBModel.packetType" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OA_DBModel.pakke" Width="1.5" PointX="6" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="OA_DBModel.pakkeDimintioner" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="OA_DBModel.pakkePris" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OA_DBModel.rute" Width="1.5" PointX="2.75" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="OA_DBModel.transportType" Width="1.5" PointX="8.25" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="OA_DBModel.users" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
-        <AssociationConnector Association="OA_DBModel.FK__forsendel__Forse__4830B400" ManuallyRouted="false" />
-        <AssociationConnector Association="OA_DBModel.FK__forsendel__Forse__6BAEFA67" ManuallyRouted="false" />
-        <AssociationConnector Association="OA_DBModel.FK__forsendel__Pakke__603D47BB" ManuallyRouted="false" />
-        <AssociationConnector Association="OA_DBModel.FK__forsendel__Trans__4B0D20AB" ManuallyRouted="false" />
-        <AssociationConnector Association="OA_DBModel.FK__forsendel__packe__6CA31EA0" ManuallyRouted="false" />
-        <AssociationConnector Association="OA_DBModel.FK__pakke__Type__5C6CB6D7" ManuallyRouted="false" />
-        <AssociationConnector Association="OA_DBModel.FK__pakke__Sender__5D60DB10" ManuallyRouted="false" />
-        <AssociationConnector Association="OA_DBModel.FK__pakkePris__Dimen__56E8E7AB" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="OA_DBModel.by" Width="1.5" PointX="11.520319640413076" PointY="7.5110745613980452" />
+        <EntityTypeShape EntityType="OA_DBModel.forsendelse" Width="1.5" PointX="8.2428336442647652" PointY="12.770195758328864" />
+        <EntityTypeShape EntityType="OA_DBModel.forsendelsesRute" Width="1.5" PointX="5.020335503397666" PointY="1.6308944381917336" />
+        <EntityTypeShape EntityType="OA_DBModel.forsendelsesType" Width="1.5" PointX="10.549875033344085" PointY="20.90715611954553" />
+        <EntityTypeShape EntityType="OA_DBModel.packetType" Width="1.5" PointX="4.094294838651221" PointY="19.458302790046812" />
+        <EntityTypeShape EntityType="OA_DBModel.pakke" Width="1.5" PointX="7.7665152101621571" PointY="0.84227544108511665" />
+        <EntityTypeShape EntityType="OA_DBModel.pakkeDimintioner" Width="1.5" PointX="2.215350738826837" PointY="2.9575047059718074" />
+        <EntityTypeShape EntityType="OA_DBModel.pakkePris" Width="1.5" PointX="3.1079041860568819" PointY="2.0254060933484723" />
+        <EntityTypeShape EntityType="OA_DBModel.rute" Width="1.5" PointX="6.9204935910741305" PointY="31.77758662392273" />
+        <EntityTypeShape EntityType="OA_DBModel.transportType" Width="1.5" PointX="6.552234289493521" PointY="25.3345180569843" />
+        <EntityTypeShape EntityType="OA_DBModel.users" Width="1.5" PointX="0.34428178907571444" PointY="25.749046158859993" />
+        <AssociationConnector Association="OA_DBModel.FK__forsendel__Forse__6B79F03D" />
+        <AssociationConnector Association="OA_DBModel.FK__forsendel__Forse__7132C993" />
+        <AssociationConnector Association="OA_DBModel.FK__forsendel__Pakke__64CCF2AE" />
+        <AssociationConnector Association="OA_DBModel.FK__forsendel__Trans__6E565CE8" />
+        <AssociationConnector Association="OA_DBModel.FK__forsendel__packe__7226EDCC" />
+        <AssociationConnector Association="OA_DBModel.FK__pakke__Sender__5F141958" />
+        <AssociationConnector Association="OA_DBModel.FK__pakkePris__Dimen__56E8E7AB" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

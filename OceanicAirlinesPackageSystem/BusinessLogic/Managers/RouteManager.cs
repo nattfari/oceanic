@@ -45,7 +45,7 @@ namespace BusinessLogic.Managers
             SaveRoute(destination.Previous, rute, pakke);
         }
 
-        public CalculationManager.Node CalculateRouteWeight(by fra, by til, int height, int depth, int width, int weight)
+        public CalculationManager.Node CalculateRouteWeight(by fra, by til, int height, int depth, int width, int weight, int pakkeTypeId)
         {
             var pakke = new pakke
             {
@@ -55,12 +55,12 @@ namespace BusinessLogic.Managers
                 Weight = weight
             };
 
-            var result = _calculationManager.CalculateRouteWeight(fra, til, _externalApis, pakke);
+            var result = _calculationManager.CalculateRouteWeight(fra, til, _externalApis, pakke, DataManager.HentPakkeType(pakkeTypeId));
             SaveRoute(result, new forsendelse(), pakke);
             return result;
         }
 
-        public CalculationManager.Node CalculateRouteTime(by fra, by til, int height, int depth, int width, int weight)
+        public CalculationManager.Node CalculateRouteTime(by fra, by til, int height, int depth, int width, int weight, int pakkeTypeId)
         {
             var pakke = new pakke
             {
@@ -70,7 +70,7 @@ namespace BusinessLogic.Managers
                 Weight = weight
             };
 
-            var result = _calculationManager.CalculateRouteTime(fra, til, _externalApis, pakke);
+            var result = _calculationManager.CalculateRouteTime(fra, til, _externalApis, pakke, DataManager.HentPakkeType(pakkeTypeId));
             SaveRoute(result, new forsendelse(), pakke);
             return result;
         }

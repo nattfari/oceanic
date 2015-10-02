@@ -83,6 +83,17 @@ namespace BusinessLogic.Managers
             }
         }
 
+        public static float HentPakkeType(int Id)
+        {
+            if (Id == Int32.MaxValue)
+                return 1;
+
+            using (var context = new OADbContext())
+            {
+                return context.packetType.FirstOrDefault(p => p.Id == Id).multiplier;
+            }
+        }
+
         public static void DeaktiverBy(by by)
         {
             by.Active = false;

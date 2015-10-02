@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="OA_DBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="OA_DBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="OA_DBModelStoreContainer">
           <EntitySet Name="by" EntityType="OA_DBModel.Store.by" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="forsendelse" EntityType="OA_DBModel.Store.forsendelse" store:Type="Tables" Schema="dbo" />
@@ -17,32 +17,28 @@
           <EntitySet Name="rute" EntityType="OA_DBModel.Store.rute" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="transportType" EntityType="OA_DBModel.Store.transportType" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="users" EntityType="OA_DBModel.Store.users" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK__forsendel__Forse__4830B400" Association="OA_DBModel.Store.FK__forsendel__Forse__4830B400">
+          <AssociationSet Name="FK__forsendel__Forse__6B79F03D" Association="OA_DBModel.Store.FK__forsendel__Forse__6B79F03D">
             <End Role="forsendelse" EntitySet="forsendelse" />
             <End Role="forsendelsesRute" EntitySet="forsendelsesRute" />
           </AssociationSet>
-          <AssociationSet Name="FK__forsendel__Forse__6BAEFA67" Association="OA_DBModel.Store.FK__forsendel__Forse__6BAEFA67">
+          <AssociationSet Name="FK__forsendel__Forse__7132C993" Association="OA_DBModel.Store.FK__forsendel__Forse__7132C993">
             <End Role="forsendelse" EntitySet="forsendelse" />
             <End Role="forsendelsesType" EntitySet="forsendelsesType" />
           </AssociationSet>
-          <AssociationSet Name="FK__forsendel__packe__6CA31EA0" Association="OA_DBModel.Store.FK__forsendel__packe__6CA31EA0">
+          <AssociationSet Name="FK__forsendel__packe__7226EDCC" Association="OA_DBModel.Store.FK__forsendel__packe__7226EDCC">
             <End Role="packetType" EntitySet="packetType" />
             <End Role="forsendelsesType" EntitySet="forsendelsesType" />
           </AssociationSet>
-          <AssociationSet Name="FK__forsendel__Pakke__603D47BB" Association="OA_DBModel.Store.FK__forsendel__Pakke__603D47BB">
+          <AssociationSet Name="FK__forsendel__Pakke__64CCF2AE" Association="OA_DBModel.Store.FK__forsendel__Pakke__64CCF2AE">
             <End Role="pakke" EntitySet="pakke" />
             <End Role="forsendelse" EntitySet="forsendelse" />
           </AssociationSet>
-          <AssociationSet Name="FK__forsendel__Trans__4B0D20AB" Association="OA_DBModel.Store.FK__forsendel__Trans__4B0D20AB">
+          <AssociationSet Name="FK__forsendel__Trans__6E565CE8" Association="OA_DBModel.Store.FK__forsendel__Trans__6E565CE8">
             <End Role="transportType" EntitySet="transportType" />
             <End Role="forsendelsesRute" EntitySet="forsendelsesRute" />
           </AssociationSet>
-          <AssociationSet Name="FK__pakke__Sender__5D60DB10" Association="OA_DBModel.Store.FK__pakke__Sender__5D60DB10">
+          <AssociationSet Name="FK__pakke__Sender__5F141958" Association="OA_DBModel.Store.FK__pakke__Sender__5F141958">
             <End Role="users" EntitySet="users" />
-            <End Role="pakke" EntitySet="pakke" />
-          </AssociationSet>
-          <AssociationSet Name="FK__pakke__Type__5C6CB6D7" Association="OA_DBModel.Store.FK__pakke__Type__5C6CB6D7">
-            <End Role="packetType" EntitySet="packetType" />
             <End Role="pakke" EntitySet="pakke" />
           </AssociationSet>
           <AssociationSet Name="FK__pakkePris__Dimen__56E8E7AB" Association="OA_DBModel.Store.FK__pakkePris__Dimen__56E8E7AB">
@@ -51,10 +47,10 @@
           </AssociationSet>
         </EntityContainer>
         <!--Errors Found During Generation:
-      warning 6035: The relationship 'FK__forsendel__SlutB__4A18FC72' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-      warning 6035: The relationship 'FK__forsendel__SlutB__6225902D' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-      warning 6035: The relationship 'FK__forsendel__Start__4924D839' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-      warning 6035: The relationship 'FK__forsendel__Start__61316BF4' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+      warning 6035: The relationship 'FK__forsendel__SlutB__66B53B20' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+      warning 6035: The relationship 'FK__forsendel__SlutB__6D6238AF' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+      warning 6035: The relationship 'FK__forsendel__Start__65C116E7' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+      warning 6035: The relationship 'FK__forsendel__Start__6C6E1476' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
       warning 6035: The relationship 'FK__rute__EndCity__251C81ED' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
       warning 6035: The relationship 'FK__rute__StartCity__24285DB4' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
       -->
@@ -112,7 +108,6 @@
           </Key>
           <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Weight" Type="int" Nullable="false" />
-          <Property Name="Type" Type="bigint" />
           <Property Name="Sender" Type="bigint" />
           <Property Name="SizeHight" Type="int" Nullable="false" />
           <Property Name="SizeWidth" Type="int" Nullable="false" />
@@ -164,7 +159,7 @@
           <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="IsAdmin" Type="bit" Nullable="false" />
         </EntityType>
-        <Association Name="FK__forsendel__Forse__4830B400">
+        <Association Name="FK__forsendel__Forse__6B79F03D">
           <End Role="forsendelse" Type="OA_DBModel.Store.forsendelse" Multiplicity="0..1" />
           <End Role="forsendelsesRute" Type="OA_DBModel.Store.forsendelsesRute" Multiplicity="*" />
           <ReferentialConstraint>
@@ -176,7 +171,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__forsendel__Forse__6BAEFA67">
+        <Association Name="FK__forsendel__Forse__7132C993">
           <End Role="forsendelse" Type="OA_DBModel.Store.forsendelse" Multiplicity="0..1" />
           <End Role="forsendelsesType" Type="OA_DBModel.Store.forsendelsesType" Multiplicity="*" />
           <ReferentialConstraint>
@@ -188,7 +183,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__forsendel__packe__6CA31EA0">
+        <Association Name="FK__forsendel__packe__7226EDCC">
           <End Role="packetType" Type="OA_DBModel.Store.packetType" Multiplicity="0..1" />
           <End Role="forsendelsesType" Type="OA_DBModel.Store.forsendelsesType" Multiplicity="*" />
           <ReferentialConstraint>
@@ -200,7 +195,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__forsendel__Pakke__603D47BB">
+        <Association Name="FK__forsendel__Pakke__64CCF2AE">
           <End Role="pakke" Type="OA_DBModel.Store.pakke" Multiplicity="0..1" />
           <End Role="forsendelse" Type="OA_DBModel.Store.forsendelse" Multiplicity="*" />
           <ReferentialConstraint>
@@ -212,7 +207,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__forsendel__Trans__4B0D20AB">
+        <Association Name="FK__forsendel__Trans__6E565CE8">
           <End Role="transportType" Type="OA_DBModel.Store.transportType" Multiplicity="0..1" />
           <End Role="forsendelsesRute" Type="OA_DBModel.Store.forsendelsesRute" Multiplicity="*" />
           <ReferentialConstraint>
@@ -224,7 +219,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__pakke__Sender__5D60DB10">
+        <Association Name="FK__pakke__Sender__5F141958">
           <End Role="users" Type="OA_DBModel.Store.users" Multiplicity="0..1" />
           <End Role="pakke" Type="OA_DBModel.Store.pakke" Multiplicity="*" />
           <ReferentialConstraint>
@@ -233,18 +228,6 @@
             </Principal>
             <Dependent Role="pakke">
               <PropertyRef Name="Sender" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__pakke__Type__5C6CB6D7">
-          <End Role="packetType" Type="OA_DBModel.Store.packetType" Multiplicity="0..1" />
-          <End Role="pakke" Type="OA_DBModel.Store.pakke" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="packetType">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="pakke">
-              <PropertyRef Name="Type" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -260,8 +243,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="OA_DBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -277,31 +259,27 @@
           <EntitySet Name="rute" EntityType="OA_DBModel.rute" />
           <EntitySet Name="transportType" EntityType="OA_DBModel.transportType" />
           <EntitySet Name="users" EntityType="OA_DBModel.users" />
-          <AssociationSet Name="FK__forsendel__Forse__4830B400" Association="OA_DBModel.FK__forsendel__Forse__4830B400">
+          <AssociationSet Name="FK__forsendel__Forse__6B79F03D" Association="OA_DBModel.FK__forsendel__Forse__6B79F03D">
             <End Role="forsendelse" EntitySet="forsendelse" />
             <End Role="forsendelsesRute" EntitySet="forsendelsesRute" />
           </AssociationSet>
-          <AssociationSet Name="FK__forsendel__Forse__6BAEFA67" Association="OA_DBModel.FK__forsendel__Forse__6BAEFA67">
+          <AssociationSet Name="FK__forsendel__Forse__7132C993" Association="OA_DBModel.FK__forsendel__Forse__7132C993">
             <End Role="forsendelse" EntitySet="forsendelse" />
             <End Role="forsendelsesType" EntitySet="forsendelsesType" />
           </AssociationSet>
-          <AssociationSet Name="FK__forsendel__Pakke__603D47BB" Association="OA_DBModel.FK__forsendel__Pakke__603D47BB">
+          <AssociationSet Name="FK__forsendel__Pakke__64CCF2AE" Association="OA_DBModel.FK__forsendel__Pakke__64CCF2AE">
             <End Role="pakke" EntitySet="pakke" />
             <End Role="forsendelse" EntitySet="forsendelse" />
           </AssociationSet>
-          <AssociationSet Name="FK__forsendel__Trans__4B0D20AB" Association="OA_DBModel.FK__forsendel__Trans__4B0D20AB">
+          <AssociationSet Name="FK__forsendel__Trans__6E565CE8" Association="OA_DBModel.FK__forsendel__Trans__6E565CE8">
             <End Role="transportType" EntitySet="transportType" />
             <End Role="forsendelsesRute" EntitySet="forsendelsesRute" />
           </AssociationSet>
-          <AssociationSet Name="FK__forsendel__packe__6CA31EA0" Association="OA_DBModel.FK__forsendel__packe__6CA31EA0">
+          <AssociationSet Name="FK__forsendel__packe__7226EDCC" Association="OA_DBModel.FK__forsendel__packe__7226EDCC">
             <End Role="packetType" EntitySet="packetType" />
             <End Role="forsendelsesType" EntitySet="forsendelsesType" />
           </AssociationSet>
-          <AssociationSet Name="FK__pakke__Type__5C6CB6D7" Association="OA_DBModel.FK__pakke__Type__5C6CB6D7">
-            <End Role="packetType" EntitySet="packetType" />
-            <End Role="pakke" EntitySet="pakke" />
-          </AssociationSet>
-          <AssociationSet Name="FK__pakke__Sender__5D60DB10" Association="OA_DBModel.FK__pakke__Sender__5D60DB10">
+          <AssociationSet Name="FK__pakke__Sender__5F141958" Association="OA_DBModel.FK__pakke__Sender__5F141958">
             <End Role="users" EntitySet="users" />
             <End Role="pakke" EntitySet="pakke" />
           </AssociationSet>
@@ -314,93 +292,90 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="CityId" Type="Int64" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="CityId" Nullable="false" />
+          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Active" Nullable="false" />
         </EntityType>
         <EntityType Name="forsendelse">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="PakkeId" Type="Int64" />
-          <Property Name="StartBy" Type="Int64" />
-          <Property Name="SlutBy" Type="Int64" />
-          <Property Name="AfsendelsesDato" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Saved" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="forsendelsesRute" Relationship="OA_DBModel.FK__forsendel__Forse__4830B400" FromRole="forsendelse" ToRole="forsendelsesRute" />
-          <NavigationProperty Name="forsendelsesType" Relationship="OA_DBModel.FK__forsendel__Forse__6BAEFA67" FromRole="forsendelse" ToRole="forsendelsesType" />
-          <NavigationProperty Name="pakke" Relationship="OA_DBModel.FK__forsendel__Pakke__603D47BB" FromRole="forsendelse" ToRole="pakke" />
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="PakkeId" />
+          <Property Type="Int64" Name="StartBy" />
+          <Property Type="Int64" Name="SlutBy" />
+          <Property Type="DateTime" Name="AfsendelsesDato" Nullable="false" Precision="0" />
+          <Property Type="Boolean" Name="Saved" Nullable="false" />
+          <NavigationProperty Name="forsendelsesRute" Relationship="OA_DBModel.FK__forsendel__Forse__6B79F03D" FromRole="forsendelse" ToRole="forsendelsesRute" />
+          <NavigationProperty Name="forsendelsesType" Relationship="OA_DBModel.FK__forsendel__Forse__7132C993" FromRole="forsendelse" ToRole="forsendelsesType" />
+          <NavigationProperty Name="pakke" Relationship="OA_DBModel.FK__forsendel__Pakke__64CCF2AE" FromRole="forsendelse" ToRole="pakke" />
         </EntityType>
         <EntityType Name="forsendelsesRute">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="ForsendelsesId" Type="Int64" />
-          <Property Name="StartBy" Type="Int64" />
-          <Property Name="SlutBy" Type="Int64" />
-          <Property Name="Price" Type="Int64" Nullable="false" />
-          <Property Name="TransportTime" Type="Int32" Nullable="false" />
-          <Property Name="TransportType" Type="Int64" />
-          <NavigationProperty Name="forsendelse" Relationship="OA_DBModel.FK__forsendel__Forse__4830B400" FromRole="forsendelsesRute" ToRole="forsendelse" />
-          <NavigationProperty Name="transportType1" Relationship="OA_DBModel.FK__forsendel__Trans__4B0D20AB" FromRole="forsendelsesRute" ToRole="transportType" />
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="ForsendelsesId" />
+          <Property Type="Int64" Name="StartBy" />
+          <Property Type="Int64" Name="SlutBy" />
+          <Property Type="Int64" Name="Price" Nullable="false" />
+          <Property Type="Int32" Name="TransportTime" Nullable="false" />
+          <Property Type="Int64" Name="TransportType" />
+          <NavigationProperty Name="forsendelse" Relationship="OA_DBModel.FK__forsendel__Forse__6B79F03D" FromRole="forsendelsesRute" ToRole="forsendelse" />
+          <NavigationProperty Name="transportType1" Relationship="OA_DBModel.FK__forsendel__Trans__6E565CE8" FromRole="forsendelsesRute" ToRole="transportType" />
         </EntityType>
         <EntityType Name="forsendelsesType">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="ForsendelsesId" Type="Int64" />
-          <Property Name="packetTypeId" Type="Int64" />
-          <NavigationProperty Name="forsendelse" Relationship="OA_DBModel.FK__forsendel__Forse__6BAEFA67" FromRole="forsendelsesType" ToRole="forsendelse" />
-          <NavigationProperty Name="packetType" Relationship="OA_DBModel.FK__forsendel__packe__6CA31EA0" FromRole="forsendelsesType" ToRole="packetType" />
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="ForsendelsesId" />
+          <Property Type="Int64" Name="packetTypeId" />
+          <NavigationProperty Name="forsendelse" Relationship="OA_DBModel.FK__forsendel__Forse__7132C993" FromRole="forsendelsesType" ToRole="forsendelse" />
+          <NavigationProperty Name="packetType" Relationship="OA_DBModel.FK__forsendel__packe__7226EDCC" FromRole="forsendelsesType" ToRole="packetType" />
         </EntityType>
         <EntityType Name="packetType">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="PacketType1" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="multiplier" Type="Single" Nullable="false" />
-          <NavigationProperty Name="forsendelsesType" Relationship="OA_DBModel.FK__forsendel__packe__6CA31EA0" FromRole="packetType" ToRole="forsendelsesType" />
-          <NavigationProperty Name="pakke" Relationship="OA_DBModel.FK__pakke__Type__5C6CB6D7" FromRole="packetType" ToRole="pakke" />
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="PacketType1" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Single" Name="multiplier" Nullable="false" />
+          <NavigationProperty Name="forsendelsesType" Relationship="OA_DBModel.FK__forsendel__packe__7226EDCC" FromRole="packetType" ToRole="forsendelsesType" />
         </EntityType>
         <EntityType Name="pakke">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="Weight" Type="Int32" Nullable="false" />
-          <Property Name="Type" Type="Int64" />
-          <Property Name="Sender" Type="Int64" />
-          <Property Name="SizeHight" Type="Int32" Nullable="false" />
-          <Property Name="SizeWidth" Type="Int32" Nullable="false" />
-          <Property Name="SizeDepth" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="forsendelse" Relationship="OA_DBModel.FK__forsendel__Pakke__603D47BB" FromRole="pakke" ToRole="forsendelse" />
-          <NavigationProperty Name="packetType" Relationship="OA_DBModel.FK__pakke__Type__5C6CB6D7" FromRole="pakke" ToRole="packetType" />
-          <NavigationProperty Name="users" Relationship="OA_DBModel.FK__pakke__Sender__5D60DB10" FromRole="pakke" ToRole="users" />
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Weight" Nullable="false" />
+          <Property Type="Int64" Name="Sender" />
+          <Property Type="Int32" Name="SizeHight" Nullable="false" />
+          <Property Type="Int32" Name="SizeWidth" Nullable="false" />
+          <Property Type="Int32" Name="SizeDepth" Nullable="false" />
+          <NavigationProperty Name="forsendelse" Relationship="OA_DBModel.FK__forsendel__Pakke__64CCF2AE" FromRole="pakke" ToRole="forsendelse" />
+          <NavigationProperty Name="users" Relationship="OA_DBModel.FK__pakke__Sender__5F141958" FromRole="pakke" ToRole="users" />
         </EntityType>
         <EntityType Name="pakkeDimintioner">
           <Key>
             <PropertyRef Name="Name" />
           </Key>
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Height" Type="Int32" Nullable="false" />
-          <Property Name="Width" Type="Int32" Nullable="false" />
-          <Property Name="Depth" Type="Int32" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Height" Nullable="false" />
+          <Property Type="Int32" Name="Width" Nullable="false" />
+          <Property Type="Int32" Name="Depth" Nullable="false" />
           <NavigationProperty Name="pakkePris" Relationship="OA_DBModel.FK__pakkePris__Dimen__56E8E7AB" FromRole="pakkeDimintioner" ToRole="pakkePris" />
         </EntityType>
         <EntityType Name="pakkePris">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="DimentionsNavn" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="FromWeight" Type="Int32" Nullable="false" />
-          <Property Name="ToWeight" Type="Int32" Nullable="false" />
-          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="DimentionsNavn" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="FromWeight" Nullable="false" />
+          <Property Type="Int32" Name="ToWeight" Nullable="false" />
+          <Property Type="Int32" Name="Price" Nullable="false" />
           <NavigationProperty Name="pakkeDimintioner" Relationship="OA_DBModel.FK__pakkePris__Dimen__56E8E7AB" FromRole="pakkePris" ToRole="pakkeDimintioner" />
         </EntityType>
         <EntityType Name="rute">
@@ -408,33 +383,33 @@
             <PropertyRef Name="StartCity" />
             <PropertyRef Name="EndCity" />
           </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="Time" Type="Int32" Nullable="false" />
-          <Property Name="StartCity" Type="Int64" Nullable="false" />
-          <Property Name="EndCity" Type="Int64" Nullable="false" />
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Time" Nullable="false" />
+          <Property Type="Int64" Name="StartCity" Nullable="false" />
+          <Property Type="Int64" Name="EndCity" Nullable="false" />
         </EntityType>
         <EntityType Name="transportType">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="TransportType1" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Company" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="forsendelsesRute" Relationship="OA_DBModel.FK__forsendel__Trans__4B0D20AB" FromRole="transportType" ToRole="forsendelsesRute" />
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="TransportType1" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Company" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="forsendelsesRute" Relationship="OA_DBModel.FK__forsendel__Trans__6E565CE8" FromRole="transportType" ToRole="forsendelsesRute" />
         </EntityType>
         <EntityType Name="users">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="BrugerNavn" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="pakke" Relationship="OA_DBModel.FK__pakke__Sender__5D60DB10" FromRole="users" ToRole="pakke" />
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="BrugerNavn" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="password" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsAdmin" Nullable="false" />
+          <NavigationProperty Name="pakke" Relationship="OA_DBModel.FK__pakke__Sender__5F141958" FromRole="users" ToRole="pakke" />
         </EntityType>
-        <Association Name="FK__forsendel__Forse__4830B400">
-          <End Role="forsendelse" Type="OA_DBModel.forsendelse" Multiplicity="0..1" />
-          <End Role="forsendelsesRute" Type="OA_DBModel.forsendelsesRute" Multiplicity="*" />
+        <Association Name="FK__forsendel__Forse__6B79F03D">
+          <End Type="OA_DBModel.forsendelse" Role="forsendelse" Multiplicity="0..1" />
+          <End Type="OA_DBModel.forsendelsesRute" Role="forsendelsesRute" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="forsendelse">
               <PropertyRef Name="Id" />
@@ -444,9 +419,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__forsendel__Forse__6BAEFA67">
-          <End Role="forsendelse" Type="OA_DBModel.forsendelse" Multiplicity="0..1" />
-          <End Role="forsendelsesType" Type="OA_DBModel.forsendelsesType" Multiplicity="*" />
+        <Association Name="FK__forsendel__Forse__7132C993">
+          <End Type="OA_DBModel.forsendelse" Role="forsendelse" Multiplicity="0..1" />
+          <End Type="OA_DBModel.forsendelsesType" Role="forsendelsesType" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="forsendelse">
               <PropertyRef Name="Id" />
@@ -456,9 +431,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__forsendel__Pakke__603D47BB">
-          <End Role="pakke" Type="OA_DBModel.pakke" Multiplicity="0..1" />
-          <End Role="forsendelse" Type="OA_DBModel.forsendelse" Multiplicity="*" />
+        <Association Name="FK__forsendel__Pakke__64CCF2AE">
+          <End Type="OA_DBModel.pakke" Role="pakke" Multiplicity="0..1" />
+          <End Type="OA_DBModel.forsendelse" Role="forsendelse" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="pakke">
               <PropertyRef Name="Id" />
@@ -468,9 +443,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__forsendel__Trans__4B0D20AB">
-          <End Role="transportType" Type="OA_DBModel.transportType" Multiplicity="0..1" />
-          <End Role="forsendelsesRute" Type="OA_DBModel.forsendelsesRute" Multiplicity="*" />
+        <Association Name="FK__forsendel__Trans__6E565CE8">
+          <End Type="OA_DBModel.transportType" Role="transportType" Multiplicity="0..1" />
+          <End Type="OA_DBModel.forsendelsesRute" Role="forsendelsesRute" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="transportType">
               <PropertyRef Name="Id" />
@@ -480,9 +455,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__forsendel__packe__6CA31EA0">
-          <End Role="packetType" Type="OA_DBModel.packetType" Multiplicity="0..1" />
-          <End Role="forsendelsesType" Type="OA_DBModel.forsendelsesType" Multiplicity="*" />
+        <Association Name="FK__forsendel__packe__7226EDCC">
+          <End Type="OA_DBModel.packetType" Role="packetType" Multiplicity="0..1" />
+          <End Type="OA_DBModel.forsendelsesType" Role="forsendelsesType" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="packetType">
               <PropertyRef Name="Id" />
@@ -492,21 +467,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__pakke__Type__5C6CB6D7">
-          <End Role="packetType" Type="OA_DBModel.packetType" Multiplicity="0..1" />
-          <End Role="pakke" Type="OA_DBModel.pakke" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="packetType">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="pakke">
-              <PropertyRef Name="Type" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__pakke__Sender__5D60DB10">
-          <End Role="users" Type="OA_DBModel.users" Multiplicity="0..1" />
-          <End Role="pakke" Type="OA_DBModel.pakke" Multiplicity="*" />
+        <Association Name="FK__pakke__Sender__5F141958">
+          <End Type="OA_DBModel.users" Role="users" Multiplicity="0..1" />
+          <End Type="OA_DBModel.pakke" Role="pakke" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="users">
               <PropertyRef Name="Id" />
@@ -517,8 +480,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__pakkePris__Dimen__56E8E7AB">
-          <End Role="pakkeDimintioner" Type="OA_DBModel.pakkeDimintioner" Multiplicity="0..1" />
-          <End Role="pakkePris" Type="OA_DBModel.pakkePris" Multiplicity="*" />
+          <End Type="OA_DBModel.pakkeDimintioner" Role="pakkeDimintioner" Multiplicity="0..1" />
+          <End Type="OA_DBModel.pakkePris" Role="pakkePris" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="pakkeDimintioner">
               <PropertyRef Name="Name" />
@@ -528,7 +491,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -537,116 +500,115 @@
           <EntitySetMapping Name="by">
             <EntityTypeMapping TypeName="OA_DBModel.by">
               <MappingFragment StoreEntitySet="by">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="CityId" ColumnName="CityId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="forsendelse">
             <EntityTypeMapping TypeName="OA_DBModel.forsendelse">
               <MappingFragment StoreEntitySet="forsendelse">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="PakkeId" ColumnName="PakkeId" />
-                <ScalarProperty Name="StartBy" ColumnName="StartBy" />
-                <ScalarProperty Name="SlutBy" ColumnName="SlutBy" />
-                <ScalarProperty Name="AfsendelsesDato" ColumnName="AfsendelsesDato" />
                 <ScalarProperty Name="Saved" ColumnName="Saved" />
+                <ScalarProperty Name="AfsendelsesDato" ColumnName="AfsendelsesDato" />
+                <ScalarProperty Name="SlutBy" ColumnName="SlutBy" />
+                <ScalarProperty Name="StartBy" ColumnName="StartBy" />
+                <ScalarProperty Name="PakkeId" ColumnName="PakkeId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="forsendelsesRute">
             <EntityTypeMapping TypeName="OA_DBModel.forsendelsesRute">
               <MappingFragment StoreEntitySet="forsendelsesRute">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="ForsendelsesId" ColumnName="ForsendelsesId" />
-                <ScalarProperty Name="StartBy" ColumnName="StartBy" />
-                <ScalarProperty Name="SlutBy" ColumnName="SlutBy" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="TransportTime" ColumnName="TransportTime" />
                 <ScalarProperty Name="TransportType" ColumnName="TransportType" />
+                <ScalarProperty Name="TransportTime" ColumnName="TransportTime" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="SlutBy" ColumnName="SlutBy" />
+                <ScalarProperty Name="StartBy" ColumnName="StartBy" />
+                <ScalarProperty Name="ForsendelsesId" ColumnName="ForsendelsesId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="forsendelsesType">
             <EntityTypeMapping TypeName="OA_DBModel.forsendelsesType">
               <MappingFragment StoreEntitySet="forsendelsesType">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="ForsendelsesId" ColumnName="ForsendelsesId" />
                 <ScalarProperty Name="packetTypeId" ColumnName="packetTypeId" />
+                <ScalarProperty Name="ForsendelsesId" ColumnName="ForsendelsesId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="packetType">
             <EntityTypeMapping TypeName="OA_DBModel.packetType">
               <MappingFragment StoreEntitySet="packetType">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="PacketType1" ColumnName="PacketType" />
                 <ScalarProperty Name="multiplier" ColumnName="multiplier" />
+                <ScalarProperty Name="PacketType1" ColumnName="PacketType" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="pakke">
             <EntityTypeMapping TypeName="OA_DBModel.pakke">
               <MappingFragment StoreEntitySet="pakke">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Weight" ColumnName="Weight" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Sender" ColumnName="Sender" />
-                <ScalarProperty Name="SizeHight" ColumnName="SizeHight" />
-                <ScalarProperty Name="SizeWidth" ColumnName="SizeWidth" />
                 <ScalarProperty Name="SizeDepth" ColumnName="SizeDepth" />
+                <ScalarProperty Name="SizeWidth" ColumnName="SizeWidth" />
+                <ScalarProperty Name="SizeHight" ColumnName="SizeHight" />
+                <ScalarProperty Name="Sender" ColumnName="Sender" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="pakkeDimintioner">
             <EntityTypeMapping TypeName="OA_DBModel.pakkeDimintioner">
               <MappingFragment StoreEntitySet="pakkeDimintioner">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Height" ColumnName="Height" />
-                <ScalarProperty Name="Width" ColumnName="Width" />
                 <ScalarProperty Name="Depth" ColumnName="Depth" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="pakkePris">
             <EntityTypeMapping TypeName="OA_DBModel.pakkePris">
               <MappingFragment StoreEntitySet="pakkePris">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="DimentionsNavn" ColumnName="DimentionsNavn" />
-                <ScalarProperty Name="FromWeight" ColumnName="FromWeight" />
-                <ScalarProperty Name="ToWeight" ColumnName="ToWeight" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ToWeight" ColumnName="ToWeight" />
+                <ScalarProperty Name="FromWeight" ColumnName="FromWeight" />
+                <ScalarProperty Name="DimentionsNavn" ColumnName="DimentionsNavn" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="rute">
             <EntityTypeMapping TypeName="OA_DBModel.rute">
               <MappingFragment StoreEntitySet="rute">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Time" ColumnName="Time" />
-                <ScalarProperty Name="StartCity" ColumnName="StartCity" />
                 <ScalarProperty Name="EndCity" ColumnName="EndCity" />
+                <ScalarProperty Name="StartCity" ColumnName="StartCity" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="transportType">
             <EntityTypeMapping TypeName="OA_DBModel.transportType">
               <MappingFragment StoreEntitySet="transportType">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="TransportType1" ColumnName="TransportType" />
                 <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="TransportType1" ColumnName="TransportType" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="users">
             <EntityTypeMapping TypeName="OA_DBModel.users">
               <MappingFragment StoreEntitySet="users">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="BrugerNavn" ColumnName="BrugerNavn" />
-                <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="BrugerNavn" ColumnName="BrugerNavn" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
