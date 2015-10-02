@@ -33,7 +33,7 @@ namespace WebHost.Controllers
             [FromUri] int id, 
             DateTime date,
             string measurements,
-            int weight, 
+            double weight, 
             string requirements = null)
         {
             var routesResult = new GetRoutesContract();
@@ -50,7 +50,7 @@ namespace WebHost.Controllers
                     SizeDepth = depth,
                     SizeWidth = width,
                     SizeHight = height,
-                    Weight = weight,
+                    Weight = (int)(weight * 1000),
                     forsendelse = new List<forsendelse>
                     {
                         new forsendelse
